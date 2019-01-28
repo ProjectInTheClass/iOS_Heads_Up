@@ -35,17 +35,17 @@ class Main_ViewController: UIViewController {
             CheckEndDone()
         }
     }
-    var passList : [String]?
-    var correctList : [String]?
+    var passList : [String] = ["passed :"]
+    var correctList : [String] = ["corrted : "]
     var roundScore = 0
     @IBAction func correctButton(_ sender: UIButton) {
-        correctList?.append(content[contentPointer])
+        correctList.append(content[contentPointer])
         roundScore += 1
         contentPointer += 1
     }
     
     @IBAction func passButton(_ sender: Any) {
-        passList?.append(content[contentPointer])
+        passList.append(content[contentPointer])
         contentPointer += 1
     }
     
@@ -72,11 +72,16 @@ class Main_ViewController: UIViewController {
         if contentPointer == content.count || seconds == 0{
             contentLabel.text = "Score : \(roundScore)" //화면전환
             timerLabel.removeFromSuperview()
-            let time = DispatchTime.now() + .seconds(3)
-            DispatchQueue.main.asyncAfter(deadline: time){
-                self.dismiss(animated: false, completion: nil)
-            }
-            
+            //  let time = DispatchTime.now() + .seconds(3)
+            //DispatchQueue.main.asyncAfter(deadline: time){
+            //}
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewContorller = storyBoard.instantiateViewController(withIdentifier: "totalScore") as? Score_ViewController
+            //         self.dismiss(animated: false, completion: nil)
+            nextViewContorller?.totalScore = roundScore
+            nextViewContorller?.passList = passList
+            nextViewContorller?.correctList = correctList
+            self.present(nextViewContorller!, animated: false, completion: nil)
         }else{
             contentLabel.text = content[contentPointer]
         }

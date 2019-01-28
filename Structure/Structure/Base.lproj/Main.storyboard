@@ -158,6 +158,63 @@
             </objects>
             <point key="canvasLocation" x="1024" y="-759"/>
         </scene>
+        <!--Score View Controller-->
+        <scene sceneID="hiQ-a2-LLV">
+            <objects>
+                <viewController storyboardIdentifier="totalScore" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ubC-Si-4sf" customClass="Score_ViewController" customModule="Structure" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dnC-5c-0OI">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tjL-aN-TlV">
+                                <rect key="frame" x="100" y="270" width="467" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6H-oy-8Hf" userLabel="correctList">
+                                        <rect key="frame" x="0.0" y="0.0" width="233.5" height="75"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.63745978209999998" green="0.99933895260000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ViD-aY-lPv" userLabel="passList">
+                                        <rect key="frame" x="233.5" y="0.0" width="233.5" height="75"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.71636178949999996" blue="0.2754802428" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRj-3B-WPf" userLabel="score">
+                                <rect key="frame" x="208.5" y="50" width="250" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="FPe-3H-Pwb"/>
+                                    <constraint firstAttribute="width" constant="250" id="nma-Cg-MLW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="51"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tjL-aN-TlV" firstAttribute="top" secondItem="tRj-3B-WPf" secondAttribute="bottom" constant="20" id="7jn-Ca-2ak"/>
+                            <constraint firstItem="tRj-3B-WPf" firstAttribute="centerX" secondItem="dnC-5c-0OI" secondAttribute="centerX" id="CG1-3y-sJv"/>
+                            <constraint firstItem="tRj-3B-WPf" firstAttribute="top" secondItem="x63-og-38X" secondAttribute="top" constant="50" id="XYn-ey-aKV"/>
+                            <constraint firstItem="x63-og-38X" firstAttribute="bottom" secondItem="tjL-aN-TlV" secondAttribute="bottom" constant="30" id="kVO-mH-dcJ"/>
+                            <constraint firstItem="tjL-aN-TlV" firstAttribute="leading" secondItem="x63-og-38X" secondAttribute="leading" constant="100" id="rsR-fc-2Pr"/>
+                            <constraint firstItem="x63-og-38X" firstAttribute="trailing" secondItem="tjL-aN-TlV" secondAttribute="trailing" constant="100" id="yoE-Bd-9Bg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="x63-og-38X"/>
+                    </view>
+                    <connections>
+                        <outlet property="correctListLabel" destination="u6H-oy-8Hf" id="Y0a-i9-az5"/>
+                        <outlet property="passListLabel" destination="ViD-aY-lPv" id="EOz-wR-ZyO"/>
+                        <outlet property="scoreLabel" destination="tRj-3B-WPf" id="4l9-qJ-Fzz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PIa-3o-ses" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1858" y="-225"/>
+        </scene>
         <!--Pass View Controller-->
         <scene sceneID="WMA-bH-Cbi">
             <objects>
