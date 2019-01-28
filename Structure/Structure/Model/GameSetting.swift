@@ -10,3 +10,11 @@
 //Players, Time 을 직접 입력받고, 선택한 Content의 정보를 Contents에서 상속받아서 사용한다.
 
 import Foundation
+
+class PlayerNumber{
+    var players = Int()
+}
+
+class GameTime{
+    var timeLimit = Int()
+}
