@@ -11,7 +11,7 @@
 
 import Foundation
 
-
+//test
 class GameController{
     var contents = Content()
   
