@@ -9,12 +9,11 @@
 import UIKit
 
 class Main_ViewController: UIViewController {
-    
+    var game = GameController()
 //Timer
     @IBOutlet var timerLabel: UILabel!
-    var seconds = 30
+    var seconds = 5
     var timer = Timer()
-    var isTimerRunning = false
     
     @objc func updateTimer(){
         CheckEndDone()
@@ -29,72 +28,46 @@ class Main_ViewController: UIViewController {
     
 //Contents
     @IBOutlet var contentLabel: UILabel!
-    var content : [String] = ["명랑","신과함께","국제시장","베테랑","도둑들","7번방의 선물","암살","광해","택시운전사","부산행"]
-    var contentPointer : Int = 0 {
-        didSet {
-            CheckEndDone()
-        }
-    }
-    var passList : [String] = ["passed :"]
-    var correctList : [String] = ["corrted : "]
-    var roundScore = 0
     @IBAction func correctButton(_ sender: UIButton) {
-        correctList.append(content[contentPointer])
-        roundScore += 1
-        contentPointer += 1
+        game.touchCorrectButton()
+        contentLabel.text = game.contentText
     }
     
     @IBAction func passButton(_ sender: Any) {
-        passList.append(content[contentPointer])
-        contentPointer += 1
+        game.touchPassButton()
+        contentLabel.text = game.contentText
+
     }
     
     @IBAction func priviousButton(_ sender: Any) {
-        contentPointer -= 1
-        contentLabel.text = content[contentPointer]
+        game.contentPointer -= 1
+        contentLabel.text = game.contentText
 
     }
     
     
     override func viewDidLoad() { //재정의 할 것이다.
         super.viewDidLoad() //vidwDidLoad : 기존 기능에 덧붙혀서 기능을 추가 할 것이다.
-        shuffleContent()
         timerLabel.text = "\(seconds)"
         runTimer()
-        contentLabel.text = content[contentPointer]
-        
+        contentLabel.text = game.contentText
     }
   
 
 
     
     func CheckEndDone() {
-        if contentPointer == content.count || seconds == 0{
-            contentLabel.text = "Score : \(roundScore)" //화면전환
+        if seconds == 0{
             timerLabel.removeFromSuperview()
-            //  let time = DispatchTime.now() + .seconds(3)
-            //DispatchQueue.main.asyncAfter(deadline: time){
-            //}
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewContorller = storyBoard.instantiateViewController(withIdentifier: "totalScore") as? Score_ViewController
             //         self.dismiss(animated: false, completion: nil)
-            nextViewContorller?.totalScore = roundScore
-            nextViewContorller?.passList = passList
-            nextViewContorller?.correctList = correctList
+            nextViewContorller?.totalScore = game.roundScore
+            nextViewContorller?.passOrCorrectList = game.passOrCorrectList
             self.present(nextViewContorller!, animated: false, completion: nil)
-        }else{
-            contentLabel.text = content[contentPointer]
         }
     }
     
-    func shuffleContent () {
-        for shuffleCount in content.indices{
-            let randomValue = Int(arc4random_uniform(UInt32(content.count)))
-            let temp = content[shuffleCount]
-            content[shuffleCount] = content[randomValue]
-            content[randomValue] = temp
-        }
-    }
     
     /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

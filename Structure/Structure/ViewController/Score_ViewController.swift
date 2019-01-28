@@ -12,6 +12,7 @@ class Score_ViewController: UIViewController {
     var totalScore : Int = 0
     var passList : [String]?
     var correctList : [String]?
+    var passOrCorrectList : [String : String]?
     @IBOutlet var scoreLabel: UILabel!
     
     @IBOutlet var passListLabel: UILabel!
@@ -19,8 +20,8 @@ class Score_ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         scoreLabel.text = "Score : \(totalScore)"
-        correctListLabel.text = correctList?.joined(separator: "  ")
-        passListLabel.text = passList?.joined(separator: "  ")
+        correctListLabel.text = passOrCorrectList?["Correct"]
+        passListLabel.text = passOrCorrectList?["Pass"]
 
     }
     
