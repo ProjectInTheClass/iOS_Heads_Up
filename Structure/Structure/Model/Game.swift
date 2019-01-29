@@ -20,29 +20,49 @@ class GameController{
             if contentPointer == contents.count{
                 contentPointer = 0
             }else{
-            contentText = contents[contentPointer]
+                contentText = contents[contentPointer]
             }
         }
     }
-        
-    var passList : [String] = ["passed :"]
-    var correctList : [String] = ["corrted : "]
     
-    var passOrCorrectList = ["Pass" : "" , "Correct" : ""]
+    var correctTrueList : [Bool]?
+    var answeredList : [String]?
+    
     var roundScore = 0
-
+    
     func touchCorrectButton(){
-        passOrCorrectList.updateValue(contents[contentPointer], forKey: "Correct")
-        print(passOrCorrectList)
-        roundScore += 1
+        if let _ = correctTrueList{
+            correctTrueList?.append(true)
+        }else{
+            correctTrueList = [true]
+        }
+        if let _ = answeredList{
+            answeredList?.append(contents[contentPointer])
+        }else{
+            answeredList = [contents[contentPointer]]
+        }
         contentPointer += 1
     }
     func touchPassButton(){
-        passOrCorrectList.updateValue(contents[contentPointer], forKey: "Pass")
-        print(passOrCorrectList)
+        if let _ = correctTrueList{
+            correctTrueList?.append(false)
+        }else{
+            correctTrueList = [false]
+        }
+        if let _ = answeredList{
+            answeredList?.append(contents[contentPointer])
+        }else{
+            answeredList = [contents[contentPointer]]
+        }
         contentPointer += 1
     }
-     func shuffleContent () {
+    
+    func touchPriviousButton() {
+        correctTrueList?.removeLast()
+        answeredList?.removeLast()
+        contentPointer -= 1
+    }
+    func shuffleContent () {
         for shuffleCount in contents.indices{
             let randomValue = Int(arc4random_uniform(UInt32(contents.count)))
             let temp = contents[shuffleCount]
@@ -55,11 +75,11 @@ class GameController{
     init() {
         shuffleContent()
     }
-
-
-  
-
     
- 
+    
+    
+    
+    
+    
     
 }

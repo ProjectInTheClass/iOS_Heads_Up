@@ -10,7 +10,7 @@ import UIKit
 
 class Main_ViewController: UIViewController {
     var game = GameController()
-//Timer
+    //Timer
     @IBOutlet var timerLabel: UILabel!
     var seconds = 5
     var timer = Timer()
@@ -26,7 +26,7 @@ class Main_ViewController: UIViewController {
     }
     
     
-//Contents
+    //Contents
     @IBOutlet var contentLabel: UILabel!
     @IBAction func correctButton(_ sender: UIButton) {
         game.touchCorrectButton()
@@ -36,13 +36,13 @@ class Main_ViewController: UIViewController {
     @IBAction func passButton(_ sender: Any) {
         game.touchPassButton()
         contentLabel.text = game.contentText
-
+        
     }
     
     @IBAction func priviousButton(_ sender: Any) {
         game.contentPointer -= 1
         contentLabel.text = game.contentText
-
+        
     }
     
     
@@ -52,9 +52,9 @@ class Main_ViewController: UIViewController {
         runTimer()
         contentLabel.text = game.contentText
     }
-  
-
-
+    
+    
+    
     
     func CheckEndDone() {
         if seconds == 0{
@@ -62,20 +62,20 @@ class Main_ViewController: UIViewController {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewContorller = storyBoard.instantiateViewController(withIdentifier: "totalScore") as? Score_ViewController
             //         self.dismiss(animated: false, completion: nil)
-            nextViewContorller?.totalScore = game.roundScore
-            nextViewContorller?.passOrCorrectList = game.passOrCorrectList
+            nextViewContorller?.correctTrueList = game.correctTrueList
+            nextViewContorller?.answeredList = game.answeredList
             self.present(nextViewContorller!, animated: false, completion: nil)
         }
     }
     
     
     /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? Pass_ViewController{ //vc는 as? @@ 화면에서 갖고있는 인스턴스의 정보를 가지고 있는다. //vc의 type은 viewController
-            //as : 기존에 원래 있는 type으로 가져간다.
-            vc.passInstance = contentLabel.text
-        }
-    }
- */
-
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     if let vc = segue.destination as? Pass_ViewController{ //vc는 as? @@ 화면에서 갖고있는 인스턴스의 정보를 가지고 있는다. //vc의 type은 viewController
+     //as : 기존에 원래 있는 type으로 가져간다.
+     vc.passInstance = contentLabel.text
+     }
+     }
+     */
+    
 }
