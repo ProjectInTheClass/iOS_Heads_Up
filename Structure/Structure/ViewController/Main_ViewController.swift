@@ -53,7 +53,7 @@ class Main_ViewController: UIViewController {
     override func viewDidLoad() { //재정의 할 것이다.
         super.viewDidLoad() //vidwDidLoad : 기존 기능에 덧붙혀서 기능을 추가 할 것이다.
         timerLabel.text = "\(seconds)"
-        game.contents = self.contents!
+       // game.contents = self.contents!
         runTimer()
         contentLabel.text = game.contentText
         contentLabel.adjustsFontSizeToFitWidth = true
@@ -65,7 +65,7 @@ class Main_ViewController: UIViewController {
     func CheckEndDone() {
         if seconds == 0{
             timerLabel.removeFromSuperview()
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Score", bundle: nil)
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewContorller = storyBoard.instantiateViewController(withIdentifier: "totalScore") as? Score_ViewController
             //         self.dismiss(animated: false, completion: nil)
             nextViewContorller?.correctTrueList = game.correctTrueList

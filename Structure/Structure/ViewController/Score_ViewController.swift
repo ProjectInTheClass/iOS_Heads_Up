@@ -45,10 +45,10 @@ class Score_ViewController: UIViewController {
                 }
             }
         }
-        passListLabel.text = passList?.joined(separator: " ")
+        passListLabel.text = passList?.joined(separator: "\n")
         passListLabel.adjustsFontSizeToFitWidth = true
 
-        correctListLabel.text = correctList?.joined(separator: " ")
+        correctListLabel.text = correctList?.joined(separator: "\n")
         correctListLabel.adjustsFontSizeToFitWidth = true
       
     }
