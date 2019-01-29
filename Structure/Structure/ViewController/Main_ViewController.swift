@@ -31,6 +31,8 @@ class Main_ViewController: UIViewController {
     @IBAction func correctButton(_ sender: UIButton) {
         game.touchCorrectButton()
         contentLabel.text = game.contentText
+        
+
     }
     
     @IBAction func passButton(_ sender: Any) {
@@ -51,6 +53,7 @@ class Main_ViewController: UIViewController {
         timerLabel.text = "\(seconds)"
         runTimer()
         contentLabel.text = game.contentText
+        contentLabel.adjustsFontSizeToFitWidth = true
     }
     
     

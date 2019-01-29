@@ -46,7 +46,11 @@ class Score_ViewController: UIViewController {
             }
         }
         passListLabel.text = passList?.joined(separator: " ")
+        passListLabel.adjustsFontSizeToFitWidth = true
+
         correctListLabel.text = correctList?.joined(separator: " ")
+        correctListLabel.adjustsFontSizeToFitWidth = true
+      
     }
     
     
