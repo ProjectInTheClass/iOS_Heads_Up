@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31F020D322002E49006EA84A /* categoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F020D222002E49006EA84A /* categoryTableViewController.swift */; };
+		31F020D72200311E006EA84A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F020D62200311E006EA84A /* Category.swift */; };
 		962078BE21FF0EFC009A3222 /* Score_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962078BD21FF0EFC009A3222 /* Score_ViewController.swift */; };
 		968B8DF921FDA59700502A00 /* Correct_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968B8DF821FDA59700502A00 /* Correct_ViewController.swift */; };
 		968B8DFB21FDA5A900502A00 /* Pass_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968B8DFA21FDA5A900502A00 /* Pass_ViewController.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31F020D222002E49006EA84A /* categoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categoryTableViewController.swift; sourceTree = "<group>"; };
+		31F020D62200311E006EA84A /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		962078BD21FF0EFC009A3222 /* Score_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score_ViewController.swift; sourceTree = "<group>"; };
 		968B8DF821FDA59700502A00 /* Correct_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Correct_ViewController.swift; sourceTree = "<group>"; };
 		968B8DFA21FDA5A900502A00 /* Pass_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pass_ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +62,7 @@
 				968B8DF821FDA59700502A00 /* Correct_ViewController.swift */,
 				968B8DFA21FDA5A900502A00 /* Pass_ViewController.swift */,
 				962078BD21FF0EFC009A3222 /* Score_ViewController.swift */,
+				31F020D222002E49006EA84A /* categoryTableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -108,6 +113,7 @@
 				96F2D15821F9512300D9FAFF /* Enviroment.swift */,
 				96F2D15A21F9515800D9FAFF /* Contents.swift */,
 				96F2D15C21F9516D00D9FAFF /* Custum.swift */,
+				31F020D62200311E006EA84A /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,6 +191,7 @@
 			files = (
 				96F2D15721F9510E00D9FAFF /* GameSetting.swift in Sources */,
 				96F2D15B21F9515800D9FAFF /* Contents.swift in Sources */,
+				31F020D322002E49006EA84A /* categoryTableViewController.swift in Sources */,
 				96F2D15921F9512300D9FAFF /* Enviroment.swift in Sources */,
 				962078BE21FF0EFC009A3222 /* Score_ViewController.swift in Sources */,
 				96F2D15521F950F100D9FAFF /* Game.swift in Sources */,
@@ -193,6 +200,7 @@
 				968B8DFB21FDA5A900502A00 /* Pass_ViewController.swift in Sources */,
 				968B8DF921FDA59700502A00 /* Correct_ViewController.swift in Sources */,
 				96F2D15F21F95CC900D9FAFF /* Main_ViewController.swift in Sources */,
+				31F020D72200311E006EA84A /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
