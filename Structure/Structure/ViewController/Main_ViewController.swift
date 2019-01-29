@@ -10,6 +10,8 @@ import UIKit
 
 class Main_ViewController: UIViewController {
     var game = GameController()
+    // gnuk's Todo : 이전화면에서 컨텐츠에 대한 정보를 넘겨 Main_ViewController의 contents에 입력
+    var contents : [String]?
     //Timer
     @IBOutlet var timerLabel: UILabel!
     var seconds = 5
@@ -40,7 +42,7 @@ class Main_ViewController: UIViewController {
     }
     
     @IBAction func priviousButton(_ sender: Any) {
-        game.contentPointer -= 1
+        game.touchPriviousButton()
         contentLabel.text = game.contentText
         
     }
@@ -49,8 +51,10 @@ class Main_ViewController: UIViewController {
     override func viewDidLoad() { //재정의 할 것이다.
         super.viewDidLoad() //vidwDidLoad : 기존 기능에 덧붙혀서 기능을 추가 할 것이다.
         timerLabel.text = "\(seconds)"
+        game.contents = self.contents!
         runTimer()
         contentLabel.text = game.contentText
+        
     }
     
     
@@ -59,14 +63,23 @@ class Main_ViewController: UIViewController {
     func CheckEndDone() {
         if seconds == 0{
             timerLabel.removeFromSuperview()
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Score", bundle: nil)
             let nextViewContorller = storyBoard.instantiateViewController(withIdentifier: "totalScore") as? Score_ViewController
             //         self.dismiss(animated: false, completion: nil)
             nextViewContorller?.correctTrueList = game.correctTrueList
             nextViewContorller?.answeredList = game.answeredList
             self.present(nextViewContorller!, animated: false, completion: nil)
         }
+        
+
     }
+    
+    /* gnuk 참고 이전 viewController에서 Main_ViewController로 넘겨줘야 하는 값, 부분
+     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+     let startViewController = storyBoard.instantiateViewController(withIdentifier: "gameStart") as? Main_ViewController
+     startViewController?.contents = self.contents //self.contents 는 contents선택 화면에서 선택된 contents[String]
+     */
+    
     
     
     /*
