@@ -21,7 +21,7 @@ struct Content
     var name = ""
     var favorite = false
     var identifier : Int
-    var contents : [String] = ["명랑","신과함께","국제시장","베테랑","도둑들","7번방의 선물","암살","광해","택시운전사","부산행"]
+    var contents : [String] = ["명랑","신과함께","국제시장","베테랑","도둑들","7번방의 선물","암살","광해","택시운전사","부산행","@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"]
     
     static var identifierFactory = 0
     static func getUniqueIdentifier() -> Int{

@@ -33,6 +33,8 @@ class Main_ViewController: UIViewController {
     @IBAction func correctButton(_ sender: UIButton) {
         game.touchCorrectButton()
         contentLabel.text = game.contentText
+        
+
     }
     
     @IBAction func passButton(_ sender: Any) {
@@ -54,7 +56,7 @@ class Main_ViewController: UIViewController {
         game.contents = self.contents!
         runTimer()
         contentLabel.text = game.contentText
-        
+        contentLabel.adjustsFontSizeToFitWidth = true
     }
     
     
