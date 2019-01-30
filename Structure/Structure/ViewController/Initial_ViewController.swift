@@ -8,19 +8,25 @@
 
 import UIKit
 
-class Initial_ViewController: UIViewController {
-
-    @IBOutlet var settingView: UIView!
+class Initial_ViewController: UIViewController , SettingTimeAndPlayerDelegateProtocol{
+    
+let popPlayerAndTimeSetting : SettingTimeAndPlayer_ViewController = UINib(nibName: "SettingTimeAndPlayer", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! SettingTimeAndPlayer_ViewController
     @IBAction func anyTab(_ sender: Any) {
-        let popPlayerAndTimeSetting : SettingTimeAndPlayer_ViewController = UINib(nibName: "SettingTimeAndPlayer", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! SettingTimeAndPlayer_ViewController
+
         let viewColor = #colorLiteral(red: 0.088717632, green: 0.05267825723, blue: 0.02710740082, alpha: 1)
         popPlayerAndTimeSetting.backgroundColor = viewColor.withAlphaComponent(0.6)
+        popPlayerAndTimeSetting.delegate = self
         self.view.addSubview(popPlayerAndTimeSetting)
 
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        settingView.isHidden = true
+    }
+    
+    func ShowNextView(){
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let startViewController = storyBoard.instantiateViewController(withIdentifier: "GameStart") as? Start_ViewController
+        self.present(startViewController!, animated: false, completion: nil)
     }
     
 

@@ -9,6 +9,7 @@
 import UIKit
 
 class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
+    
     var game = GameController()
     // gnuk's Todo : 이전화면에서 컨텐츠에 대한 정보를 넘겨 Main_ViewController의 contents에 입력
     var contents : [String]?

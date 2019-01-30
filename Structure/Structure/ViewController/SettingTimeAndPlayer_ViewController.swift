@@ -7,16 +7,20 @@
 //
 
 import UIKit
+
 protocol SettingTimeAndPlayerDelegateProtocol {
-    func Sh()
+    func ShowNextView()
 }
+
+
 class SettingTimeAndPlayer_ViewController: UIView {
     var settingPlayerCount : Int?
     var timeLimit : Int?
+    
+    var delegate : SettingTimeAndPlayerDelegateProtocol?
+    
     @IBAction func ClickStartButton(_ sender: Any) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let startViewController = storyBoard.instantiateViewController(withIdentifier: "GameStart") as? Start_ViewController
-       // self.present
+        delegate?.ShowNextView()
     }
     /*
     // Only override draw() if you perform custom drawing.

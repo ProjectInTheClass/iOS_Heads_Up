@@ -16,11 +16,16 @@ protocol ScorePopupDelegateProtocol {
 class ScorePopup_ViewController: UIView {
     
     var delegate: ScorePopupDelegateProtocol?
+    
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var correctLabel: UILabel!
     @IBOutlet var passLabel: UILabel!
     @IBOutlet var baseView: UIView!
     @IBOutlet var nextGameButton: UIButton!
+    @IBAction func touchReset(_ sender: Any) {
+        delegate?.dismissGameView()
+    }
+    
     @IBAction func touchNextGame(_ sender: Any) {
         delegate?.dismissGameView()
     }
