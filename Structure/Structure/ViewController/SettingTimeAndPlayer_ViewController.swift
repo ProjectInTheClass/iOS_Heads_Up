@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+protocol SettingTimeAndPlayerDelegateProtocol {
+    func Sh()
+}
 class SettingTimeAndPlayer_ViewController: UIView {
     var settingPlayerCount : Int?
     var timeLimit : Int?
