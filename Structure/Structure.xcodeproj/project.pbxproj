@@ -9,9 +9,8 @@
 /* Begin PBXBuildFile section */
 		31F020D322002E49006EA84A /* categoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F020D222002E49006EA84A /* categoryTableViewController.swift */; };
 		31F020D72200311E006EA84A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F020D62200311E006EA84A /* Category.swift */; };
-		962078BE21FF0EFC009A3222 /* Score_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962078BD21FF0EFC009A3222 /* Score_ViewController.swift */; };
-		968B8DF921FDA59700502A00 /* Correct_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968B8DF821FDA59700502A00 /* Correct_ViewController.swift */; };
-		968B8DFB21FDA5A900502A00 /* Pass_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968B8DFA21FDA5A900502A00 /* Pass_ViewController.swift */; };
+		96EE45422201428500036DF2 /* scorePopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96EE45412201428500036DF2 /* scorePopup.xib */; };
+		96EE45442201438E00036DF2 /* ScorePopup_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EE45432201438E00036DF2 /* ScorePopup_ViewController.swift */; };
 		96F2D14121F9508700D9FAFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2D14021F9508700D9FAFF /* AppDelegate.swift */; };
 		96F2D14621F9508700D9FAFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96F2D14421F9508700D9FAFF /* Main.storyboard */; };
 		96F2D14821F9508900D9FAFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96F2D14721F9508900D9FAFF /* Assets.xcassets */; };
@@ -21,15 +20,14 @@
 		96F2D15921F9512300D9FAFF /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2D15821F9512300D9FAFF /* Enviroment.swift */; };
 		96F2D15B21F9515800D9FAFF /* Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2D15A21F9515800D9FAFF /* Contents.swift */; };
 		96F2D15D21F9516D00D9FAFF /* Custum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2D15C21F9516D00D9FAFF /* Custum.swift */; };
-		96F2D15F21F95CC900D9FAFF /* Main_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2D15E21F95CC900D9FAFF /* Main_ViewController.swift */; };
+		96F2D15F21F95CC900D9FAFF /* Game_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2D15E21F95CC900D9FAFF /* Game_ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		31F020D222002E49006EA84A /* categoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categoryTableViewController.swift; sourceTree = "<group>"; };
 		31F020D62200311E006EA84A /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		962078BD21FF0EFC009A3222 /* Score_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score_ViewController.swift; sourceTree = "<group>"; };
-		968B8DF821FDA59700502A00 /* Correct_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Correct_ViewController.swift; sourceTree = "<group>"; };
-		968B8DFA21FDA5A900502A00 /* Pass_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pass_ViewController.swift; sourceTree = "<group>"; };
+		96EE45412201428500036DF2 /* scorePopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = scorePopup.xib; sourceTree = "<group>"; };
+		96EE45432201438E00036DF2 /* ScorePopup_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorePopup_ViewController.swift; sourceTree = "<group>"; };
 		96F2D13D21F9508700D9FAFF /* Structure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Structure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96F2D14021F9508700D9FAFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96F2D14521F9508700D9FAFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -41,7 +39,7 @@
 		96F2D15821F9512300D9FAFF /* Enviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
 		96F2D15A21F9515800D9FAFF /* Contents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contents.swift; sourceTree = "<group>"; };
 		96F2D15C21F9516D00D9FAFF /* Custum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custum.swift; sourceTree = "<group>"; };
-		96F2D15E21F95CC900D9FAFF /* Main_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main_ViewController.swift; sourceTree = "<group>"; };
+		96F2D15E21F95CC900D9FAFF /* Game_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game_ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +56,8 @@
 		96E82A0421FEAF4C0045DFD3 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				96F2D15E21F95CC900D9FAFF /* Main_ViewController.swift */,
-				968B8DF821FDA59700502A00 /* Correct_ViewController.swift */,
-				968B8DFA21FDA5A900502A00 /* Pass_ViewController.swift */,
-				962078BD21FF0EFC009A3222 /* Score_ViewController.swift */,
+				96F2D15E21F95CC900D9FAFF /* Game_ViewController.swift */,
+				96EE45432201438E00036DF2 /* ScorePopup_ViewController.swift */,
 				31F020D222002E49006EA84A /* categoryTableViewController.swift */,
 			);
 			path = ViewController;
@@ -89,6 +85,7 @@
 				96F2D15321F950B100D9FAFF /* Model */,
 				96F2D15221F9509B00D9FAFF /* SubFile */,
 				96F2D14421F9508700D9FAFF /* Main.storyboard */,
+				96EE45412201428500036DF2 /* scorePopup.xib */,
 				96F2D14C21F9508900D9FAFF /* Info.plist */,
 				96E82A0421FEAF4C0045DFD3 /* ViewController */,
 			);
@@ -179,6 +176,7 @@
 				96F2D14B21F9508900D9FAFF /* LaunchScreen.storyboard in Resources */,
 				96F2D14821F9508900D9FAFF /* Assets.xcassets in Resources */,
 				96F2D14621F9508700D9FAFF /* Main.storyboard in Resources */,
+				96EE45422201428500036DF2 /* scorePopup.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,13 +191,11 @@
 				96F2D15B21F9515800D9FAFF /* Contents.swift in Sources */,
 				31F020D322002E49006EA84A /* categoryTableViewController.swift in Sources */,
 				96F2D15921F9512300D9FAFF /* Enviroment.swift in Sources */,
-				962078BE21FF0EFC009A3222 /* Score_ViewController.swift in Sources */,
 				96F2D15521F950F100D9FAFF /* Game.swift in Sources */,
 				96F2D14121F9508700D9FAFF /* AppDelegate.swift in Sources */,
+				96EE45442201438E00036DF2 /* ScorePopup_ViewController.swift in Sources */,
 				96F2D15D21F9516D00D9FAFF /* Custum.swift in Sources */,
-				968B8DFB21FDA5A900502A00 /* Pass_ViewController.swift in Sources */,
-				968B8DF921FDA59700502A00 /* Correct_ViewController.swift in Sources */,
-				96F2D15F21F95CC900D9FAFF /* Main_ViewController.swift in Sources */,
+				96F2D15F21F95CC900D9FAFF /* Game_ViewController.swift in Sources */,
 				31F020D72200311E006EA84A /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -30,7 +30,8 @@ class GameController{
     
     var correctTrueList : [Bool]?
     var answeredList : [String]?
-    
+    var correctList : [String]?
+    var passList : [String]?
     var roundScore = 0
     
     func touchCorrectButton(){
@@ -74,6 +75,31 @@ class GameController{
         }
         contentText = contents[contentPointer]
     }
+    
+  func gameScore() {
+    for counter in answeredList!.indices {
+        if correctTrueList![counter] == true {
+            if let _ = correctList{
+                correctList?.append(answeredList![counter])
+            }else{
+                correctList = [answeredList![counter]]
+            }
+        }
+        else{
+            if let _ = passList{
+                passList?.append(answeredList![counter])
+            }else{
+                passList = [answeredList![counter]]
+            }
+        }
+        
+    }
+    for scoreCounter in correctTrueList!.indices{
+        if correctTrueList![scoreCounter] == true{
+            roundScore += 1
+        }
+    }
+   }
     
     init() {
         shuffleContent()
