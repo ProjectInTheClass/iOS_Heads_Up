@@ -92,7 +92,6 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
         popup.baseView.backgroundColor = #colorLiteral(red: 0.8777112365, green: 0.7940018773, blue: 0.5124126673, alpha: 1)
         popup.baseView.layer.cornerRadius = 8.0
         self.view.addSubview(popup)
-
         }
     
     
