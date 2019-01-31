@@ -9,5 +9,6 @@
 import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
-    @IBOutlet var categoryTitleLabel : UILabel!
+    @IBOutlet var categoryTitleLabel: UILabel!
+
 }

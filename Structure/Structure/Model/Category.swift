@@ -8,14 +8,8 @@
 
 import Foundation
 
-class category {
-    var title: String
-    var difficulty: Int
-    var favorite: Bool
-    
-    init(title:String, difficulty:Int, favorite:Bool)  {
-        self.title = title
-        self.difficulty = difficulty
-        self.favorite = favorite
-    }
+struct category: Codable {
+    let title: String
+    let difficulty: Int
+    let favorite: Bool
 }
