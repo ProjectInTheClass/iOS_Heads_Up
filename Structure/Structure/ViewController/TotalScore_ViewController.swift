@@ -12,12 +12,14 @@ class TotalScore_ViewController: UIViewController {
     
     var totalPlayerScore : [String : Int]?
     @IBOutlet var scoreLabel: UILabel!
+    @IBOutlet var scoreLabel2: UILabel!
+    @IBOutlet var scoreLabel3: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(totalPlayerScore)
-        for (key,value) in totalPlayerScore!{
-            scoreLabel.text?.write("\(key) : \(value) \n")
-        }
+        scoreLabel.text = "player1 : \(totalPlayerScore?["player1"])"
+        scoreLabel2.text = "player2 : \(totalPlayerScore?["player2"])"
+        scoreLabel3.text = "player3 : \(totalPlayerScore?["player3"])"
+
 
         // Do any additional setup after loading the view.
     }

@@ -312,6 +312,8 @@
                     </view>
                     <connections>
                         <outlet property="scoreLabel" destination="JnG-07-lK1" id="6Ma-yF-35j"/>
+                        <outlet property="scoreLabel2" destination="9cm-sz-0vF" id="PAY-fE-4cF"/>
+                        <outlet property="scoreLabel3" destination="WmN-65-JZ6" id="EIo-4S-DL2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vw8-AK-JMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
