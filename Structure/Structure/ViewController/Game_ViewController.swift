@@ -83,14 +83,26 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
     
     func NextGame(){
         gameSetting.settingPlayerCount += 1
-        self.dismiss(animated: false, completion: nil)
-        delegate?.CreatNewRound()
+        if let _ = gameSetting.playerScore{
+            gameSetting.playerScore!["player\(gameSetting.settingPlayerCount)"] = game.roundScore
+        }else{
+            gameSetting.playerScore = ["player\(gameSetting.settingPlayerCount)" : game.roundScore]
+        }
+        if gameSetting.settingPlayerCount == gameSetting.settingPlayer{
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let TotalScoreCotroller = storyBoard.instantiateViewController(withIdentifier: "TotalScore") as? TotalScore_ViewController
+            TotalScoreCotroller?.totalPlayerScore = gameSetting.playerScore
+            self.present(TotalScoreCotroller!, animated: false, completion: nil)
 
+        }else{
+            self.dismiss(animated: false, completion: nil)
+        }
     }
     
 
+    
     func ShowPopup (){
-        let popup : ScorePopup_ViewController = UINib(nibName: "scorePopup", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! ScorePopup_ViewController
+      let popup : ScorePopup_ViewController = UINib(nibName: "scorePopup", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! ScorePopup_ViewController
         let viewColor = #colorLiteral(red: 0.088717632, green: 0.05267825723, blue: 0.02710740082, alpha: 1)
         popup.delegate = self
         popup.backgroundColor = viewColor.withAlphaComponent(0.6)
@@ -103,6 +115,9 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
         popup.scoreLabel.adjustsFontSizeToFitWidth = true
         popup.baseView.backgroundColor = #colorLiteral(red: 0.8777112365, green: 0.7940018773, blue: 0.5124126673, alpha: 1)
         popup.baseView.layer.cornerRadius = 8.0
+        if gameSetting.settingPlayer! == gameSetting.settingPlayerCount + 1 {
+            popup.nextButton.titleLabel?.text = "Total Score"
+        }
         self.view.addSubview(popup)
         }
     
@@ -110,8 +125,9 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
     override func viewDidLoad() { //재정의 할 것이다.
         super.viewDidLoad() //vidwDidLoad : 기존 기능에 덧붙혀서 기능을 추가 할 것이다.
         seconds = gameSetting.timeLimit!
+        game.contents = self.contents!
+        game.shuffleContent()
         timerLabel.text = "\(seconds)"
-        // game.contents = self.contents!
         runTimer()
         correctOrPassLabel.isHidden = true
         contentLabel.text = game.contentText

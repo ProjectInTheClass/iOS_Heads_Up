@@ -28,10 +28,19 @@ struct Content
         Content.identifierFactory += 1
         return Content.identifierFactory
     }
+    mutating func shuffleContent () {
+        for shuffleCount in contents.indices {
+            let randomValue = Int(arc4random_uniform(UInt32(contents.count)))
+            let temp = contents[shuffleCount]
+            contents[shuffleCount] = contents[randomValue]
+            contents[randomValue] = temp
+        }
+    }
     
     init(){
         self.identifier = Content.getUniqueIdentifier()
     }
+    
 }
 
 

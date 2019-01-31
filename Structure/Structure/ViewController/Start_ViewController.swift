@@ -11,6 +11,7 @@ import UIKit
 
 class Start_ViewController: UIViewController, GameDelegateProtocol {
     var gameSetting : GameSetting?
+    var contents : [String]?
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -21,6 +22,7 @@ class Start_ViewController: UIViewController, GameDelegateProtocol {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? Game_ViewController {
             vc.gameSetting = self.gameSetting!
+            vc.contents = self.contents
             vc.delegate = self
         }
     }

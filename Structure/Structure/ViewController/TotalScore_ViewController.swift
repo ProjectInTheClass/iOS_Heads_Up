@@ -9,9 +9,15 @@
 import UIKit
 
 class TotalScore_ViewController: UIViewController {
-
+    
+    var totalPlayerScore : [String : Int]?
+    @IBOutlet var scoreLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(totalPlayerScore)
+        for (key,value) in totalPlayerScore!{
+            scoreLabel.text?.write("\(key) : \(value) \n")
+        }
 
         // Do any additional setup after loading the view.
     }

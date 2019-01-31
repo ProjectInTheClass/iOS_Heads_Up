@@ -14,16 +14,16 @@ import Foundation
 //test
 class GameController{
     
-    var contents = Content().contents
+    var contents : [String]?
     // gnuk's Todo : game부분에서 Content()를 받지 않고 view Controller로 넘어온 content[String]을 통해 게임을 진행할 수 있도록 해쥬
     // var contets : [String]?
     var contentText : String?
     var contentPointer : Int = 0 {
         didSet {
-            if contentPointer == contents.count{
+            if contentPointer == contents!.count{
                 contentPointer = 0
             }else{
-                contentText = contents[contentPointer]
+                contentText = contents![contentPointer]
             }
         }
     }
@@ -36,58 +36,58 @@ class GameController{
     
     func touchCorrectButton(){
         if let _ = correctTrueList{
-            correctTrueList?.append(true)
+            correctTrueList!.append(true)
         }else{
             correctTrueList = [true]
         }
         if let _ = answeredList{
-            answeredList?.append(contents[contentPointer])
+            answeredList!.append(contents![contentPointer])
         }else{
-            answeredList = [contents[contentPointer]]
+            answeredList = [contents![contentPointer]]
         }
         contentPointer += 1
     }
     func touchPassButton(){
         if let _ = correctTrueList{
-            correctTrueList?.append(false)
+            correctTrueList!.append(false)
         }else{
             correctTrueList = [false]
         }
         if let _ = answeredList{
-            answeredList?.append(contents[contentPointer])
+            answeredList!.append(contents![contentPointer])
         }else{
-            answeredList = [contents[contentPointer]]
+            answeredList = [contents![contentPointer]]
         }
         contentPointer += 1
     }
     
     func touchPriviousButton() {
-        correctTrueList?.removeLast()
-        answeredList?.removeLast()
+        correctTrueList!.removeLast()
+        answeredList!.removeLast()
         contentPointer -= 1
     }
     func shuffleContent () {
-        for shuffleCount in contents.indices{
-            let randomValue = Int(arc4random_uniform(UInt32(contents.count)))
-            let temp = contents[shuffleCount]
-            contents[shuffleCount] = contents[randomValue]
-            contents[randomValue] = temp
+        for shuffleCount in contents!.indices {
+            let randomValue = Int(arc4random_uniform(UInt32(contents!.count)))
+            let temp = contents![shuffleCount]
+            contents![shuffleCount] = contents![randomValue]
+            contents![randomValue] = temp
         }
-        contentText = contents[contentPointer]
+        contentText = contents![contentPointer]
     }
     
   func gameScore() {
     for counter in answeredList!.indices {
         if correctTrueList![counter] == true {
             if let _ = correctList{
-                correctList?.append(answeredList![counter])
+                correctList!.append(answeredList![counter])
             }else{
                 correctList = [answeredList![counter]]
             }
         }
         else{
             if let _ = passList{
-                passList?.append(answeredList![counter])
+                passList!.append(answeredList![counter])
             }else{
                 passList = [answeredList![counter]]
             }
@@ -100,15 +100,6 @@ class GameController{
         }
     }
    }
-    
-    init() {
-        shuffleContent()
-    }
-    
-    
-    
-    
-    
     
     
 }

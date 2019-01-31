@@ -18,6 +18,7 @@ class ScorePopup_ViewController: UIView {
     
     var delegate: ScorePopupDelegateProtocol?
     
+    @IBOutlet var nextButton: UIButton!
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var correctLabel: UILabel!
     @IBOutlet var passLabel: UILabel!
