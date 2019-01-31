@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3190189E220280A60037602B /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3190189D220280A60037602B /* CategoryViewController.swift */; };
+		319018A02202CDB10037602B /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3190189F2202CDB10037602B /* CategoryCollectionViewCell.swift */; };
 		31F020D322002E49006EA84A /* categoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F020D222002E49006EA84A /* categoryTableViewController.swift */; };
 		31F020D72200311E006EA84A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F020D62200311E006EA84A /* Category.swift */; };
 		96D0080522018B7200DD793A /* Initial_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D0080422018B7200DD793A /* Initial_ViewController.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3190189D220280A60037602B /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		3190189F2202CDB10037602B /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		31F020D222002E49006EA84A /* categoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categoryTableViewController.swift; sourceTree = "<group>"; };
 		31F020D62200311E006EA84A /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		96D0080422018B7200DD793A /* Initial_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initial_ViewController.swift; sourceTree = "<group>"; };
@@ -64,12 +68,14 @@
 		96E82A0421FEAF4C0045DFD3 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3190189D220280A60037602B /* CategoryViewController.swift */,
 				96F2D15E21F95CC900D9FAFF /* Game_ViewController.swift */,
 				96EE45432201438E00036DF2 /* ScorePopup_ViewController.swift */,
 				96D0080422018B7200DD793A /* Initial_ViewController.swift */,
 				96D0080C2201920600DD793A /* SettingTimeAndPlayer_ViewController.swift */,
 				31F020D222002E49006EA84A /* categoryTableViewController.swift */,
 				96D0080E2201947E00DD793A /* Start_ViewController.swift */,
+				3190189F2202CDB10037602B /* CategoryCollectionViewCell.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -201,7 +207,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				96F2D15721F9510E00D9FAFF /* GameSetting.swift in Sources */,
+				319018A02202CDB10037602B /* CategoryCollectionViewCell.swift in Sources */,
 				96F2D15B21F9515800D9FAFF /* Contents.swift in Sources */,
+				3190189E220280A60037602B /* CategoryViewController.swift in Sources */,
 				96D0080522018B7200DD793A /* Initial_ViewController.swift in Sources */,
 				31F020D322002E49006EA84A /* categoryTableViewController.swift in Sources */,
 				96F2D15921F9512300D9FAFF /* Enviroment.swift in Sources */,
