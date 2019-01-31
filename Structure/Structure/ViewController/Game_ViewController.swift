@@ -8,8 +8,12 @@
 
 import UIKit
 
+protocol GameDelegateProtocol {
+    func CreatNewRound()
+}
+
 class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
-    
+    var delegate : GameDelegateProtocol?
     var game = GameController()
     var gameSetting = GameSetting()
     // gnuk's Todo : 이전화면에서 컨텐츠에 대한 정보를 넘겨 Main_ViewController의 contents에 입력
@@ -76,10 +80,15 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
     func ResetGame(){
         self.dismiss(animated: false, completion: nil)
     }
+    
     func NextGame(){
-        
+        gameSetting.settingPlayerCount += 1
+        self.dismiss(animated: false, completion: nil)
+        delegate?.CreatNewRound()
+
     }
     
+
     func ShowPopup (){
         let popup : ScorePopup_ViewController = UINib(nibName: "scorePopup", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! ScorePopup_ViewController
         let viewColor = #colorLiteral(red: 0.088717632, green: 0.05267825723, blue: 0.02710740082, alpha: 1)

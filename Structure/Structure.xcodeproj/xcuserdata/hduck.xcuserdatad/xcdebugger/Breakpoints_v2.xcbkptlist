@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Structure/ViewController/SettingTimeAndPlayer_ViewController.swift"
-            timestampString = "570610025.9628429"
+            filePath = "Structure/ViewController/Start_ViewController.swift"
+            timestampString = "570615657.070801"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "ClickStartButton(_:)"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "CreatNewRound()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

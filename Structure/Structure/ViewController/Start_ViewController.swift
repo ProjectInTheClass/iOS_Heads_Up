@@ -9,24 +9,19 @@
 import UIKit
 
 
-class Start_ViewController: UIViewController {
-    var gameSetting : GameSetting?    
+class Start_ViewController: UIViewController, GameDelegateProtocol {
+    var gameSetting : GameSetting?
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    
-    func changeSetting(){
-        
+    func CreatNewRound() {
+        self.dismiss(animated: false, completion: nil)
     }
-    
-
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? Game_ViewController {
-            print(gameSetting)
             vc.gameSetting = self.gameSetting!
+            vc.delegate = self
         }
-    
     }
 }

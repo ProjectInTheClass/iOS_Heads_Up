@@ -18,9 +18,8 @@ class SettingTimeAndPlayer_ViewController: UIView {
     var delegate : SettingTimeAndPlayerDelegateProtocol?
     
     @IBAction func ClickStartButton(_ sender: Any) {
-        self.gameSetting.timeLimit = 15
-        gameSetting.settingPlayerCount = 2
-        print(self.gameSetting.timeLimit)
+        self.gameSetting.timeLimit = 5
+        gameSetting.settingPlayer = 3
         delegate?.ShowNextView()
     }
     

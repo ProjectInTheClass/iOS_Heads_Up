@@ -28,7 +28,7 @@ class ScorePopup_ViewController: UIView {
     }
     
     @IBAction func touchNextGame(_ sender: Any) {
-        delegate?.ResetGame()
+        delegate?.NextGame()
     }
     
 }

@@ -12,7 +12,8 @@
 import Foundation
 
 class GameSetting {
-    var settingPlayerCount : Int?
+    var settingPlayerCount : Int = 0
+    var settingPlayer : Int?
     var timeLimit : Int?
     
 

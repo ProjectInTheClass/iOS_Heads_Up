@@ -182,10 +182,10 @@
             </objects>
             <point key="canvasLocation" x="221" y="-95"/>
         </scene>
-        <!--View Controller-->
+        <!--Total Score View Controller-->
         <scene sceneID="J87-WN-pYr">
             <objects>
-                <viewController id="vQN-yj-lCi" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TotalScore" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vQN-yj-lCi" customClass="TotalScore_ViewController" customModule="Structure" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KeJ-2N-S4s">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

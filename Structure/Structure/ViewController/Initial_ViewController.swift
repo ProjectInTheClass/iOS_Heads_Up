@@ -26,6 +26,14 @@ class Initial_ViewController: UIViewController , SettingTimeAndPlayerDelegatePro
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if gameSetting?.settingPlayerCount == gameSetting?.settingPlayer{
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let TotalScoreCotroller = storyBoard.instantiateViewController(withIdentifier: "TotalScore") as? TotalScore_ViewController
+            self.present(TotalScoreCotroller!, animated: false, completion: nil)
+
+        }
+    }
     func ShowNextView(){
         self.gameSetting=popPlayerAndTimeSetting.gameSetting
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
