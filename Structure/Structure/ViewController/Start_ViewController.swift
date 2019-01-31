@@ -8,25 +8,25 @@
 
 import UIKit
 
-class Start_ViewController: UIViewController {
 
+class Start_ViewController: UIViewController {
+    var gameSetting : GameSetting?    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    
+    func changeSetting(){
+        
     }
     
 
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let vc = segue.destination as? Game_ViewController {
+            print(gameSetting)
+            vc.gameSetting = self.gameSetting!
+        }
+    
     }
-    */
-
 }

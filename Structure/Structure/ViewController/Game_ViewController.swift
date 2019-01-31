@@ -11,13 +11,14 @@ import UIKit
 class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
     
     var game = GameController()
+    var gameSetting = GameSetting()
     // gnuk's Todo : 이전화면에서 컨텐츠에 대한 정보를 넘겨 Main_ViewController의 contents에 입력
     var contents : [String]?
-    //Timer
-    @IBOutlet var timerLabel: UILabel!
-    var seconds = 5
+    var playCount : Int?
+    var seconds : Int = 60
     var timer = Timer()
-    
+    @IBOutlet var timerLabel: UILabel!
+
     @objc func updateTimer(){
         CheckEndDone()
         seconds -= 1
@@ -65,18 +66,19 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
     }
     
     func CheckEndDone() {
-        if seconds <= 0{
-            seconds = 60
+        if seconds == 0{
             timerLabel.removeFromSuperview()
             ShowPopup()
         }
 
     }
     
-    func dismissGameView(){
+    func ResetGame(){
         self.dismiss(animated: false, completion: nil)
     }
-    
+    func NextGame(){
+        
+    }
     
     func ShowPopup (){
         let popup : ScorePopup_ViewController = UINib(nibName: "scorePopup", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! ScorePopup_ViewController
@@ -98,6 +100,7 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
     
     override func viewDidLoad() { //재정의 할 것이다.
         super.viewDidLoad() //vidwDidLoad : 기존 기능에 덧붙혀서 기능을 추가 할 것이다.
+        seconds = gameSetting.timeLimit!
         timerLabel.text = "\(seconds)"
         // game.contents = self.contents!
         runTimer()

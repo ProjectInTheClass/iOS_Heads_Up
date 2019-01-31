@@ -11,10 +11,9 @@
 
 import Foundation
 
-class PlayerNumber{
-    var players = Int()
-}
+class GameSetting {
+    var settingPlayerCount : Int?
+    var timeLimit : Int?
+    
 
-class GameTime{
-    var timeLimit = Int()
 }
