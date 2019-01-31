@@ -14,14 +14,17 @@ protocol SettingTimeAndPlayerDelegateProtocol {
 
 
 class SettingTimeAndPlayer_ViewController: UIView {
-    var settingPlayerCount : Int?
-    var timeLimit : Int?
-    
+    var gameSetting = GameSetting()
     var delegate : SettingTimeAndPlayerDelegateProtocol?
     
     @IBAction func ClickStartButton(_ sender: Any) {
+        self.gameSetting.timeLimit = 15
+        gameSetting.settingPlayerCount = 2
+        print(self.gameSetting.timeLimit)
         delegate?.ShowNextView()
     }
+    
+    
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

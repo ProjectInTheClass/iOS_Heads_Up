@@ -9,7 +9,8 @@
 import UIKit
 
 protocol ScorePopupDelegateProtocol {
-    func dismissGameView()
+    func ResetGame()
+    func NextGame()
 }
 
 
@@ -23,10 +24,11 @@ class ScorePopup_ViewController: UIView {
     @IBOutlet var baseView: UIView!
     @IBOutlet var nextGameButton: UIButton!
     @IBAction func touchReset(_ sender: Any) {
-        delegate?.dismissGameView()
+        delegate?.ResetGame()
     }
     
     @IBAction func touchNextGame(_ sender: Any) {
-        delegate?.dismissGameView()
+        delegate?.ResetGame()
     }
+    
 }
