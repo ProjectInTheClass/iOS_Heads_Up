@@ -93,10 +93,10 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
             let TotalScoreCotroller = storyBoard.instantiateViewController(withIdentifier: "TotalScore") as? TotalScore_ViewController
             TotalScoreCotroller?.totalPlayerScore = gameSetting.playerScore
             self.present(TotalScoreCotroller!, animated: false, completion: nil)
-
         }else{
-            self.dismiss(animated: false, completion: nil)
-        }
+                self.dismiss(animated: false, completion: nil)
+                delegate?.CreatNewRound()
+            }
     }
     
 
