@@ -17,10 +17,15 @@ class SettingTimeAndPlayer_ViewController: UIView {
     var gameSetting = GameSetting()
     var delegate : SettingTimeAndPlayerDelegateProtocol?
     
+    //To Do : assign timeLimit, settingPlayer value
+    
+    
+    @IBAction func closeButton(_ sender: Any) {
+        self.removeFromSuperview()
+    }
     @IBAction func ClickStartButton(_ sender: Any) {
         self.gameSetting.timeLimit = 5
         gameSetting.settingPlayer = 3
-        
         delegate?.ShowNextView()
     }
     

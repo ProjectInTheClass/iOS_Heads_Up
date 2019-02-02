@@ -7,48 +7,55 @@
 //
 
 import UIKit
-//Test Commit
 protocol GameDelegateProtocol {
     func CreatNewRound()
 }
 
 class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
-    var delegate : GameDelegateProtocol?
     var game = GameController()
+    
+    //receive from Start view
+    var delegate : GameDelegateProtocol?
     var gameSetting = GameSetting()
-    // gnuk's Todo : 이전화면에서 컨텐츠에 대한 정보를 넘겨 Main_ViewController의 contents에 입력
     var contents : [String]?
-    var playCount : Int?
-    var seconds : Int = 60
+    
+    var seconds : Int = 60 // init from gameSetting.timeLimit
+    
+    //Timer
     var timer = Timer()
     @IBOutlet var timerLabel: UILabel!
-
     @objc func updateTimer(){
         CheckEndDone()
         seconds -= 1
         timerLabel.text = "\(seconds)"
     }
-    
     func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(Game_ViewController.updateTimer)), userInfo: nil, repeats: true)
     }
     
-    
-    //Contents
     @IBOutlet var contentLabel: UILabel!
     @IBOutlet var correctOrPassLabel: UILabel!
+    @IBOutlet var passButton: UIButton!
+    @IBOutlet var correctButton: UIButton!
+    @IBOutlet var priviousButton: UIButton!
+    
+    //action of each button
     @IBAction func correctButton(_ sender: UIButton) {
         game.touchCorrectButton()
         contentLabel.text = game.contentText
         correctOrPassLabel.text = "Correct"
         correctOrPassLabel.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
         correctOrPassLabel.isHidden = false
-        let time = DispatchTime.now() + .milliseconds(500)
+        correctButton.isEnabled = false
+        passButton.isEnabled = false
+        let time = DispatchTime.now() + .milliseconds(300)
         DispatchQueue.main.asyncAfter(deadline: time){
             self.correctOrPassLabel.isHidden = true
+            self.correctButton.isEnabled = true
+            self.passButton.isEnabled = true
+            self.priviousButton.isEnabled = true
+            self.priviousButton.isHidden = false
         }
-        
-
     }
     
     @IBAction func passButton(_ sender: Any) {
@@ -57,36 +64,79 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
         correctOrPassLabel.text = "Pass"
         correctOrPassLabel.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         correctOrPassLabel.isHidden = false
+        correctButton.isEnabled = false
+        passButton.isEnabled = false
         let time = DispatchTime.now() + .milliseconds(500)
         DispatchQueue.main.asyncAfter(deadline: time){
             self.correctOrPassLabel.isHidden = true
+            self.correctButton.isEnabled = true
+            self.passButton.isEnabled = true
+            self.priviousButton.isEnabled = true
+            self.priviousButton.isHidden = false
         }
     }
     
     @IBAction func priviousButton(_ sender: Any) {
         game.touchPriviousButton()
         contentLabel.text = game.contentText
+        if game.contentPointer == 0{
+            self.priviousButton.isEnabled = false
+            self.priviousButton.isHidden = true
+        }else{
+            self.priviousButton.isEnabled = true
+            self.priviousButton.isHidden = false
+        }
         
     }
     
+    @IBAction func TouchBackButton(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
+    
+    //Check End Game called on updateTimer
     func CheckEndDone() {
         if seconds == 0{
             timerLabel.removeFromSuperview()
             ShowPopup()
         }
-
     }
     
+    //ScorePopup_ViewController Setting(score, passLabel, correctLabel)
+    func ShowPopup (){
+        let popup : ScorePopup_ViewController = UINib(nibName: "scorePopup", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! ScorePopup_ViewController
+        let viewColor = #colorLiteral(red: 0.088717632, green: 0.05267825723, blue: 0.02710740082, alpha: 1)
+        popup.delegate = self
+        popup.backgroundColor = viewColor.withAlphaComponent(0.6)
+        game.GameScore()
+        popup.correctLabel.text = game.correctList?.joined(separator: "\n")         //make String from array
+        popup.correctLabel.adjustsFontSizeToFitWidth = true
+        popup.passLabel.text = game.passList?.joined(separator: "\n")
+        popup.passLabel.adjustsFontSizeToFitWidth = true
+        popup.scoreLabel.text = "Score : \(game.gameScore)"
+        popup.scoreLabel.adjustsFontSizeToFitWidth = true
+        popup.baseView.backgroundColor = #colorLiteral(red: 0.8777112365, green: 0.7940018773, blue: 0.5124126673, alpha: 1)
+        popup.baseView.layer.cornerRadius = 8.0
+        popup.nextButton.setTitle("Next Game", for: .normal)
+        if gameSetting.settingPlayer! == gameSetting.settingPlayerCount + 1 {
+            popup.nextButton.setTitle("Total Score", for: .normal)
+        }
+        self.view.addSubview(popup)
+    }
+    
+    
+    //function of ScorePopup_ViewController, Reset : does not send any data. and return to Start
     func ResetGame(){
         self.dismiss(animated: false, completion: nil)
     }
     
+    //function of ScorePopup_ViewController,  Next: send score and increase SettingPlayerCount. and return to category
     func NextGame(){
         gameSetting.settingPlayerCount += 1
         if let _ = gameSetting.playerScore{
-            gameSetting.playerScore!["player\(gameSetting.settingPlayerCount)"] = game.roundScore
+            gameSetting.playerScore!["player\(gameSetting.settingPlayerCount)"] = game.gameScore
         }else{
-            gameSetting.playerScore = ["player\(gameSetting.settingPlayerCount)" : game.roundScore]
+            gameSetting.playerScore = ["player\(gameSetting.settingPlayerCount)" : game.gameScore]
         }
         if gameSetting.settingPlayerCount == gameSetting.settingPlayer{
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -100,27 +150,7 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
     }
     
 
-    
-    func ShowPopup (){
-      let popup : ScorePopup_ViewController = UINib(nibName: "scorePopup", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! ScorePopup_ViewController
-        let viewColor = #colorLiteral(red: 0.088717632, green: 0.05267825723, blue: 0.02710740082, alpha: 1)
-        popup.delegate = self
-        popup.backgroundColor = viewColor.withAlphaComponent(0.6)
-        game.gameScore()
-        popup.correctLabel.text = game.correctList?.joined(separator: "\n")
-        popup.correctLabel.adjustsFontSizeToFitWidth = true
-        popup.passLabel.text = game.passList?.joined(separator: "\n")
-        popup.passLabel.adjustsFontSizeToFitWidth = true
-        popup.scoreLabel.text = "Score : \(game.roundScore)"
-        popup.scoreLabel.adjustsFontSizeToFitWidth = true
-        popup.baseView.backgroundColor = #colorLiteral(red: 0.8777112365, green: 0.7940018773, blue: 0.5124126673, alpha: 1)
-        popup.baseView.layer.cornerRadius = 8.0
-        if gameSetting.settingPlayer! == gameSetting.settingPlayerCount + 1 {
-            popup.nextButton.titleLabel?.text = "Total Score"
-        }
-        self.view.addSubview(popup)
-        }
-    
+ 
     
     override func viewDidLoad() { //재정의 할 것이다.
         super.viewDidLoad() //vidwDidLoad : 기존 기능에 덧붙혀서 기능을 추가 할 것이다.
@@ -132,6 +162,8 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
         correctOrPassLabel.isHidden = true
         contentLabel.text = game.contentText
         contentLabel.adjustsFontSizeToFitWidth = true
+        self.priviousButton.isEnabled = false
+        self.priviousButton.isHidden = true
     }
     
 

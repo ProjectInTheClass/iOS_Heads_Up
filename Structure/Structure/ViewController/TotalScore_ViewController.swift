@@ -14,6 +14,15 @@ class TotalScore_ViewController: UIViewController {
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var scoreLabel2: UILabel!
     @IBOutlet var scoreLabel3: UILabel!
+    
+    
+    @IBAction func TouchHomeButton(_ sender: Any) {
+        
+    }
+    @IBAction func TouchMoreGame(_ sender: Any) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         scoreLabel.text = "player1 : \(totalPlayerScore?["player1"])"

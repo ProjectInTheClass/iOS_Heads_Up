@@ -91,7 +91,10 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evJ-BD-yZG">
                                         <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <action selector="ToucnBackButton:" destination="ex6-kE-Rff" eventType="touchUpInside" id="bqO-na-n7K"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0k-Id-Zqr">
                                         <rect key="frame" x="0.0" y="38" width="46" height="30"/>
@@ -121,6 +124,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nOj-U5-PzR"/>
                     </view>
+                    <connections>
+                        <outlet property="playerNumber" destination="lKI-Gb-jN2" id="AwB-aD-P4y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtj-1u-Z15" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -147,9 +153,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKs-lA-uAc">
-                                <rect key="frame" x="20" y="20" width="46" height="30"/>
+                                <rect key="frame" x="26" y="20" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="back"/>
+                                <connections>
+                                    <action selector="TouchBackButton:" destination="cJj-l1-PRG" eventType="touchUpInside" id="Kfd-bG-LPy"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -195,16 +204,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="D9t-fM-KGi">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="325"/>
+                                <rect key="frame" x="0.0" y="50" width="667" height="275"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLk-eg-CoL" userLabel="Correct">
-                                        <rect key="frame" x="0.0" y="0.0" width="333.5" height="325"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="333.5" height="275"/>
                                         <connections>
                                             <action selector="correctButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pnb-nm-NID"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="mainGame" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36S-Rr-gEm" userLabel="Pass">
-                                        <rect key="frame" x="333.5" y="0.0" width="333.5" height="325"/>
+                                        <rect key="frame" x="333.5" y="0.0" width="333.5" height="275"/>
                                         <connections>
                                             <action selector="passButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DRy-Y5-UzJ"/>
                                         </connections>
@@ -226,6 +235,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BOS-Sj-gzf">
+                                <rect key="frame" x="20" y="12" width="51" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="back"/>
+                                <connections>
+                                    <action selector="TouchBackButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h13-tG-b6v"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -242,7 +259,7 @@
                             <constraint firstItem="vuE-gW-i8F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LFy-0g-TAL"/>
                             <constraint firstItem="XSS-1F-E6q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="LwJ-e0-xMS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XSS-1F-E6q" secondAttribute="bottom" constant="50" id="ORL-ad-uYr"/>
-                            <constraint firstItem="D9t-fM-KGi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PR7-e6-qJL"/>
+                            <constraint firstItem="D9t-fM-KGi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="PR7-e6-qJL"/>
                             <constraint firstItem="vuE-gW-i8F" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="WwY-OD-ZBT"/>
                             <constraint firstItem="vuE-gW-i8F" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hjA-I0-Z2y"/>
                             <constraint firstItem="8ST-Nu-644" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mEe-Jd-Uwu"/>
@@ -255,13 +272,16 @@
                     <navigationItem key="navigationItem" id="JVZ-nv-giF"/>
                     <connections>
                         <outlet property="contentLabel" destination="XSS-1F-E6q" id="pGq-mx-8gD"/>
+                        <outlet property="correctButton" destination="fLk-eg-CoL" id="gaL-hb-mnw"/>
                         <outlet property="correctOrPassLabel" destination="vuE-gW-i8F" id="hIv-xM-Wdc"/>
+                        <outlet property="passButton" destination="36S-Rr-gEm" id="f3k-sL-S0f"/>
+                        <outlet property="priviousButton" destination="8ST-Nu-644" id="Zh8-3n-hYq"/>
                         <outlet property="timerLabel" destination="TqJ-a9-0gy" id="AGd-6d-sal"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="221" y="-95"/>
+            <point key="canvasLocation" x="220.83958020989508" y="-95.200000000000003"/>
         </scene>
         <!--Total Score View Controller-->
         <scene sceneID="J87-WN-pYr">
@@ -287,15 +307,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cm-sz-0vF">
-                                <rect key="frame" x="224" y="169" width="183" height="103"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmN-65-JZ6">
+                                <rect key="frame" x="429" y="169" width="183" height="103"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmN-65-JZ6">
-                                <rect key="frame" x="426" y="218" width="183" height="103"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8w-Oi-paP">
+                                <rect key="frame" x="194" y="312" width="128" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Home"/>
+                                <connections>
+                                    <action selector="TouchHomeButton:" destination="vQN-yj-lCi" eventType="touchUpInside" id="CIa-65-gER"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOA-oq-fls">
+                                <rect key="frame" x="353" y="312" width="146" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="One more game"/>
+                                <connections>
+                                    <action selector="TouchMoreGame:" destination="vQN-yj-lCi" eventType="touchUpInside" id="9mI-5F-nCn"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cm-sz-0vF">
+                                <rect key="frame" x="235" y="150" width="183" height="103"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>

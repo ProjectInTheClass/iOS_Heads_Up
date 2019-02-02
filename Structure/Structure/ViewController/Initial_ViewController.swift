@@ -12,7 +12,7 @@ class Initial_ViewController: UIViewController , SettingTimeAndPlayerDelegatePro
     
     var gameSetting : GameSetting?
 
-    
+    //Player and TimeLimit PopUp
     let popPlayerAndTimeSetting : SettingTimeAndPlayer_ViewController = UINib(nibName: "SettingTimeAndPlayer", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! SettingTimeAndPlayer_ViewController
     
     @IBAction func anyTab(_ sender: Any) {
@@ -22,18 +22,22 @@ class Initial_ViewController: UIViewController , SettingTimeAndPlayerDelegatePro
         self.view.addSubview(popPlayerAndTimeSetting)
 
     }
+
+    //function of SettingTimeAndPlayer_ViewController, present CategoryController and send gameSetting data
+    func ShowNextView(){
+        self.gameSetting=popPlayerAndTimeSetting.gameSetting
+        popPlayerAndTimeSetting.removeFromSuperview()
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let categoryController = storyBoard.instantiateViewController(withIdentifier: "Category") as? Category_ViewController
+        categoryController?.gameSetting = popPlayerAndTimeSetting.gameSetting
+        self.present(categoryController!, animated: false, completion: nil)
+
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    func ShowNextView(){
-        self.gameSetting=popPlayerAndTimeSetting.gameSetting
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let categoryController = storyBoard.instantiateViewController(withIdentifier: "Category") as? Category_ViewController
-        self.present(categoryController!, animated: false, completion: nil)
-        categoryController?.gameSetting = popPlayerAndTimeSetting.gameSetting
-    }
-    
 
     /*
     // MARK: - Navigation
