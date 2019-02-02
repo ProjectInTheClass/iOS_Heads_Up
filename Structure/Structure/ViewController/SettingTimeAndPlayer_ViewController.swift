@@ -26,6 +26,8 @@ class SettingTimeAndPlayer_ViewController: UIView {
     @IBAction func ClickStartButton(_ sender: Any) {
         self.gameSetting.timeLimit = 5
         gameSetting.settingPlayer = 3
+        gameSetting.settingPlayerCount = 0
+        gameSetting.playerScore?.removeAll()
         delegate?.ShowNextView()
     }
     
