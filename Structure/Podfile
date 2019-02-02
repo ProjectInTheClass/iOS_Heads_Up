@@ -7,4 +7,5 @@ target 'Structure' do
 
   # Pods for Structure
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
 end

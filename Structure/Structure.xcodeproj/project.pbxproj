@@ -28,6 +28,8 @@
 		96F2D15D21F9516D00D9FAFF /* Custum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2D15C21F9516D00D9FAFF /* Custum.swift */; };
 		96F2D15F21F95CC900D9FAFF /* Game_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2D15E21F95CC900D9FAFF /* Game_ViewController.swift */; };
 		9A74FB032205D5BF009B8B0D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A74FB022205D5BF009B8B0D /* GoogleService-Info.plist */; };
+		9A74FB072205E60D009B8B0D /* Add_CustomTheme_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A74FB052205E60D009B8B0D /* Add_CustomTheme_ViewController.swift */; };
+		9A74FB082205E60D009B8B0D /* Add_CustomTheme_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A74FB062205E60D009B8B0D /* Add_CustomTheme_ViewController.xib */; };
 		9A93F5162203558E00D62131 /* contentsSource2.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A93F5152203558E00D62131 /* contentsSource2.json */; };
 		9A93F518220355F300D62131 /* temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A93F517220355F300D62131 /* temp.swift */; };
 		A4BE77EE7A91F4D0C347142B /* Pods_Structure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055F62FAC16621430181ABC4 /* Pods_Structure.framework */; };
@@ -59,6 +61,8 @@
 		96F2D15C21F9516D00D9FAFF /* Custum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custum.swift; sourceTree = "<group>"; };
 		96F2D15E21F95CC900D9FAFF /* Game_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game_ViewController.swift; sourceTree = "<group>"; };
 		9A74FB022205D5BF009B8B0D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9A74FB052205E60D009B8B0D /* Add_CustomTheme_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Add_CustomTheme_ViewController.swift; sourceTree = "<group>"; };
+		9A74FB062205E60D009B8B0D /* Add_CustomTheme_ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Add_CustomTheme_ViewController.xib; sourceTree = "<group>"; };
 		9A93F5152203558E00D62131 /* contentsSource2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contentsSource2.json; sourceTree = "<group>"; };
 		9A93F517220355F300D62131 /* temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = temp.swift; sourceTree = "<group>"; };
 		BE20C92AB747391CDF7C7F19 /* Pods-Structure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Structure.release.xcconfig"; path = "Pods/Target Support Files/Pods-Structure/Pods-Structure.release.xcconfig"; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 			children = (
 				319018A42202E03A0037602B /* Category_CollectionViewCell.swift */,
 				9610E8142202F46D009EEDD7 /* Category_ViewController.swift */,
+				9A74FB052205E60D009B8B0D /* Add_CustomTheme_ViewController.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 				96F2D14421F9508700D9FAFF /* Main.storyboard */,
 				96EE45412201428500036DF2 /* scorePopup.xib */,
 				96D0080A220191CC00DD793A /* SettingTimeAndPlayer.xib */,
+				9A74FB062205E60D009B8B0D /* Add_CustomTheme_ViewController.xib */,
 				9A74FB022205D5BF009B8B0D /* GoogleService-Info.plist */,
 				96F2D14C21F9508900D9FAFF /* Info.plist */,
 				96E82A0421FEAF4C0045DFD3 /* ViewController */,
@@ -245,6 +251,7 @@
 				96F2D14B21F9508900D9FAFF /* LaunchScreen.storyboard in Resources */,
 				9A93F5162203558E00D62131 /* contentsSource2.json in Resources */,
 				96D0080B220191CC00DD793A /* SettingTimeAndPlayer.xib in Resources */,
+				9A74FB082205E60D009B8B0D /* Add_CustomTheme_ViewController.xib in Resources */,
 				96F2D14821F9508900D9FAFF /* Assets.xcassets in Resources */,
 				96F2D14621F9508700D9FAFF /* Main.storyboard in Resources */,
 				96EE45422201428500036DF2 /* scorePopup.xib in Resources */,
@@ -287,6 +294,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Structure/Pods-Structure-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -294,6 +302,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,6 +330,7 @@
 				9610E8152202F46D009EEDD7 /* Category_ViewController.swift in Sources */,
 				9A93F518220355F300D62131 /* temp.swift in Sources */,
 				96F2D15D21F9516D00D9FAFF /* Custum.swift in Sources */,
+				9A74FB072205E60D009B8B0D /* Add_CustomTheme_ViewController.swift in Sources */,
 				96F2D15F21F95CC900D9FAFF /* Game_ViewController.swift in Sources */,
 				31F020D72200311E006EA84A /* Category.swift in Sources */,
 				96D0080D2201920600DD793A /* SettingTimeAndPlayer_ViewController.swift in Sources */,
