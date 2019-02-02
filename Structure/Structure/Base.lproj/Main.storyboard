@@ -60,28 +60,31 @@
                                 </connections>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vFX-Rr-TWI">
-                                <rect key="frame" x="25" y="55" width="46" height="182"/>
+                                <rect key="frame" x="25" y="55" width="54" height="182"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKI-Gb-jN2">
-                                        <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="54" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpi-SX-bsI">
-                                        <rect key="frame" x="0.0" y="38" width="46" height="30"/>
+                                        <rect key="frame" x="0.0" y="38" width="54" height="30"/>
                                         <state key="normal" title="Button"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kj6-oD-ZoT">
-                                        <rect key="frame" x="0.0" y="76" width="46" height="30"/>
+                                        <rect key="frame" x="0.0" y="76" width="54" height="30"/>
                                         <state key="normal" title="Button"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Qg-p7-RaS">
-                                        <rect key="frame" x="0.0" y="114" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="114" width="54" height="30"/>
+                                        <state key="normal" title="Custom"/>
+                                        <connections>
+                                            <action selector="goToMakeCustom:" destination="QdM-Uh-dXA" eventType="touchUpInside" id="g9K-LV-EJa"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJB-29-Pjf">
-                                        <rect key="frame" x="0.0" y="152" width="46" height="30"/>
+                                        <rect key="frame" x="0.0" y="152" width="54" height="30"/>
                                         <state key="normal" title="Button"/>
                                     </button>
                                 </subviews>
@@ -129,6 +132,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtj-1u-Z15" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="QdM-Uh-dXA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1227" y="-95"/>
         </scene>

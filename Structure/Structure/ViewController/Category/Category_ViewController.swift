@@ -11,7 +11,7 @@ import Firebase
 
 class Category_ViewController: UIViewController, UICollectionViewDataSource {
     
-    var ref : DatabaseReference!
+   // var ref : DatabaseReference!
     
     // var numberOfCell : Int = 10
     var gameSetting : GameSetting? //receive from Initial_ViewController

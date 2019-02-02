@@ -105,17 +105,10 @@ struct ContentsData {
     }
 }
 
-
-/* [진혁_작업중] Custom Contents >> JSON
-struct CustomData : Codable{
-    var customName : String
-    var favorite : Bool
-    var customWord : Array<String>
-}
-
+/*
 let encoder = JSONEncoder()
-let custom1 = CustomData(customName: "iOS틀딱이들", favorite : true, customWord: ["정진혁","박경빈","손희덕","고야","깜찍이"])
 let customJsonData = try? encoder.encode(custom1)
+ */
  
-*/
+
 
