@@ -324,6 +324,7 @@
                                 <state key="normal" title="Home"/>
                                 <connections>
                                     <action selector="TouchHomeButton:" destination="vQN-yj-lCi" eventType="touchUpInside" id="CIa-65-gER"/>
+                                    <segue destination="j5O-hp-At5" kind="show" animates="NO" id="Ba8-Ea-dg6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOA-oq-fls">
@@ -332,6 +333,7 @@
                                 <state key="normal" title="One more game"/>
                                 <connections>
                                     <action selector="TouchMoreGame:" destination="vQN-yj-lCi" eventType="touchUpInside" id="9mI-5F-nCn"/>
+                                    <segue destination="ex6-kE-Rff" kind="show" animates="NO" id="9qd-SZ-5d9"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cm-sz-0vF">

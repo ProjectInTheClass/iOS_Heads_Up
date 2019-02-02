@@ -8,8 +8,9 @@
 
 import UIKit
 
+
 class TotalScore_ViewController: UIViewController {
-    
+    var gameSetting : GameSetting?
     var totalPlayerScore : [String : Int]?
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var scoreLabel2: UILabel!
@@ -34,14 +35,15 @@ class TotalScore_ViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let vc = segue.destination as? Category_ViewController {
+            self.gameSetting?.settingPlayerCount = 0
+            self.gameSetting?.playerScore = nil
+            vc.gameSetting = self.gameSetting
+        }
     }
-    */
+    
 
 }

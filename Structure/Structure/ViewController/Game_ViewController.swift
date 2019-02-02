@@ -142,6 +142,7 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let TotalScoreCotroller = storyBoard.instantiateViewController(withIdentifier: "TotalScore") as? TotalScore_ViewController
             TotalScoreCotroller?.totalPlayerScore = gameSetting.playerScore
+            TotalScoreCotroller?.gameSetting = self.gameSetting
             self.present(TotalScoreCotroller!, animated: false, completion: nil)
         }else{
                 self.dismiss(animated: false, completion: nil)

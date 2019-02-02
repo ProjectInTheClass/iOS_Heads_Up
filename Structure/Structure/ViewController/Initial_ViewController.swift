@@ -31,13 +31,14 @@ class Initial_ViewController: UIViewController , SettingTimeAndPlayerDelegatePro
         let categoryController = storyBoard.instantiateViewController(withIdentifier: "Category") as? Category_ViewController
         categoryController?.gameSetting = popPlayerAndTimeSetting.gameSetting
         self.present(categoryController!, animated: false, completion: nil)
-
+        
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
 
     /*
     // MARK: - Navigation
