@@ -11,7 +11,7 @@ import Firebase
 
 class Category_ViewController: UIViewController, UICollectionViewDataSource {
     
-   // var ref : DatabaseReference!
+    // var ref : DatabaseReference!
     
     // var numberOfCell : Int = 10
     var gameSetting : GameSetting? //receive from Initial_ViewController
@@ -57,6 +57,10 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource {
         self.dismiss(animated: false, completion: nil)
     }
     
+    @IBAction func TouchCustom(_ sender: Any) {
+        let popPlayerAndTimeSetting : SettingTimeAndPlayer_ViewController = UINib(nibName: "SettingTimeAndPlayer", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! SettingTimeAndPlayer_ViewController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //print data from Contents() : Test Code
@@ -68,13 +72,13 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource {
         playerNumber.text = "Player\((gameSetting?.settingPlayerCount)! + 1)"
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
