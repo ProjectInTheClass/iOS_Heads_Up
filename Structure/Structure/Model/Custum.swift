@@ -13,8 +13,7 @@
 
 import Foundation
 
- public struct CustomData : Codable{
+ public struct CustomData{
  var customName : String
- var favorite : Bool
  var customWord : Array<String>
  }
