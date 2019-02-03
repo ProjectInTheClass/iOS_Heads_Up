@@ -8,13 +8,15 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
+import FirebaseFirestore
 
 class Add_CustomTheme_ViewController: UIViewController {
 
-
-    //var ref : DatabaseReference!
+    let db = Firestore.firestore()
+    
     var customThemeList : [CustomData]?
-    var custom1 = CustomData(customName: "", favorite : true, customWord: ["","","","",""])
+    var custom1 = CustomData(customName: "", customWord: [""])
     
     @IBOutlet weak var customTitle: UITextField!
     @IBOutlet weak var word1: UITextField!
@@ -31,11 +33,19 @@ class Add_CustomTheme_ViewController: UIViewController {
     @IBAction func makeCustomTheme(_ sender: Any) {
         custom1.customName = (customTitle?.text)!
         custom1.customWord = [word1?.text, word2?.text, word3?.text, word4?.text, word5?.text, word6?.text, word7?.text, word8?.text, word9?.text, word10?.text] as! Array<String>
-        /*이부분이 커스텀 구조체를 DB에 올리는 부분인데 아직 잘 모르겟어... 직접 빌드하면서 해봐야될거같아
-        self.ref = Database.database().reference()
-        let itemRef = self.ref.child("list")
-        itemRef.setValue(self.custom1)
-        */
+
+        var ref: DocumentReference? = nil
+        ref = db.collection("CustomDB").addDocument(data: [
+            "customName" : custom1.customName,
+            "customWord": custom1.customWord
+            ]){ err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+            }
+        }
+        
         self.dismiss(animated: false, completion: nil)
         
     }
@@ -62,3 +72,5 @@ class Add_CustomTheme_ViewController: UIViewController {
     */
 
 }
+
+
