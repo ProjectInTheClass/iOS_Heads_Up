@@ -107,6 +107,7 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
         let popup : ScorePopup_ViewController = UINib(nibName: "scorePopup", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! ScorePopup_ViewController
         let viewColor = #colorLiteral(red: 0.088717632, green: 0.05267825723, blue: 0.02710740082, alpha: 1)
         popup.delegate = self
+        popup.frame = self.view.frame
         popup.backgroundColor = viewColor.withAlphaComponent(0.6)
         game.GameScore()
         popup.correctLabel.text = game.correctList?.joined(separator: "\n")         //make String from array
@@ -134,10 +135,10 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
     func NextGame(){
         gameSetting.settingPlayerCount += 1
         if let _ = gameSetting.playerScore{
-            gameSetting.playerScore!["player\(gameSetting.settingPlayerCount)"] = game.gameScore
+            gameSetting.playerScore?.append(game.gameScore)
         }else{
-            gameSetting.playerScore = ["player\(gameSetting.settingPlayerCount)" : game.gameScore]
-        }
+            gameSetting.playerScore = [game.gameScore]
+            }
         if gameSetting.settingPlayerCount == gameSetting.settingPlayer{
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let TotalScoreCotroller = storyBoard.instantiateViewController(withIdentifier: "TotalScore") as? TotalScore_ViewController
@@ -167,6 +168,7 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
         self.priviousButton.isHidden = true
     }
     
+ 
 
     /* gnuk 참고 이전 viewController에서 Game_ViewController로 넘겨줘야 하는 값, 부분
      let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

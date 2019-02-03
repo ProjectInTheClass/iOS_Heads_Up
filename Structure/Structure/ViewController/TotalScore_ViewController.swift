@@ -11,26 +11,32 @@ import UIKit
 
 class TotalScore_ViewController: UIViewController {
     var gameSetting : GameSetting?
-    var totalPlayerScore : [String : Int]?
-    @IBOutlet var scoreLabel: UILabel!
+    var totalPlayerScore : [Int]?
+    var scoreListLabel : [String] = ["🌟Score🌟"]
+    var winner = 0
     @IBOutlet var scoreLabel2: UILabel!
-    @IBOutlet var scoreLabel3: UILabel!
-    
-    
+    @IBOutlet var winnerLabel: UILabel!
     @IBAction func TouchHomeButton(_ sender: Any) {
         
     }
     @IBAction func TouchMoreGame(_ sender: Any) {
-        
+    
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scoreLabel.text = "player1 : \(totalPlayerScore?["player1"])"
-        scoreLabel2.text = "player2 : \(totalPlayerScore?["player2"])"
-        scoreLabel3.text = "player3 : \(totalPlayerScore?["player3"])"
-
-
+        if let scoreList = totalPlayerScore {
+            for playerNum in scoreList.indices{
+                scoreListLabel.append("player\(playerNum+1) :\t\(totalPlayerScore![playerNum])점")
+                if totalPlayerScore![playerNum] > totalPlayerScore![winner]{
+                    winner = playerNum
+                }
+            }
+        }else{}
+        winnerLabel.text = "👑\nPlayer\n\(winner + 1)"
+        winnerLabel.adjustsFontSizeToFitWidth = true
+        scoreLabel2.text = scoreListLabel.joined(separator: "\n")
+        scoreLabel2.adjustsFontSizeToFitWidth = true
         // Do any additional setup after loading the view.
     }
     

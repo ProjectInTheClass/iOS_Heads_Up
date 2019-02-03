@@ -20,6 +20,7 @@ class Initial_ViewController: UIViewController , SettingTimeAndPlayerDelegatePro
         popPlayerAndTimeSetting.backgroundColor = viewColor.withAlphaComponent(0.6)
         popPlayerAndTimeSetting.delegate = self
         self.view.addSubview(popPlayerAndTimeSetting)
+        popPlayerAndTimeSetting.frame = self.view.frame
 
     }
 

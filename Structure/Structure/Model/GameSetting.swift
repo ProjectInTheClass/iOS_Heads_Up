@@ -15,6 +15,6 @@ class GameSetting {
     var settingPlayerCount : Int = 0
     var settingPlayer : Int?
     var timeLimit : Int?
-    var playerScore : [String : Int]?
+    var playerScore : [Int]?
 
 }
