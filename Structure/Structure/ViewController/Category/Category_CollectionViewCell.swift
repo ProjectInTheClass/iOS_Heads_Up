@@ -11,4 +11,15 @@ import UIKit
 class Category_CollectionViewCell: UICollectionViewCell {
     @IBOutlet var categoryTitleLabel: UILabel!
 
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                categoryTitleLabel.textColor = UIColor.white
+            }
+            else {
+                categoryTitleLabel.textColor = UIColor.black
+            }
+        } }
+
+    
 }

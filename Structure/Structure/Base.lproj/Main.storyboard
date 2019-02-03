@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Hbm-Qk-zEH" customClass="C">
-                                <rect key="frame" x="100" y="50" width="467" height="295"/>
+                                <rect key="frame" x="100" y="82" width="467" height="263"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="h8i-ij-rl1">
                                     <size key="itemSize" width="140" height="140"/>
@@ -52,6 +52,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="categoryTitleLabel" destination="kT0-3v-BX3" id="GeM-zW-ytf"/>
+                                            <segue destination="cJj-l1-PRG" kind="show" id="cce-e7-m6M"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -60,7 +61,7 @@
                                 </connections>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vFX-Rr-TWI">
-                                <rect key="frame" x="25" y="55" width="54" height="182"/>
+                                <rect key="frame" x="25" y="87" width="54" height="182"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKI-Gb-jN2">
                                         <rect key="frame" x="0.0" y="0.0" width="54" height="30"/>
@@ -92,7 +93,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4Mi-y3-dPo">
-                                <rect key="frame" x="606" y="15" width="46" height="68"/>
+                                <rect key="frame" x="606" y="47" width="46" height="68"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evJ-BD-yZG">
                                         <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
@@ -129,6 +130,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nOj-U5-PzR"/>
                     </view>
+                    <navigationItem key="navigationItem" id="fea-e2-1rh"/>
                     <connections>
                         <outlet property="playerNumber" destination="lKI-Gb-jN2" id="AwB-aD-P4y"/>
                     </connections>
@@ -136,7 +138,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtj-1u-Z15" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QdM-Uh-dXA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1227" y="-95"/>
+            <point key="canvasLocation" x="-436.73163418290858" y="-95.200000000000003"/>
         </scene>
         <!--Add Custom Theme View Controller-->
         <scene sceneID="7D1-8o-lSv">
@@ -377,7 +379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DUe-w7-8LU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-559" y="-95"/>
+            <point key="canvasLocation" x="231.63418290854574" y="-95.200000000000003"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -487,7 +489,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="220.83958020989508" y="-95.200000000000003"/>
+            <point key="canvasLocation" x="1011.544227886057" y="-95.200000000000003"/>
         </scene>
         <!--Total Score View Controller-->
         <scene sceneID="J87-WN-pYr">
@@ -521,7 +523,7 @@
                                 <state key="normal" title="One more game"/>
                                 <connections>
                                     <action selector="TouchMoreGame:" destination="vQN-yj-lCi" eventType="touchUpInside" id="9mI-5F-nCn"/>
-                                    <segue destination="ex6-kE-Rff" kind="show" animates="NO" id="9qd-SZ-5d9"/>
+                                    <segue destination="vby-ID-4Ri" kind="show" animates="NO" id="9qd-SZ-5d9"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cm-sz-0vF">
@@ -554,7 +556,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vw8-AK-JMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="66.11694152923539" y="832.79999999999995"/>
+            <point key="canvasLocation" x="-424" y="1145"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="ce1-Dt-pZP">
@@ -586,6 +588,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kgG-HO-fVw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1905" y="-86"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="atx-ep-Cgc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vby-ID-4Ri" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yTi-ER-O5m">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="32"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ex6-kE-Rff" kind="relationship" relationship="rootViewController" id="PY1-My-pcP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5u-W1-oM1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1227.4362818590705" y="-95.200000000000003"/>
         </scene>
     </scenes>
 </document>

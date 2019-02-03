@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class Category_ViewController: UIViewController, UICollectionViewDataSource {
+class Category_ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     // var ref : DatabaseReference!
     
@@ -38,9 +38,11 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource {
         cell.categoryTitleLabel.adjustsFontSizeToFitWidth = true
         return cell
     }
-    
-    
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "StartView_Controller")as? Start_ViewController
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+        
     // DelegateData with tempButton, Temp Code :  This code should be inserted to collectionView _ Button
     @IBAction func touchTempNext(_ sender: Any) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
