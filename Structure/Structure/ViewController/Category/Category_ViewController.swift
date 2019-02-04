@@ -53,7 +53,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @IBAction func ChangeMotionEnviroment(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            gameEnviroment.motionEnviroment = "Toucn"
+            gameEnviroment.motionEnviroment = "Touch"
         }
         if sender.selectedSegmentIndex == 1 {
             gameEnviroment.motionEnviroment = "Gyro"

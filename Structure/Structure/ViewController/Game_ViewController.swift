@@ -14,6 +14,7 @@ protocol GameDelegateProtocol {
 }
 
 class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
+    var actionGyro : Bool?
     var game = GameController()
     var gameEnviroment : GameEnviroment?
     var motion = CMMotionManager()
@@ -60,18 +61,7 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
             self.priviousButton.isHidden = false
         }
     }
-    func CorrectMotion () {
-        game.touchCorrectButton()
-        contentLabel.text = game.contentText
-        correctOrPassLabel.text = "Correct"
-        correctOrPassLabel.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
-        GravityBehavior.magnitude = 0
-        let time = DispatchTime.now() + .milliseconds(300)
-        DispatchQueue.main.asyncAfter(deadline: time){
-            self.correctOrPassLabel.isHidden = true
-            self.GravityBehavior.magnitude = 1.0
-        }
-    }
+    
     
     @IBAction func passButton(_ sender: Any) {
         game.touchPassButton()
@@ -91,18 +81,7 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
         }
     }
     
-    func PassMotion () {
-        game.touchCorrectButton()
-        contentLabel.text = game.contentText
-        correctOrPassLabel.text = "Pass"
-        correctOrPassLabel.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
-        GravityBehavior.magnitude = 0
-        let time = DispatchTime.now() + .milliseconds(300)
-        DispatchQueue.main.asyncAfter(deadline: time){
-            self.correctOrPassLabel.isHidden = true
-            self.GravityBehavior.magnitude = 1.0
-        }
-    }
+    
     
     @IBAction func priviousButton(_ sender: Any) {
         game.touchPriviousButton()
@@ -126,6 +105,8 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
     func CheckEndDone() {
         if seconds == 0{
             timerLabel.removeFromSuperview()
+            self.GravityBehavior.magnitude = 0
+            self.actionGyro = false
             ShowPopup()
         }
     }
@@ -189,20 +170,53 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if gameEnviroment?.motionEnviroment == "Gyro"{
+        if gameEnviroment?.motionEnviroment == "Gyro" && actionGyro == true{
             if motion.isAccelerometerAvailable{
                 GravityBehavior.magnitude = 1.0
                 motion.accelerometerUpdateInterval = 1/10
                 motion.startAccelerometerUpdates(to: .main) { (data, error) in
-                    if let z = data?.acceleration.z{
-                        if z <= -0.8 {
-                            self.PassMotion()
-                        }else if z >= 0.8 {
+                    if let z = data?.acceleration.z , self.seconds >= 0{
+                        if z <= -0.8 && self.actionGyro == true {
+                            self.GravityBehavior.magnitude = 0
+                            self.actionGyro = false
+                            self.game.touchPassButton()
+                            self.correctOrPassLabel.text = "Pass"
+                            self.correctOrPassLabel.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+                            self.correctOrPassLabel.isHidden = false
+                            self.contentLabel.text = self.game.contentText
+                        }
+                        if z >= 0.8 && self.actionGyro == true {
+                            self.GravityBehavior.magnitude = 0
+                            self.actionGyro = false
                             self.CorrectMotion()
+                            self.game.touchCorrectButton()
+                            self.correctOrPassLabel.text = "Correct"
+                            self.correctOrPassLabel.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+                            self.correctOrPassLabel.isHidden = false
+                            self.contentLabel.text = self.game.contentText
+                        }
+                        if z >= -0.1 && z <= 0.1 && self.actionGyro == false {
+                            let time = DispatchTime.now() + .milliseconds(100)
+                            DispatchQueue.main.asyncAfter(deadline: time){
+                                self.correctOrPassLabel.isHidden = true
+                                self.actionGyro = true
+                                self.GravityBehavior.magnitude = 1.0
+                            }
                         }
                     }
                 }
             }
+        }
+    }
+    
+    func CorrectMotion () {
+        
+        GravityBehavior.magnitude = 0
+        let time = DispatchTime.now() + .milliseconds(500)
+        DispatchQueue.main.asyncAfter(deadline: time){
+            self.correctOrPassLabel.isHidden = true
+            self.actionGyro = true
+            self.GravityBehavior.magnitude = 1.0
         }
     }
     
@@ -229,7 +243,13 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
         if gameEnviroment?.motionEnviroment == "Gyro" {
             correctButton.isEnabled = false
             passButton.isEnabled = false
+            actionGyro = true
+        }else{
+            correctButton.isEnabled = true
+            passButton.isEnabled = true
+            actionGyro = false
         }
+        
     }
     
     
