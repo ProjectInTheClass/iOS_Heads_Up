@@ -10,15 +10,15 @@ import UIKit
 import CoreMotion
 
 protocol GameDelegateProtocol {
-    func CreatNewRound()
+    func MoveToCategory()
 }
 
 class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
     var game = GameController()
     var gameEnviroment : GameEnviroment?
     var motion = CMMotionManager()
-    //receive from Start view
     var delegate : GameDelegateProtocol?
+    //receive from Start view
     var gameSetting = GameSetting()
     var contents : [String]?
     
@@ -175,7 +175,7 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
             self.present(TotalScoreCotroller!, animated: false, completion: nil)
         }else{
             self.dismiss(animated: false, completion: nil)
-            delegate?.CreatNewRound()
+            delegate?.MoveToCategory()
         }
     }
     

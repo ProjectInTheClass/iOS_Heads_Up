@@ -29,13 +29,14 @@ class Initial_ViewController: UIViewController , SettingTimeAndPlayerDelegatePro
         self.gameSetting=popPlayerAndTimeSetting.gameSetting
         popPlayerAndTimeSetting.removeFromSuperview()
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let categoryController = storyBoard.instantiateViewController(withIdentifier: "Category") as? Category_ViewController
-        categoryController?.gameSetting = popPlayerAndTimeSetting.gameSetting
-        self.present(categoryController!, animated: false, completion: nil)
+        let NavigationController = storyBoard.instantiateViewController(withIdentifier: "Navigation") as? Navigation_ViewController
+        if let childVC = NavigationController?.topViewController as? Category_ViewController{
+            childVC.gameSetting = self.gameSetting
+        }
+        self.present(NavigationController!, animated: false, completion: nil)
         
     }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }

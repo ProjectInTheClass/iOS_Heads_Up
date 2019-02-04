@@ -16,12 +16,11 @@ class Start_ViewController: UIViewController, GameDelegateProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    //function of Game_ViewController, return to Category StoryBoard
-    func CreatNewRound() {
-        self.dismiss(animated: false, completion: nil)
-    }
     
+    func MoveToCategory() {
+        navigationController?.popViewController(animated: false)
+    }
+
     //send gameSetting and contents Data using segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? Game_ViewController {
