@@ -20,7 +20,7 @@ class TotalScore_ViewController: UIViewController {
         
     }
     @IBAction func TouchMoreGame(_ sender: Any) {
-    
+        
     }
     
     override func viewDidLoad() {
@@ -40,16 +40,19 @@ class TotalScore_ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-
-
+    
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? Category_ViewController {
-            self.gameSetting?.settingPlayerCount = 0
-            self.gameSetting?.playerScore = nil
-            vc.gameSetting = self.gameSetting
+        if let vc = segue.destination as? Navigation_ViewController {
+            if let childVC = vc.topViewController as? Category_ViewController{
+                self.gameSetting?.settingPlayerCount = 0
+                self.gameSetting?.playerScore = nil
+                childVC.gameSetting = self.gameSetting
+            }
         }
+        if let vc = segue.destination as? Initial_ViewController {
+            vc.gameSetting = nil   }
     }
     
-
 }

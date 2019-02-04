@@ -11,14 +11,12 @@ import UIKit
 
 class Start_ViewController: UIViewController, GameDelegateProtocol {
     var gameSetting : GameSetting?
+    var gameEnviroment : GameEnviroment?
     var contents : [String]?
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    @IBAction func TouchBackButton(_ sender: Any) {
-        self.dismiss(animated: false, completion: nil)
-    }
+
     //function of Game_ViewController, return to Category StoryBoard
     func CreatNewRound() {
         self.dismiss(animated: false, completion: nil)
@@ -29,6 +27,7 @@ class Start_ViewController: UIViewController, GameDelegateProtocol {
         if let vc = segue.destination as? Game_ViewController {
             vc.gameSetting = self.gameSetting!
             vc.contents = self.contents
+            vc.gameEnviroment = self.gameEnviroment
             vc.delegate = self
         }
     }

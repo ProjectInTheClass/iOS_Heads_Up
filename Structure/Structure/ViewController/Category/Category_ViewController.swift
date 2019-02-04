@@ -15,6 +15,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     
     // var numberOfCell : Int = 10
     var gameSetting : GameSetting? //receive from Initial_ViewController
+    var gameEnviroment = GameEnviroment()
     // To Do : get allCategory and contents array from Contents().JSON file
     var testContest = Content()
     var cellIdentifier: String = "cell"
@@ -39,18 +40,8 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "StartView_Controller")as? Start_ViewController
-        self.navigationController?.pushViewController(vc!, animated: true)
-    }
-        
-    // DelegateData with tempButton, Temp Code :  This code should be inserted to collectionView _ Button
-    @IBAction func touchTempNext(_ sender: Any) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let startViewController = storyBoard.instantiateViewController(withIdentifier: "GameStart") as? Start_ViewController
-        startViewController?.gameSetting = self.gameSetting
-        startViewController?.contents = self.contents
-        self.present(startViewController!, animated: false, completion: nil)
-        
+        let startViewController = storyboard?.instantiateViewController(withIdentifier: "StartView_Controller")as? Start_ViewController
+        self.navigationController?.pushViewController(startViewController!, animated: true)
     }
     
     @IBOutlet var playerNumber: UILabel!
@@ -59,8 +50,15 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         self.dismiss(animated: false, completion: nil)
     }
     
-    @IBAction func TouchCustom(_ sender: Any) {
-        let popPlayerAndTimeSetting : SettingTimeAndPlayer_ViewController = UINib(nibName: "SettingTimeAndPlayer", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! SettingTimeAndPlayer_ViewController
+    
+    @IBAction func ChangeMotionEnviroment(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            gameEnviroment.motionEnviroment = "Toucn"
+        }
+        if sender.selectedSegmentIndex == 1 {
+            gameEnviroment.motionEnviroment = "Gyro"
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -72,6 +70,15 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     
     override func viewWillAppear(_ animated: Bool) {
         playerNumber.text = "Player\((gameSetting?.settingPlayerCount)! + 1)"
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let startViewController = segue.destination as? Start_ViewController {
+            startViewController.gameSetting = self.gameSetting
+            startViewController.contents = self.contents
+            startViewController.gameEnviroment = self.gameEnviroment
+        }
     }
     /*
      // MARK: - Navigation

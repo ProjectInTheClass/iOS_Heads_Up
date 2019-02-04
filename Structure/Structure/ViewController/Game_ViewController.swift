@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import CoreMotion
+
 protocol GameDelegateProtocol {
     func CreatNewRound()
 }
 
 class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
     var game = GameController()
-    
+    var gameEnviroment : GameEnviroment?
+    var motion = CMMotionManager()
     //receive from Start view
     var delegate : GameDelegateProtocol?
     var gameSetting = GameSetting()
@@ -57,6 +60,18 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
             self.priviousButton.isHidden = false
         }
     }
+    func CorrectMotion () {
+        game.touchCorrectButton()
+        contentLabel.text = game.contentText
+        correctOrPassLabel.text = "Correct"
+        correctOrPassLabel.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        GravityBehavior.magnitude = 0
+        let time = DispatchTime.now() + .milliseconds(300)
+        DispatchQueue.main.asyncAfter(deadline: time){
+            self.correctOrPassLabel.isHidden = true
+            self.GravityBehavior.magnitude = 1.0
+        }
+    }
     
     @IBAction func passButton(_ sender: Any) {
         game.touchPassButton()
@@ -73,6 +88,19 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
             self.passButton.isEnabled = true
             self.priviousButton.isEnabled = true
             self.priviousButton.isHidden = false
+        }
+    }
+    
+    func PassMotion () {
+        game.touchCorrectButton()
+        contentLabel.text = game.contentText
+        correctOrPassLabel.text = "Pass"
+        correctOrPassLabel.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        GravityBehavior.magnitude = 0
+        let time = DispatchTime.now() + .milliseconds(300)
+        DispatchQueue.main.asyncAfter(deadline: time){
+            self.correctOrPassLabel.isHidden = true
+            self.GravityBehavior.magnitude = 1.0
         }
     }
     
@@ -138,7 +166,7 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
             gameSetting.playerScore?.append(game.gameScore)
         }else{
             gameSetting.playerScore = [game.gameScore]
-            }
+        }
         if gameSetting.settingPlayerCount == gameSetting.settingPlayer{
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let TotalScoreCotroller = storyBoard.instantiateViewController(withIdentifier: "TotalScore") as? TotalScore_ViewController
@@ -146,13 +174,45 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
             TotalScoreCotroller?.gameSetting = self.gameSetting
             self.present(TotalScoreCotroller!, animated: false, completion: nil)
         }else{
-                self.dismiss(animated: false, completion: nil)
-                delegate?.CreatNewRound()
-            }
+            self.dismiss(animated: false, completion: nil)
+            delegate?.CreatNewRound()
+        }
     }
     
-
- 
+    
+    var GravityBehavior : UIGravityBehavior = {
+        let behavior = UIGravityBehavior()
+        behavior.magnitude = 0
+        return behavior
+    }()
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if gameEnviroment?.motionEnviroment == "Gyro"{
+            if motion.isAccelerometerAvailable{
+                GravityBehavior.magnitude = 1.0
+                motion.accelerometerUpdateInterval = 1/10
+                motion.startAccelerometerUpdates(to: .main) { (data, error) in
+                    if let z = data?.acceleration.z{
+                        if z <= -0.8 {
+                            self.PassMotion()
+                        }else if z >= 0.8 {
+                            self.CorrectMotion()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if gameEnviroment?.motionEnviroment == "Gyro"{
+            super.viewWillDisappear(animated)
+            GravityBehavior.magnitude = 0
+            motion.stopAccelerometerUpdates()
+        }
+    }
     
     override func viewDidLoad() { //재정의 할 것이다.
         super.viewDidLoad() //vidwDidLoad : 기존 기능에 덧붙혀서 기능을 추가 할 것이다.
@@ -166,10 +226,14 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
         contentLabel.adjustsFontSizeToFitWidth = true
         self.priviousButton.isEnabled = false
         self.priviousButton.isHidden = true
+        if gameEnviroment?.motionEnviroment == "Gyro" {
+            correctButton.isEnabled = false
+            passButton.isEnabled = false
+        }
     }
     
- 
-
+    
+    
     /* gnuk 참고 이전 viewController에서 Game_ViewController로 넘겨줘야 하는 값, 부분
      let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
      let startViewController = storyBoard.instantiateViewController(withIdentifier: "gameStart") as? Game_ViewController

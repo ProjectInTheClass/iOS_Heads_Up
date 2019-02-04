@@ -10,3 +10,7 @@
 // Sound 설정 등등
 
 import Foundation
+
+class GameEnviroment {
+    var motionEnviroment = "Touch"
+}

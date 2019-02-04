@@ -108,25 +108,34 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDK-ZS-veh">
-                                <rect key="frame" x="575" y="315" width="70" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="TempNext"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mc8-cW-X9q">
+                                <rect key="frame" x="483" y="47" width="103" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="5tT-uC-mTT"/>
+                                    <constraint firstAttribute="height" constant="28" id="U8K-U0-n1W"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Touch"/>
+                                    <segment title="Gyro"/>
+                                </segments>
                                 <connections>
-                                    <action selector="touchTempNext:" destination="ex6-kE-Rff" eventType="touchUpInside" id="NDn-To-8ov"/>
+                                    <action selector="ChangeMotionEnviroment:" destination="ex6-kE-Rff" eventType="valueChanged" id="VQF-wf-zuJ"/>
                                 </connections>
-                            </button>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vFX-Rr-TWI" firstAttribute="top" secondItem="nOj-U5-PzR" secondAttribute="top" constant="55" id="Ban-Vx-9WB"/>
                             <constraint firstItem="Hbm-Qk-zEH" firstAttribute="top" secondItem="nOj-U5-PzR" secondAttribute="top" constant="50" id="F9o-y8-rKk"/>
+                            <constraint firstItem="mc8-cW-X9q" firstAttribute="leading" secondItem="nOj-U5-PzR" secondAttribute="leading" constant="483" id="aeB-N4-0Vh"/>
                             <constraint firstItem="vFX-Rr-TWI" firstAttribute="leading" secondItem="nOj-U5-PzR" secondAttribute="leading" constant="25" id="cDV-fO-CdU"/>
                             <constraint firstItem="nOj-U5-PzR" firstAttribute="trailing" secondItem="Hbm-Qk-zEH" secondAttribute="trailing" constant="100" id="cag-6V-tWu"/>
                             <constraint firstItem="4Mi-y3-dPo" firstAttribute="top" secondItem="nOj-U5-PzR" secondAttribute="top" constant="15" id="haC-EZ-7wS"/>
                             <constraint firstItem="nOj-U5-PzR" firstAttribute="trailing" secondItem="4Mi-y3-dPo" secondAttribute="trailing" constant="15" id="hyh-sz-Ecs"/>
                             <constraint firstItem="Hbm-Qk-zEH" firstAttribute="leading" secondItem="nOj-U5-PzR" secondAttribute="leading" constant="100" id="rfo-Fx-RSZ"/>
                             <constraint firstItem="nOj-U5-PzR" firstAttribute="bottom" secondItem="Hbm-Qk-zEH" secondAttribute="bottom" constant="30" id="s5P-su-Y8g"/>
+                            <constraint firstItem="4Mi-y3-dPo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mc8-cW-X9q" secondAttribute="trailing" constant="8" symbolic="YES" id="uZF-Ey-cDb"/>
+                            <constraint firstItem="mc8-cW-X9q" firstAttribute="top" secondItem="nOj-U5-PzR" secondAttribute="top" constant="15" id="yfG-ER-OY7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nOj-U5-PzR"/>
                     </view>
@@ -338,7 +347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ChV-97-UPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2778" y="988"/>
+            <point key="canvasLocation" x="-1666" y="1198"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="WPy-F0-XJb">
@@ -358,14 +367,6 @@
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" animates="NO" id="eyP-UY-3IT"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKs-lA-uAc">
-                                <rect key="frame" x="26" y="20" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="back"/>
-                                <connections>
-                                    <action selector="TouchBackButton:" destination="cJj-l1-PRG" eventType="touchUpInside" id="Kfd-bG-LPy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -523,7 +524,7 @@
                                 <state key="normal" title="One more game"/>
                                 <connections>
                                     <action selector="TouchMoreGame:" destination="vQN-yj-lCi" eventType="touchUpInside" id="9mI-5F-nCn"/>
-                                    <segue destination="vby-ID-4Ri" kind="show" animates="NO" id="9qd-SZ-5d9"/>
+                                    <segue destination="vby-ID-4Ri" kind="show" id="aSg-ny-mfC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cm-sz-0vF">
@@ -556,7 +557,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vw8-AK-JMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-424" y="1145"/>
+            <point key="canvasLocation" x="618" y="1250"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="ce1-Dt-pZP">
@@ -589,10 +590,10 @@
             </objects>
             <point key="canvasLocation" x="-1905" y="-86"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation View Controller-->
         <scene sceneID="atx-ep-Cgc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vby-ID-4Ri" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vby-ID-4Ri" customClass="Navigation_ViewController" customModule="Structure" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yTi-ER-O5m">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="32"/>
