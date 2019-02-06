@@ -19,8 +19,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xia-9z-3mH">
                     <rect key="frame" x="143.5" y="87.5" width="380" height="200"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="74" translatesAutoresizingMaskIntoConstraints="NO" id="wOG-Gn-CMM">
-                            <rect key="frame" x="63" y="51.5" width="254.5" height="29"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="wOG-Gn-CMM">
+                            <rect key="frame" x="56.5" y="51.5" width="267.5" height="29"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="플레이어수" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gj-iR-kbm">
                                     <rect key="frame" x="0.0" y="0.0" width="86.5" height="29"/>
@@ -28,23 +28,77 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="5KJ-05-gdn" userLabel="Player_Stepper">
-                                    <rect key="frame" x="160.5" y="0.0" width="94" height="29"/>
-                                </stepper>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dn7-Pm-Fiw" customClass="ValueStepper" customModule="ValueStepper">
+                                    <rect key="frame" x="126.5" y="0.0" width="141" height="29"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="stepValue">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="iconButtonColor">
+                                            <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
+                                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="PlayeyStepper:" destination="iN0-l3-epB" eventType="valueChanged" id="1Kd-bX-1sI"/>
+                                    </connections>
+                                </view>
                             </subviews>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="83" translatesAutoresizingMaskIntoConstraints="NO" id="LWf-1k-vLd">
-                            <rect key="frame" x="67" y="105.5" width="246.5" height="29"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="LWf-1k-vLd">
+                            <rect key="frame" x="56.5" y="105.5" width="267.5" height="29"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제한시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1X-uf-zra">
-                                    <rect key="frame" x="0.0" y="0.0" width="69.5" height="29"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="86.5" height="29"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="8KB-Nv-xPO" userLabel="Time_Stepper">
-                                    <rect key="frame" x="152.5" y="0.0" width="94" height="29"/>
-                                </stepper>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GcU-8V-KA6" customClass="ValueStepper" customModule="ValueStepper">
+                                    <rect key="frame" x="126.5" y="0.0" width="141" height="29"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                            <real key="value" value="60"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                                            <real key="value" value="600"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="stepValue">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="iconButtonColor">
+                                            <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
+                                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="TimeLimitStepper:" destination="iN0-l3-epB" eventType="valueChanged" id="bek-dH-G4A"/>
+                                    </connections>
+                                </view>
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bij-fi-DR8" customClass="Se">
@@ -76,7 +130,9 @@
                         <constraint firstItem="LWf-1k-vLd" firstAttribute="top" secondItem="wOG-Gn-CMM" secondAttribute="bottom" constant="25" id="G4D-lG-V7N"/>
                         <constraint firstItem="LWf-1k-vLd" firstAttribute="centerX" secondItem="xia-9z-3mH" secondAttribute="centerX" id="Gwu-MV-Mpt"/>
                         <constraint firstAttribute="width" constant="380" id="VcR-W9-Z0k"/>
+                        <constraint firstItem="GcU-8V-KA6" firstAttribute="width" secondItem="dn7-Pm-Fiw" secondAttribute="width" id="fcg-Tm-INa"/>
                         <constraint firstItem="bij-fi-DR8" firstAttribute="centerX" secondItem="xia-9z-3mH" secondAttribute="centerX" id="oyb-v6-GKG"/>
+                        <constraint firstItem="GcU-8V-KA6" firstAttribute="centerX" secondItem="dn7-Pm-Fiw" secondAttribute="centerX" id="p4e-Wu-5Gt"/>
                         <constraint firstItem="LWf-1k-vLd" firstAttribute="centerY" secondItem="xia-9z-3mH" secondAttribute="centerY" constant="20" id="wdG-6R-6lf"/>
                         <constraint firstAttribute="bottom" secondItem="bij-fi-DR8" secondAttribute="bottom" constant="10" id="xlM-ti-9rV"/>
                         <constraint firstItem="wOG-Gn-CMM" firstAttribute="centerX" secondItem="xia-9z-3mH" secondAttribute="centerX" id="y3c-Ee-daA"/>

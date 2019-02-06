@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ValueStepper
 
 protocol SettingTimeAndPlayerDelegateProtocol {
     func ShowNextView()
@@ -17,15 +18,18 @@ class SettingTimeAndPlayer_ViewController: UIView {
     var gameSetting = GameSetting()
     var delegate : SettingTimeAndPlayerDelegateProtocol?
     
-    //To Do : assign timeLimit, settingPlayer value
+    @IBAction func PlayeyStepper(_ sender: ValueStepper) {
+        gameSetting.settingPlayer = Int(sender.value)
+    }
     
+    @IBAction func TimeLimitStepper(_ sender: ValueStepper) {
+        gameSetting.timeLimit = Int(sender.value)
+    }
     
     @IBAction func closeButton(_ sender: Any) {
         self.removeFromSuperview()
     }
     @IBAction func ClickStartButton(_ sender: Any) {
-        self.gameSetting.timeLimit = 5
-        gameSetting.settingPlayer = 3
         gameSetting.settingPlayerCount = 0
         gameSetting.playerScore?.removeAll()
         delegate?.ShowNextView()

@@ -9,4 +9,7 @@ target 'Structure' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Firestore'
+  pod 'ValueStepper'
+
 end
+
