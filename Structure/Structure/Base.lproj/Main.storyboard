@@ -80,10 +80,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpi-SX-bsI">
                                         <rect key="frame" x="0.0" y="38" width="55" height="30"/>
                                         <state key="normal" title="All"/>
+                                        <connections>
+                                            <action selector="AllCategory:" destination="ex6-kE-Rff" eventType="touchUpInside" id="EE3-ZW-GZd"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kj6-oD-ZoT">
                                         <rect key="frame" x="0.0" y="76" width="55" height="30"/>
                                         <state key="normal" title="Favorite"/>
+                                        <connections>
+                                            <action selector="FavoritCategory:" destination="ex6-kE-Rff" eventType="touchUpInside" id="B7Q-S6-F9z"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Qg-p7-RaS">
                                         <rect key="frame" x="0.0" y="114" width="55" height="30"/>

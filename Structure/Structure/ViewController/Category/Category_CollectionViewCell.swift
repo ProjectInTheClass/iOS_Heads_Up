@@ -8,11 +8,14 @@
 
 import UIKit
 
+var favoritButton = favoriteButton()
 protocol UICollectionViewDelegate {
     func GetCellTitle(title : String)
+    func SetFavorit (favoritTitle : String)
 }
 
 class Category_CollectionViewCell: UICollectionViewCell {
+    var favoritContent : [String]?
     var delegate : UICollectionViewDelegate?
     @IBOutlet var categoryTitleLabel: UILabel!
 
@@ -25,7 +28,15 @@ class Category_CollectionViewCell: UICollectionViewCell {
             else {
                 categoryTitleLabel.textColor = UIColor.black
             }
-        } }
+        }
+    }
+    
+    
+    @IBAction func favorit(_ sender: Any) {
+        delegate?.SetFavorit(favoritTitle: categoryTitleLabel.text!)
+    }
+    
+    
 
     
 }

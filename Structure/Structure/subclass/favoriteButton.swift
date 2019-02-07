@@ -34,6 +34,7 @@ class favoriteButton: UIButton {
         if isOn == true{
             setImage(UIImage(named:"starA"), for: UIControl.State.normal)
             print("Marking as favorite")
+            
         }
         else{
             setImage(UIImage(named: "star"), for: UIControl.State.normal)
