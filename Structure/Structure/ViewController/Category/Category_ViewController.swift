@@ -37,11 +37,8 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         
         cell.categoryTitleLabel.text = category
         cell.categoryTitleLabel.adjustsFontSizeToFitWidth = true
+        cell.delegate = self
         return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let startViewController = storyboard?.instantiateViewController(withIdentifier: "StartView_Controller")as? Start_ViewController
-        self.navigationController?.pushViewController(startViewController!, animated: true)
     }
     
     @IBOutlet var playerNumber: UILabel!
@@ -81,9 +78,14 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
             startViewController.gameEnviroment = self.gameEnviroment
         }
         else if let customViewController = segue.destination as? Add_CustomTheme_ViewController{
-            
+            print("Do Custum")
         }
     }
+    
+    func GetCellTitle(title : String){
+        contents = testContest.InitContents(title: title)
+    }
+
     /*
      // MARK: - Navigation
      

@@ -15,8 +15,6 @@ import Foundation
 class GameController{
     
     var contents : [String]?
-    // gnuk's Todo : game부분에서 Content()를 받지 않고 view Controller로 넘어온 content[String]을 통해 게임을 진행할 수 있도록 해쥬
-    // var contets : [String]?
     var contentText : String?
     var contentPointer : Int = 0 {
         didSet {
