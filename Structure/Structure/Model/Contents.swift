@@ -15,17 +15,23 @@
 // 서버와의 연결
 
 import Foundation
+import Firebase
+import FirebaseFirestore
 
-struct Content
+public struct Content
 {
-
-    var contents : [String]?
+    var index : Int?
+    var word : [String]?
+    var title : String?
     
-    static var identifierFactory = 0
-    static func getUniqueIdentifier() -> Int{
-        Content.identifierFactory += 1
-        return Content.identifierFactory
+    init(index : Int, word: [String], title:String) {
+        self.index = index
+        self.word = word
+        self.title = title
     }
+}
+
+    
     /*func shuffleContent () {
         for shuffleCount in contents.indices {
             let randomValue = Int(arc4random_uniform(UInt32(contents.count)))
@@ -33,52 +39,8 @@ struct Content
             contents[shuffleCount] = contents[randomValue]
             contents[randomValue] = temp
         }
-    }
-   */
-    let newUrl = Bundle.main.url(forResource: "contentsSource2", withExtension: "json")
-    mutating func getdata() {
-        guard let j = newUrl
-            else{
-                print("data not found")
-                return
-        }
-        
-        guard let d = try? Data(contentsOf: j)
-            else { print("failed")
-                return
-                
-        }
-        
-        guard let rootJSON = try? JSONSerialization.jsonObject(with: d, options: []) as! [String : Any]
-            else{ print("failedh")
-                return
-                
-        }
-        
-        if let JSON = rootJSON as? [String: Any] {
-            
-            // (컨텐츠 제목 들어갈 라벨명).text = JSON["name"] as? String
-            
-            guard let jsonArray = JSON["list"] as? [[String: Any]] else {
-                return
-            }
-            print(jsonArray) // jsonArray에서는
-            
-            //gnuk's To Do : JSON파일에서 "list"로 부터 받아온 파일이 지금 [[String : Any]] 로 되어있음
-            //  [[String : Any]] 을 getContentsData = [String : Any] 로 풀고
-            //dictoinary make to Array cods is
-          /*
-            let getContentsData : [Any]?
-            
-            print(getContentsData)
-            
-         //   var anyContents = Array(getContentsData.values) //[String : Any] dictionary를 [Any] array로 변경
-             
-            //contents = anyContents as? [String] // [Any] Array 를 [String]로 설정
-            print(contents)
- */
-        }
-    }
-}
+     }
+     */
+
 
 

@@ -46,7 +46,7 @@ class Add_CustomTheme_ViewController: UIViewController {
             }
         }
         
-        self.dismiss(animated: false, completion: nil)
+        navigationController?.popViewController(animated: false)
         
     }
     
