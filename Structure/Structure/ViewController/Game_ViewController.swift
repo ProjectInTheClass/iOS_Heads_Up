@@ -128,7 +128,7 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
         popup.baseView.backgroundColor = #colorLiteral(red: 0.8777112365, green: 0.7940018773, blue: 0.5124126673, alpha: 1)
         popup.baseView.layer.cornerRadius = 8.0
         popup.nextButton.setTitle("Next Game", for: .normal)
-        if gameSetting.settingPlayer! == gameSetting.settingPlayerCount + 1 {
+        if gameSetting.settingPlayer == gameSetting.settingPlayerCount + 1 {
             popup.nextButton.setTitle("Total Score", for: .normal)
         }
         self.view.addSubview(popup)
@@ -230,7 +230,7 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
     
     override func viewDidLoad() { //재정의 할 것이다.
         super.viewDidLoad() //vidwDidLoad : 기존 기능에 덧붙혀서 기능을 추가 할 것이다.
-        seconds = gameSetting.timeLimit!
+        seconds = gameSetting.timeLimit
         game.contents = self.contents!
         game.shuffleContent()
         timerLabel.text = "\(seconds)"

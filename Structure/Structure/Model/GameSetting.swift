@@ -13,8 +13,8 @@ import Foundation
 
 class GameSetting {
     var settingPlayerCount : Int = 0
-    var settingPlayer : Int?
-    var timeLimit : Int?
+    var settingPlayer : Int = 2
+    var timeLimit : Int = 60
     var playerScore : [Int]?
 
 }

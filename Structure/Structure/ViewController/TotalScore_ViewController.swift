@@ -13,7 +13,7 @@ class TotalScore_ViewController: UIViewController {
     var gameSetting : GameSetting?
     var totalPlayerScore : [Int]?
     var scoreListLabel : [String] = ["🌟Score🌟"]
-    var winner = 0
+    var winner : [Int]?
     @IBOutlet var scoreLabel2: UILabel!
     @IBOutlet var winnerLabel: UILabel!
     @IBAction func TouchHomeButton(_ sender: Any) {
@@ -26,14 +26,20 @@ class TotalScore_ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let scoreList = totalPlayerScore {
+            let winnerScore = scoreList.max()
             for playerNum in scoreList.indices{
                 scoreListLabel.append("player\(playerNum+1) :\t\(totalPlayerScore![playerNum])점")
-                if totalPlayerScore![playerNum] > totalPlayerScore![winner]{
-                    winner = playerNum
+                if totalPlayerScore![playerNum] == winnerScore {
+                    if var _ = winner{
+                        winner!.append(playerNum + 1)
+                    }else{
+                        winner = [playerNum + 1]
+                    }
                 }
             }
         }else{}
-        winnerLabel.text = "👑\nPlayer\n\(winner + 1)"
+        let winnerString = winner!.map(String.init).joined(separator: "\t")
+        winnerLabel.text = "👑\nPlayer\n\(winnerString)"
         winnerLabel.adjustsFontSizeToFitWidth = true
         scoreLabel2.text = scoreListLabel.joined(separator: "\n")
         scoreLabel2.adjustsFontSizeToFitWidth = true
