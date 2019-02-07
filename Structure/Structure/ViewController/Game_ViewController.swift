@@ -121,12 +121,10 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
         game.GameScore()
         popup.correctLabel.text = game.correctList?.joined(separator: "\u{0085}")         //make String from array
         popup.correctLabel.numberOfLines = (game.correctList?.count)!
-        popup.correctLabel.lineBreakMode = .byWordWrapping
-       // popup.correctLabel.adjustsFontSizeToFitWidth = true
+        popup.correctLabel.sizeToFit()
         popup.passLabel.text = game.passList?.joined(separator: "\u{0085}")
         popup.passLabel.numberOfLines = (game.passList?.count)!
-        popup.passLabel.lineBreakMode = .byWordWrapping
-       // popup.passLabel.adjustsFontSizeToFitWidth = true
+        popup.passLabel.sizeToFit()
         popup.scoreLabel.text = "Score : \(game.gameScore)"
         popup.scoreLabel.adjustsFontSizeToFitWidth = true
         popup.baseView.backgroundColor = #colorLiteral(red: 0.8777112365, green: 0.7940018773, blue: 0.5124126673, alpha: 1)
@@ -200,12 +198,12 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
                             self.contentLabel.text = self.game.contentText
                         }
                         if z >= -0.1 && z <= 0.1 && self.actionGyro == false {
-                            let time = DispatchTime.now() + .milliseconds(100)
-                            DispatchQueue.main.asyncAfter(deadline: time){
-                                self.correctOrPassLabel.isHidden = true
-                                self.actionGyro = true
-                                self.GravityBehavior.magnitude = 1.0
-                            }
+                            self.correctOrPassLabel.isHidden = true
+                            self.actionGyro = true
+                            self.GravityBehavior.magnitude = 1.0
+                            self.priviousButton.isEnabled = true
+                            self.priviousButton.isHidden = false
+                            
                         }
                     }
                 }
