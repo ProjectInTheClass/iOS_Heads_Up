@@ -15,8 +15,10 @@
 // 서버와의 연결
 
 import Foundation
+import Firebase
+import FirebaseFirestore
 
-struct Content
+public struct Content
 {
     var allCategory: [String] = ["한국영화", "외국영화", "한국드라마", "외국드라마", "K-POP(가수)", "K-POP(제목)", "스카이캐슬", "보헤미안 랩소디", "동물"]
     
@@ -45,11 +47,14 @@ struct Content
     
     var contents : [String]?
     
-    static var identifierFactory = 0
-    static func getUniqueIdentifier() -> Int{
-        Content.identifierFactory += 1
-        return Content.identifierFactory
+    init(index : Int, word: [String], title:String) {
+        self.index = index
+        self.word = word
+        self.title = title
     }
+}
+
+    
     /*func shuffleContent () {
      for shuffleCount in contents.indices {
      let randomValue = Int(arc4random_uniform(UInt32(contents.count)))
@@ -102,7 +107,8 @@ struct Content
              print(contents)
              */
         }
-    }
-}
+     }
+     */
+
 
 
