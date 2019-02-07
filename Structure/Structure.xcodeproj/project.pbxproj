@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31491D96220C044600C4F33E /* favoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31491D95220C044600C4F33E /* favoriteButton.swift */; };
 		319018A52202E03A0037602B /* Category_CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319018A42202E03A0037602B /* Category_CollectionViewCell.swift */; };
 		31F020D72200311E006EA84A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F020D62200311E006EA84A /* Category.swift */; };
 		9610E8132202E9C2009EEDD7 /* TotalScore_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610E8122202E9C2009EEDD7 /* TotalScore_ViewController.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		055F62FAC16621430181ABC4 /* Pods_Structure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Structure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31491D95220C044600C4F33E /* favoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favoriteButton.swift; sourceTree = "<group>"; };
 		319018A42202E03A0037602B /* Category_CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category_CollectionViewCell.swift; sourceTree = "<group>"; };
 		31F020D62200311E006EA84A /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		8A83C5A4D22E199B7A8368D9 /* Pods-Structure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Structure.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Structure/Pods-Structure.debug.xcconfig"; sourceTree = "<group>"; };
@@ -76,6 +78,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31491D94220C041200C4F33E /* subclass */ = {
+			isa = PBXGroup;
+			children = (
+				31491D95220C044600C4F33E /* favoriteButton.swift */,
+			);
+			path = subclass;
+			sourceTree = "<group>";
+		};
 		319018A62202E05C0037602B /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +140,7 @@
 		96F2D13F21F9508700D9FAFF /* Structure */ = {
 			isa = PBXGroup;
 			children = (
+				31491D94220C041200C4F33E /* subclass */,
 				96F2D15321F950B100D9FAFF /* Model */,
 				96F2D15221F9509B00D9FAFF /* SubFile */,
 				96F2D14421F9508700D9FAFF /* Main.storyboard */,
@@ -316,6 +327,7 @@
 				319018A52202E03A0037602B /* Category_CollectionViewCell.swift in Sources */,
 				96F2D15B21F9515800D9FAFF /* Contents.swift in Sources */,
 				9610E8132202E9C2009EEDD7 /* TotalScore_ViewController.swift in Sources */,
+				31491D96220C044600C4F33E /* favoriteButton.swift in Sources */,
 				96D0080522018B7200DD793A /* Initial_ViewController.swift in Sources */,
 				96F2D15921F9512300D9FAFF /* Enviroment.swift in Sources */,
 				96F2D15521F950F100D9FAFF /* Game.swift in Sources */,

@@ -41,6 +41,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLP-Ov-9xp" customClass="favoriteButton" customModule="Structure" customModuleProvider="target">
+                                                    <rect key="frame" x="102" y="8" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                                    <state key="normal" image="starA">
+                                                        <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.60696537340000001" green="0.87573148540000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -61,24 +69,24 @@
                                 </connections>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vFX-Rr-TWI">
-                                <rect key="frame" x="25" y="87" width="54" height="182"/>
+                                <rect key="frame" x="25" y="87" width="55" height="182"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKI-Gb-jN2">
-                                        <rect key="frame" x="0.0" y="0.0" width="54" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="55" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpi-SX-bsI">
-                                        <rect key="frame" x="0.0" y="38" width="54" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="38" width="55" height="30"/>
+                                        <state key="normal" title="All"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kj6-oD-ZoT">
-                                        <rect key="frame" x="0.0" y="76" width="54" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="76" width="55" height="30"/>
+                                        <state key="normal" title="Favorite"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Qg-p7-RaS">
-                                        <rect key="frame" x="0.0" y="114" width="54" height="30"/>
+                                        <rect key="frame" x="0.0" y="114" width="55" height="30"/>
                                         <state key="normal" title="Custom"/>
                                         <connections>
                                             <action selector="goToMakeCustom:" destination="QdM-Uh-dXA" eventType="touchUpInside" id="g9K-LV-EJa"/>
@@ -86,8 +94,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJB-29-Pjf">
-                                        <rect key="frame" x="0.0" y="152" width="54" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="152" width="55" height="30"/>
+                                        <state key="normal" title="Store"/>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -671,4 +679,7 @@
             <point key="canvasLocation" x="-1227.4362818590705" y="-95.200000000000003"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="starA" width="48" height="48"/>
+    </resources>
 </document>
