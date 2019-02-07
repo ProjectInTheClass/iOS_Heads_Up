@@ -46,12 +46,13 @@ public struct Content
     }
     
     var contents : [String]?
-    
+    /*
     init(index : Int, word: [String], title:String) {
         self.index = index
         self.word = word
         self.title = title
     }
+ */
 }
 
     
@@ -64,6 +65,7 @@ public struct Content
      }
      }
      */
+/*
     let newUrl = Bundle.main.url(forResource: "contentsSource2", withExtension: "json")
     mutating func getdata() {
         guard let j = newUrl
@@ -109,6 +111,7 @@ public struct Content
         }
      }
      */
+
 
 
 
