@@ -41,6 +41,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLP-Ov-9xp" customClass="favoriteButton" customModule="Structure" customModuleProvider="target">
+                                                    <rect key="frame" x="97" y="13" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                                    <state key="normal" image="starA">
+                                                        <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.60696537340000001" green="0.87573148540000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -671,4 +679,7 @@
             <point key="canvasLocation" x="-1227.4362818590705" y="-95.200000000000003"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="starA" width="48" height="48"/>
+    </resources>
 </document>
