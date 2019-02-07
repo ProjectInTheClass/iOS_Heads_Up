@@ -8,13 +8,19 @@
 
 import UIKit
 
+protocol UICollectionViewDelegate {
+    func GetCellTitle(title : String)
+}
+
 class Category_CollectionViewCell: UICollectionViewCell {
+    var delegate : UICollectionViewDelegate?
     @IBOutlet var categoryTitleLabel: UILabel!
 
     override var isSelected: Bool {
         didSet {
             if isSelected {
                 categoryTitleLabel.textColor = UIColor.white
+                delegate?.GetCellTitle(title: categoryTitleLabel.text!)
             }
             else {
                 categoryTitleLabel.textColor = UIColor.black
