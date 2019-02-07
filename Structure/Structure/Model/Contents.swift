@@ -47,11 +47,11 @@ public struct Content
     
     var contents : [String]?
     
-    init(index : Int, word: [String], title:String) {
+  /*  init(index : Int, word: [String], title:String) {
         self.index = index
         self.word = word
         self.title = title
-    }
+    }*/
 }
 
     
@@ -65,7 +65,7 @@ public struct Content
      }
      */
     let newUrl = Bundle.main.url(forResource: "contentsSource2", withExtension: "json")
-    mutating func getdata() {
+    /*mutating func getdata() {
         guard let j = newUrl
             else{
                 print("data not found")
@@ -82,9 +82,9 @@ public struct Content
             else{ print("failedh")
                 return
                 
-        }
+        }*/
         
-        if let JSON = rootJSON as? [String: Any] {
+      /*  if let JSON = rootJSON as? [String: Any] {
             
             // (컨텐츠 제목 들어갈 라벨명).text = JSON["name"] as? String
             
@@ -107,8 +107,8 @@ public struct Content
              print(contents)
              */
         }
-     }
-     */
+     }*/
+
 
 
 

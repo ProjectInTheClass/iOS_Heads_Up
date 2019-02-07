@@ -62,7 +62,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         //print data from Contents() : Test Code
-        testContest.getdata()
+      //  testContest.getdata()
         // Do any additional setup after loading the view.
     }
     
