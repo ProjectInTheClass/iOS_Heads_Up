@@ -81,9 +81,8 @@
                                         <rect key="frame" x="0.0" y="114" width="54" height="30"/>
                                         <state key="normal" title="Custom"/>
                                         <connections>
-                                            <action selector="TouchCustom:" destination="ex6-kE-Rff" eventType="touchUpInside" id="fV9-3R-v4v"/>
                                             <action selector="goToMakeCustom:" destination="QdM-Uh-dXA" eventType="touchUpInside" id="g9K-LV-EJa"/>
-                                            <segue destination="NyM-R2-KxY" kind="show" id="1xh-Hx-Ytp"/>
+                                            <segue destination="NyM-R2-KxY" kind="show" id="3lX-s8-RaV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJB-29-Pjf">

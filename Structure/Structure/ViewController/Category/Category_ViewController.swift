@@ -79,6 +79,9 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
             startViewController.contents = self.contents
             startViewController.gameEnviroment = self.gameEnviroment
         }
+        else if let customViewController = segue.destination as? Add_CustomTheme_ViewController{
+            
+        }
     }
     /*
      // MARK: - Navigation

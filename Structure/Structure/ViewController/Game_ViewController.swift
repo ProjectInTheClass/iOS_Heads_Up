@@ -119,10 +119,14 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
         popup.frame = self.view.frame
         popup.backgroundColor = viewColor.withAlphaComponent(0.6)
         game.GameScore()
-        popup.correctLabel.text = game.correctList?.joined(separator: "\n")         //make String from array
-        popup.correctLabel.adjustsFontSizeToFitWidth = true
-        popup.passLabel.text = game.passList?.joined(separator: "\n")
-        popup.passLabel.adjustsFontSizeToFitWidth = true
+        popup.correctLabel.text = game.correctList?.joined(separator: "\u{0085}")         //make String from array
+        popup.correctLabel.numberOfLines = (game.correctList?.count)!
+        popup.correctLabel.lineBreakMode = .byWordWrapping
+       // popup.correctLabel.adjustsFontSizeToFitWidth = true
+        popup.passLabel.text = game.passList?.joined(separator: "\u{0085}")
+        popup.passLabel.numberOfLines = (game.passList?.count)!
+        popup.passLabel.lineBreakMode = .byWordWrapping
+       // popup.passLabel.adjustsFontSizeToFitWidth = true
         popup.scoreLabel.text = "Score : \(game.gameScore)"
         popup.scoreLabel.adjustsFontSizeToFitWidth = true
         popup.baseView.backgroundColor = #colorLiteral(red: 0.8777112365, green: 0.7940018773, blue: 0.5124126673, alpha: 1)
