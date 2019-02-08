@@ -8,12 +8,14 @@
 
 import UIKit
 import Firebase
+import ViewAnimator
 
 class Category_ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     // var ref : DatabaseReference!
     
     // var numberOfCell : Int = 10
+
     var gameSetting : GameSetting? //receive from Initial_ViewController
     var gameEnviroment = GameEnviroment()
     // To Do : get allCategory and contents array from Contents().JSON file
@@ -28,11 +30,13 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @IBAction func AllCategory(_ sender: UIButton) {
         category = allCategory
-        
+        collectionView.reloadData()
     }
     
+    @IBOutlet var collectionView: UICollectionView!
     @IBAction func FavoritCategory(_ sender: Any) {
         category = favoritCategory
+        collectionView.reloadData()
     }
 
 
@@ -43,14 +47,12 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : Category_CollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: self.cellIdentifier, for: indexPath) as! Category_CollectionViewCell
-        
-        
+
         let category = self.category![indexPath.item]
-        print(indexPath.item)
-        
         cell.categoryTitleLabel.text = category
         cell.categoryTitleLabel.adjustsFontSizeToFitWidth = true
         cell.delegate = self
+        let animation = AnimationType.from(direction: .top, offset: 10)
         return cell
     }
     
@@ -74,6 +76,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         category = allCategory
         //print data from Contents() : Test Code
        // testContest.getdata()
@@ -91,9 +94,6 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
             startViewController.contents = self.contents
             startViewController.gameEnviroment = self.gameEnviroment
         }
-        else if let customViewController = segue.destination as? Add_CustomTheme_ViewController{
-            print("Do Custum")
-        }
     }
     
     func GetCellTitle(title : String){
@@ -107,6 +107,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
             favoritCategory = [favoritTitle]
         }
         print(favoritCategory)
+
     }
 
     /*

@@ -20,6 +20,14 @@ class Start_ViewController: UIViewController, GameDelegateProtocol {
     func MoveToCategory() {
         navigationController?.popViewController(animated: false)
     }
+    func GoHomeInStar(){
+        navigationController?.popToRootViewController(animated: false)
+    }
+    func MoreGameInStart(){
+        navigationController?.popViewController(animated: false)
+
+    }
+
 
     //send gameSetting and contents Data using segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -8,12 +8,15 @@
 
 import UIKit
 import CoreMotion
+import ViewAnimator
 
 protocol GameDelegateProtocol {
     func MoveToCategory()
+    func MoreGameInStart()
+    func GoHomeInStar()
 }
 
-class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
+class Game_ViewController: UIViewController , ScorePopupDelegateProtocol, TotalScoreDelegate {
     var actionGyro : Bool?
     var game = GameController()
     var gameEnviroment : GameEnviroment?
@@ -97,6 +100,8 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
     }
     
     @IBAction func TouchBackButton(_ sender: Any) {
+        let animation = AnimationType.from(direction: .right, offset: 30)
+        self.view.window?.animate(animations: [animation])
         self.dismiss(animated: false, completion: nil)
     }
     
@@ -120,10 +125,8 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
         popup.backgroundColor = viewColor.withAlphaComponent(0.6)
         game.GameScore()
         popup.correctLabel.text = game.correctList?.joined(separator: "\u{0085}")         //make String from array
-        popup.correctLabel.numberOfLines = (game.correctList?.count)!
         popup.correctLabel.sizeToFit()
         popup.passLabel.text = game.passList?.joined(separator: "\u{0085}")
-        popup.passLabel.numberOfLines = (game.passList?.count)!
         popup.passLabel.sizeToFit()
         popup.scoreLabel.text = "Score : \(game.gameScore)"
         popup.scoreLabel.adjustsFontSizeToFitWidth = true
@@ -133,6 +136,8 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
         if gameSetting.settingPlayer == gameSetting.settingPlayerCount + 1 {
             popup.nextButton.setTitle("Total Score", for: .normal)
         }
+        let animation = AnimationType.zoom(scale: 0.2)
+        popup.view.animate(animations: [animation])
         self.view.addSubview(popup)
     }
     
@@ -155,10 +160,17 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
             let TotalScoreCotroller = storyBoard.instantiateViewController(withIdentifier: "TotalScore") as? TotalScore_ViewController
             TotalScoreCotroller?.totalPlayerScore = gameSetting.playerScore
             TotalScoreCotroller?.gameSetting = self.gameSetting
+            TotalScoreCotroller?.delegate = self
+            let transition = CATransition()
+            transition.duration = 0.3
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromBottom
+            view.window!.layer.add(transition, forKey: kCATransition)
             self.present(TotalScoreCotroller!, animated: false, completion: nil)
+         
         }else{
-            self.dismiss(animated: false, completion: nil)
             delegate?.MoveToCategory()
+            self.dismiss(animated: false, completion: nil)
         }
     }
     
@@ -251,9 +263,18 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol {
             passButton.isEnabled = true
             actionGyro = false
         }
-        
+
     }
-    
+    func MoreGame(){
+        delegate?.MoreGameInStart()
+        self.dismiss(animated: false, completion: nil)
+
+    }
+    func GoHome(){
+        delegate?.GoHomeInStar()
+        self.dismiss(animated: false, completion: nil)
+
+    }
     
     
     /* gnuk 참고 이전 viewController에서 Game_ViewController로 넘겨줘야 하는 값, 부분

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ViewAnimator
 
 class Initial_ViewController: UIViewController , SettingTimeAndPlayerDelegateProtocol{
     
@@ -20,7 +21,10 @@ class Initial_ViewController: UIViewController , SettingTimeAndPlayerDelegatePro
         popPlayerAndTimeSetting.backgroundColor = viewColor.withAlphaComponent(0.6)
         popPlayerAndTimeSetting.delegate = self
         self.view.addSubview(popPlayerAndTimeSetting)
+        let animation = AnimationType.zoom(scale: 0.2)
+        popPlayerAndTimeSetting.view.animate(animations: [animation])
         popPlayerAndTimeSetting.frame = self.view.frame
+
 
     }
 
@@ -29,12 +33,9 @@ class Initial_ViewController: UIViewController , SettingTimeAndPlayerDelegatePro
         self.gameSetting=popPlayerAndTimeSetting.gameSetting
         popPlayerAndTimeSetting.removeFromSuperview()
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let NavigationController = storyBoard.instantiateViewController(withIdentifier: "Navigation") as? Navigation_ViewController
-        if let childVC = NavigationController?.topViewController as? Category_ViewController{
-            childVC.gameSetting = self.gameSetting
-        }
-        self.present(NavigationController!, animated: false, completion: nil)
-        
+        let CategoryViewController = storyBoard.instantiateViewController(withIdentifier: "Category") as? Category_ViewController
+        CategoryViewController!.gameSetting = self.gameSetting
+        self.navigationController?.pushViewController(CategoryViewController!, animated: true)
     }
 
     override func viewDidLoad() {

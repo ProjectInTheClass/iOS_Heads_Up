@@ -10,6 +10,6 @@ target 'Structure' do
   pod 'Firebase/Database'
   pod 'Firebase/Firestore'
   pod 'ValueStepper'
-
+  pod 'ViewAnimator'
 end
 

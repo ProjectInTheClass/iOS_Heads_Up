@@ -106,6 +106,7 @@
                 <outlet property="nextGameButton" destination="O61-If-lqa" id="baN-4u-4OR"/>
                 <outlet property="passLabel" destination="dgN-fO-mPg" id="WHp-as-sr6"/>
                 <outlet property="scoreLabel" destination="mue-0Z-mQu" id="Cth-hF-86B"/>
+                <outlet property="view" destination="yGo-WG-uU1" id="C4v-xB-djb"/>
             </connections>
             <point key="canvasLocation" x="30.134932533733135" y="85.599999999999994"/>
         </view>

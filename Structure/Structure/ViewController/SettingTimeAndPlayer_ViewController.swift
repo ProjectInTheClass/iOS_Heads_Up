@@ -18,6 +18,8 @@ class SettingTimeAndPlayer_ViewController: UIView {
     var gameSetting = GameSetting()
     var delegate : SettingTimeAndPlayerDelegateProtocol?
     
+    @IBOutlet var view: UIView!
+        
     @IBAction func PlayeyStepper(_ sender: ValueStepper) {
         gameSetting.settingPlayer = Int(sender.value)
     }
@@ -34,6 +36,7 @@ class SettingTimeAndPlayer_ViewController: UIView {
         gameSetting.playerScore?.removeAll()
         delegate?.ShowNextView()
     }
+    
     
     
     /*

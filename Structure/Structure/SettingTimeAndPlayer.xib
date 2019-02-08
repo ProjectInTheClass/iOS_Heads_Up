@@ -147,6 +147,9 @@
             </constraints>
             <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="view" destination="xia-9z-3mH" id="kOa-mj-7tx"/>
+            </connections>
             <point key="canvasLocation" x="30.134932533733135" y="85.599999999999994"/>
         </view>
     </objects>
