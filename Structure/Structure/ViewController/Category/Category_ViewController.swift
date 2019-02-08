@@ -35,8 +35,16 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @IBOutlet var collectionView: UICollectionView!
     @IBAction func FavoritCategory(_ sender: Any) {
-        category = favoritCategory
-        collectionView.reloadData()
+        if let _ = favoritCategory {
+            category = favoritCategory
+            collectionView.reloadData()
+        }else{
+            let alert = UIAlertController(title: "선호하는 항목이 없습니다", message: "추가하십시오", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+                self.present(alert, animated: true, completion: nil)
+            
+        }
     }
 
 
@@ -52,7 +60,8 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         cell.categoryTitleLabel.text = category
         cell.categoryTitleLabel.adjustsFontSizeToFitWidth = true
         cell.delegate = self
-        let animation = AnimationType.from(direction: .top, offset: 10)
+        let animation = AnimationType.from(direction: .top, offset: 30)
+        cell.animate(animations: [animation], reversed: false, initialAlpha: 0, finalAlpha: 1.0, delay: 0.0, duration: 0.8, options: UIView.AnimationOptions.init(rawValue: 0), completion: nil)
         return cell
     }
     
