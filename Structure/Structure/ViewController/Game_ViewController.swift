@@ -20,13 +20,22 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol, TotalS
     var actionGyro : Bool?
     var game = GameController()
     var gameEnviroment : GameEnviroment?
-    var motion = CMMotionManager()
+
     var delegate : GameDelegateProtocol?
     //receive from Start view
     var gameSetting = GameSetting()
     var contents : [String]?
     
     var seconds : Int = 60 // init from gameSetting.timeLimit
+    
+    
+    
+    var motion = CMMotionManager()
+    var GravityBehavior : UIGravityBehavior = {
+        let behavior = UIGravityBehavior()
+        behavior.magnitude = 0
+        return behavior
+    }()
     
     //Timer
     var timer = Timer()
@@ -39,6 +48,8 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol, TotalS
     func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(Game_ViewController.updateTimer)), userInfo: nil, repeats: true)
     }
+    
+    
     
     @IBOutlet var contentLabel: UILabel!
     @IBOutlet var correctOrPassLabel: UILabel!
@@ -174,12 +185,7 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol, TotalS
         }
     }
     
-    
-    var GravityBehavior : UIGravityBehavior = {
-        let behavior = UIGravityBehavior()
-        behavior.magnitude = 0
-        return behavior
-    }()
+
     
     
     override func viewDidAppear(_ animated: Bool) {
@@ -190,7 +196,7 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol, TotalS
                 motion.accelerometerUpdateInterval = 1/10
                 motion.startAccelerometerUpdates(to: .main) { (data, error) in
                     if let z = data?.acceleration.z , self.seconds >= 0{
-                        if z <= -0.8 && self.actionGyro == true {
+                        if z <= -0.9 && z >= -1.4 && self.actionGyro == true {
                             self.GravityBehavior.magnitude = 0
                             self.actionGyro = false
                             self.game.touchPassButton()
@@ -198,24 +204,25 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol, TotalS
                             self.correctOrPassLabel.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
                             self.correctOrPassLabel.isHidden = false
                             self.contentLabel.text = self.game.contentText
+                            print(z)
                         }
-                        if z >= 0.8 && self.actionGyro == true {
+                        if z >= 0.9 && z <= 1.4 && self.actionGyro == true {
                             self.GravityBehavior.magnitude = 0
                             self.actionGyro = false
-                            self.CorrectMotion()
                             self.game.touchCorrectButton()
                             self.correctOrPassLabel.text = "Correct"
                             self.correctOrPassLabel.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
                             self.correctOrPassLabel.isHidden = false
                             self.contentLabel.text = self.game.contentText
+                            print(z)
                         }
-                        if z >= -0.1 && z <= 0.1 && self.actionGyro == false {
+                        if z >= -0.25 && z <= 0.2 && self.actionGyro == false {
                             self.correctOrPassLabel.isHidden = true
                             self.actionGyro = true
                             self.GravityBehavior.magnitude = 1.0
                             self.priviousButton.isEnabled = true
                             self.priviousButton.isHidden = false
-                            
+                            print(z)
                         }
                     }
                 }
@@ -223,20 +230,9 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol, TotalS
         }
     }
     
-    func CorrectMotion () {
-        
-        GravityBehavior.magnitude = 0
-        let time = DispatchTime.now() + .milliseconds(500)
-        DispatchQueue.main.asyncAfter(deadline: time){
-            self.correctOrPassLabel.isHidden = true
-            self.actionGyro = true
-            self.GravityBehavior.magnitude = 1.0
-        }
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         if gameEnviroment?.motionEnviroment == "Gyro"{
-            super.viewWillDisappear(animated)
             GravityBehavior.magnitude = 0
             motion.stopAccelerometerUpdates()
         }
@@ -254,6 +250,7 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol, TotalS
         contentLabel.adjustsFontSizeToFitWidth = true
         self.priviousButton.isEnabled = false
         self.priviousButton.isHidden = true
+        
         if gameEnviroment?.motionEnviroment == "Gyro" {
             correctButton.isEnabled = false
             passButton.isEnabled = false
@@ -264,6 +261,11 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol, TotalS
             actionGyro = false
         }
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let animation = AnimationType.zoom(scale: 0.01)
+        contentLabel.animate(animations: [animation], reversed: false, initialAlpha: 0, finalAlpha: 1.0, delay: 0.0, duration: 0.5, options: UIView.AnimationOptions.init(rawValue: 0), completion: nil)
     }
     func MoreGame(){
         delegate?.MoreGameInStart()

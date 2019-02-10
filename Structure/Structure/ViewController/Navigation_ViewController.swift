@@ -11,10 +11,14 @@ import UIKit
 class Navigation_ViewController: UINavigationController {
 
     var gameSetting : GameSetting? //receive from Initial_ViewController
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      
+    
+    
+        override func viewDidLoad() {
+        super.viewDidLoad()        
         self.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationBar.shadowImage = UIImage()
         self.navigationBar.isTranslucent = true

@@ -12,5 +12,5 @@
 import Foundation
 
 class GameEnviroment {
-    var motionEnviroment = "Touch"
+    var motionEnviroment : String?
 }

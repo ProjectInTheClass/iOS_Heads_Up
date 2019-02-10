@@ -8,17 +8,18 @@
 
 import UIKit
 
-var favoritButton = favoriteButton()
 protocol UICollectionViewDelegate {
     func GetCellTitle(title : String)
     func SetFavorit (favoritTitle : String)
+    func reloadCell(index : IndexPath)
 }
 
 class Category_CollectionViewCell: UICollectionViewCell {
     var favoritContent : [String]?
     var delegate : UICollectionViewDelegate?
+    var cellIndex : IndexPath?
     @IBOutlet var categoryTitleLabel: UILabel!
-
+    var isOn : Bool = false
     override var isSelected: Bool {
         didSet {
             if isSelected {
@@ -31,12 +32,30 @@ class Category_CollectionViewCell: UICollectionViewCell {
         }
     }
     
+
     
-    @IBAction func favorit(_ sender: Any) {
+    @IBAction func TouchFavorit(_ sender: UIButton) {
         delegate?.SetFavorit(favoritTitle: categoryTitleLabel.text!)
+        if isOn == true{
+            favoritButton.setImage(UIImage(named:"starA"), for: UIControl.State.normal)
+        }
+        else{
+            favoritButton.setImage(UIImage(named: "star"), for: UIControl.State.normal)
+        }
+        delegate?.reloadCell(index : cellIndex!)
+    }
+    
+    @IBOutlet var favoritButton: UIButton!
+    
+    func CheckButtonImage(){
+        if isOn == true{
+            favoritButton.setImage(UIImage(named:"starA"), for: UIControl.State.normal)
+        }else{
+            favoritButton.setImage(UIImage(named: "star"), for: UIControl.State.normal)
+        }
     }
     
     
-
+    
     
 }

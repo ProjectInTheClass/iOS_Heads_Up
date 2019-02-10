@@ -40,7 +40,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="1Z8-gd-ndW"/>
                                     </constraints>
-                                    <state key="normal" title="reset"/>
+                                    <state key="normal" title="초기화"/>
                                     <connections>
                                         <action selector="touchReset:" destination="iN0-l3-epB" eventType="touchUpInside" id="ALj-ou-ouy"/>
                                     </connections>

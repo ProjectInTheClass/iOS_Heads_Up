@@ -40,7 +40,7 @@ class TotalScore_ViewController: UIViewController {
         if let scoreList = totalPlayerScore {
             let winnerScore = scoreList.max()
             for playerNum in scoreList.indices{
-                scoreListLabel.append("player\(playerNum+1) :\t\(totalPlayerScore![playerNum])점")
+                scoreListLabel.append("player\(playerNum+1)  :  \(totalPlayerScore![playerNum])점")
                 if totalPlayerScore![playerNum] == winnerScore {
                     if var _ = winner{
                         winner!.append(playerNum + 1)
@@ -51,10 +51,11 @@ class TotalScore_ViewController: UIViewController {
             }
         }else{}
         let winnerString = winner!.map(String.init).joined(separator: "\t")
-        winnerLabel.text = "👑\nPlayer\n\(winnerString)"
-        winnerLabel.adjustsFontSizeToFitWidth = true
-        scoreLabel2.text = scoreListLabel.joined(separator: "\n")
-        scoreLabel2.adjustsFontSizeToFitWidth = true
+        winnerLabel.text = "👑\u{0085}Player\u{0085}\(winnerString)"
+        winnerLabel.sizeToFit()
+        
+        scoreLabel2.text = scoreListLabel.joined(separator: "\u{0085}")
+        scoreLabel2.sizeToFit()
         // Do any additional setup after loading the view.
     }
     
