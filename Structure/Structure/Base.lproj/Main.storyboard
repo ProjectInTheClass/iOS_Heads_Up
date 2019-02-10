@@ -65,7 +65,6 @@
                                         <connections>
                                             <outlet property="categoryTitleLabel" destination="kT0-3v-BX3" id="GeM-zW-ytf"/>
                                             <outlet property="favoritButton" destination="FLP-Ov-9xp" id="5Wj-07-gSX"/>
-                                            <segue destination="cJj-l1-PRG" kind="show" id="cce-e7-m6M"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -94,8 +93,7 @@
                                         <rect key="frame" x="0.0" y="131.66666666666669" width="69" height="57.666666666666657"/>
                                         <state key="normal" title="나만의 주제"/>
                                         <connections>
-                                            <action selector="goToMakeCustom:" destination="QdM-Uh-dXA" eventType="touchUpInside" id="g9K-LV-EJa"/>
-                                            <segue destination="NyM-R2-KxY" kind="show" id="3lX-s8-RaV"/>
+                                            <action selector="CustumCategory:" destination="ex6-kE-Rff" eventType="touchUpInside" id="kKf-OA-vgh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJB-29-Pjf">
@@ -160,6 +158,8 @@
                     <connections>
                         <outlet property="collectionView" destination="Hbm-Qk-zEH" id="8qc-ma-ycq"/>
                         <outlet property="playerNumber" destination="lKI-Gb-jN2" id="AwB-aD-P4y"/>
+                        <segue destination="cJj-l1-PRG" kind="show" identifier="startSegue" id="chl-KE-SPD"/>
+                        <segue destination="NyM-R2-KxY" kind="show" identifier="custumSegue" id="stx-kS-K8j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtj-1u-Z15" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -680,7 +680,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="I79-rF-g1y"/>
                     <connections>
-                        <segue destination="ex6-kE-Rff" kind="show" id="QdV-6z-d9A"/>
+                        <segue destination="ex6-kE-Rff" kind="show" identifier="category" id="QdV-6z-d9A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kgG-HO-fVw" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -12,6 +12,7 @@ protocol UICollectionViewDelegate {
     func GetCellTitle(title : String)
     func SetFavorit (favoritTitle : String)
     func reloadCell(index : IndexPath)
+    func selectFromTwoSegue(title : String)
 }
 
 class Category_CollectionViewCell: UICollectionViewCell {
@@ -25,12 +26,14 @@ class Category_CollectionViewCell: UICollectionViewCell {
             if isSelected {
                 categoryTitleLabel.textColor = UIColor.white
                 delegate?.GetCellTitle(title: categoryTitleLabel.text!)
+                delegate?.selectFromTwoSegue(title: categoryTitleLabel.text!)
             }
             else {
                 categoryTitleLabel.textColor = UIColor.black
             }
         }
     }
+
     
 
     

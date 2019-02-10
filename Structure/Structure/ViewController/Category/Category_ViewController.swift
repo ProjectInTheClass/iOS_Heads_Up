@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import ViewAnimator
 
-class Category_ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,EnviromentDelegateProtocol {
+class Category_ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,EnviromentDelegateProtocol ,addDelegateProtocol {
     
     // var ref : DatabaseReference!
     
@@ -20,48 +20,22 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     var gameEnviroment = GameEnviroment()
     // To Do : get allCategory and contents array from Contents().JSON file
     var gameContent = Content()
+    var customContent = Custom()
     var category : [String] = ["컨텐츠가 없습니다."]
     var cellIdentifier: String = "cell"
     var allCategory: [String] = ["컨텐츠가 없습니다."]
+    var custumCategory : [String] = ["추가하기"]
     var favoritCategory : [String]?
     var contents = ["컨텐츠가 없습니다."]
     var favoritDictionary : Dictionary<String, Bool> = [String : Bool]()
-
-    
-    //cololectionView Control and show category
-    
-    @IBAction func AllCategory(_ sender: UIButton) {
-        category = allCategory
-        favoritCategory = nil
-        collectionView.reloadData()
-    }
-    
     @IBOutlet var collectionView: UICollectionView!
-    @IBAction func FavoritCategory(_ sender: Any) {
-        for listcategory in category{
-            if favoritDictionary[listcategory] == true{
-                if let _ = favoritCategory{
-                    if favoritCategory?.contains(listcategory) == false {
-                        favoritCategory?.append(listcategory)
-                    }
-                }else{
-                    favoritCategory = [listcategory]
-                }
-            }
-        }
-        if let _ = favoritCategory {
-            category = favoritCategory!
-            collectionView.reloadData()
-        }else{
-            let alert = UIAlertController(title: "선호하는 항목이 없습니다", message: "추가하십시오", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            
-                self.present(alert, animated: true, completion: nil)
-            
-        }
+
+    @IBOutlet var playerNumber: UILabel!
+    
+    @IBAction func ToucnBackButton(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
-
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // return self.numberOfCell
         return self.category.count
@@ -88,13 +62,48 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     func reloadCell(index : IndexPath){
         collectionView.reloadItems(at: [index])
     }
-
     
-    @IBOutlet var playerNumber: UILabel!
-    
-    @IBAction func ToucnBackButton(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+    @IBAction func AllCategory(_ sender: UIButton) {
+        category = allCategory
+        collectionView.reloadData()
     }
+    
+    @IBAction func FavoritCategory(_ sender: Any) {
+        favoritCategory = nil
+        for listcategory in allCategory + custumCategory{
+            if favoritDictionary[listcategory] == true{
+                if let _ = favoritCategory{
+                    if favoritCategory?.contains(listcategory) == false {
+                        favoritCategory?.append(listcategory)
+                    }
+                }else{
+                    favoritCategory = [listcategory]
+                }
+            }
+        }
+        if let _ = favoritCategory {
+            category = favoritCategory!
+            collectionView.reloadData()
+        }else{
+            let alert = UIAlertController(title: "선호하는 항목이 없습니다", message: "추가하십시오", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+                self.present(alert, animated: true, completion: nil)
+            
+        }
+    }
+
+    @IBAction func CustumCategory(_ sender: UIButton) {
+        if let userCustom = UserDefaults.standard.array(forKey: "CustomList") as? [String]{
+            custumCategory = ["추가하기"] + userCustom
+        }
+        category = custumCategory
+        favoritCategory = nil
+        collectionView.reloadData()
+        
+    }
+    
+
     
      let popSetGameEnviroment : SetGameEnviromentPopup_Controller = UINib(nibName: "SetGameEnviroment", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! SetGameEnviromentPopup_Controller
 
@@ -158,11 +167,32 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
             startViewController.gameSetting = self.gameSetting
             startViewController.contents = self.contents
             startViewController.gameEnviroment = self.gameEnviroment
+        } else if let addCustumController = segue.destination as? Add_CustomTheme_ViewController{
+            addCustumController.customContent = self.customContent
+            addCustumController.delegate = self
         }
     }
     
+    func selectFromTwoSegue(title : String){
+        if title == "추가하기"{
+            performSegue(withIdentifier: "custumSegue", sender: nil)
+        }else{
+            performSegue(withIdentifier: "startSegue", sender: nil)
+
+        }
+    }
+
+    
     func GetCellTitle(title : String){
-        contents = gameContent.InitContents(title: title)
+        if title == "추가하기" {
+            
+        }else if gameContent.allCategory?.contains(title) == true{
+            contents = gameContent.InitContents(title: title)
+        }else if customContent.customCategory!.contains(title){
+            contents = customContent.InitContents(title: title)
+        }else{
+            contents = ["해당 컨텐츠가 없습니다."]
+        }
     }
     
     func SetFavorit (favoritTitle : String){
@@ -175,6 +205,13 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
             print("Set Favorit")
             print(favoritDictionary)
         }
+    }
+    
+    func ReloadCollectionView(Title: String){
+        if let userCustom = UserDefaults.standard.array(forKey: "CustomList") as? [String]{
+            category.insert(Title, at: 1)
+        }
+        collectionView.reloadData()
     }
 
     /*

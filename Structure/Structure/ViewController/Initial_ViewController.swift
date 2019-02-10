@@ -40,6 +40,8 @@ class Initial_ViewController: UIViewController , SettingTimeAndPlayerDelegatePro
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       // let appDomain = Bundle.main.bundleIdentifier
+       // UserDefaults.standard.removePersistentDomain(forName: appDomain!)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
