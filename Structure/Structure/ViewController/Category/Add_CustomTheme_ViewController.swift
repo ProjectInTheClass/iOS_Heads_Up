@@ -9,14 +9,15 @@
 import UIKit
 
 protocol addDelegateProtocol {
-    func ReloadCollectionView(Title: String)
+    func ReloadCustomCollectionView(Title: String)
 }
 
 class Add_CustomTheme_ViewController: UIViewController {
     
-    var customContent = Custom()
+    var customContent : Custom?
     var delegate : addDelegateProtocol?
-
+    var words : [String] = ["해당 컨텐츠가 없습니다"]
+    
     @IBOutlet weak var customTitle: UITextField!
     @IBOutlet weak var word1: UITextField!
     @IBOutlet weak var word2: UITextField!
@@ -31,18 +32,37 @@ class Add_CustomTheme_ViewController: UIViewController {
     
     @IBAction func makeCustomTheme(_ sender: Any) {
         var title : String?
-        var words : [String] = ["해덩컨텐츠가 없습니다"]
+        
         if let _ = customTitle.text{
             title = customTitle.text
         }else{
             title = "제목없음"
         }
-        words = [word1.text,word2.text,word3.text,word4.text,word5.text,word6.text,word7.text,word8.text,word9.text,word10.text] as! [String]
-        customContent.MakeCustomData(Title: title!, Words: words)
-        delegate?.ReloadCollectionView(Title: title!)
+        MakeWords(word: word1.text)
+        MakeWords(word: word2.text)
+        MakeWords(word: word3.text)
+        MakeWords(word: word4.text)
+        MakeWords(word: word5.text)
+        MakeWords(word: word6.text)
+        MakeWords(word: word7.text)
+        MakeWords(word: word8.text)
+        MakeWords(word: word9.text)
+        MakeWords(word: word10.text)
+        customContent?.MakeCustomData(Title: title!, Words: words)
+        delegate?.ReloadCustomCollectionView(Title: title!)
         navigationController?.popViewController(animated: true)
     }
     
+    
+    func MakeWords(word : String?){
+        if word != ""{
+            if words[0] == "해당 컨텐츠가 없습니다"{
+                words[0] = word!
+            }else{
+                words.append(word!)
+            }
+        }
+    }
    // navigationController?.popViewController(animated: false)
     
     

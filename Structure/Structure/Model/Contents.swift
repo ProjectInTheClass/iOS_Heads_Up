@@ -34,11 +34,7 @@ public struct Content
     var favoritDictionary : Dictionary<String, Bool> = [String : Bool]()
     
     
-    mutating func GetFavoritDictionfary(){
-        for listCounter in (contentsList?.Contents.indices)!{
-            favoritDictionary[(contentsList?.Contents[listCounter].Title)!] = false
-        }
-    }
+
     
     var allCategory: [String]?
     

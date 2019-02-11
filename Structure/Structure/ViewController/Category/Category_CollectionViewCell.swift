@@ -13,6 +13,7 @@ protocol UICollectionViewDelegate {
     func SetFavorit (favoritTitle : String)
     func reloadCell(index : IndexPath)
     func selectFromTwoSegue(title : String)
+    func DeleteCustomCatagory(title : String)
 }
 
 class Category_CollectionViewCell: UICollectionViewCell {
@@ -33,9 +34,35 @@ class Category_CollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    let deleteButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
 
+    func DeleteCustom(customMode : Bool){
+
+        if customMode == true && categoryTitleLabel.text != "추가하기"{
+            self.backgroundColor = #colorLiteral(red: 0.608130753, green: 0.8762857914, blue: 1, alpha: 1)
+            self.addSubview(favoritButton)
+            deleteButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+            deleteButton.titleLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            deleteButton.setTitle("X", for: .normal)
+            deleteButton.addTarget(self, action: #selector(ClickDeleCustom), for: .touchUpInside)
+            self.addSubview(deleteButton)
+        }else if categoryTitleLabel.text == "추가하기"{
+            deleteButton.removeFromSuperview()
+            self.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            self.favoritButton.removeFromSuperview()
+        }else{
+            self.backgroundColor = #colorLiteral(red: 0.608130753, green: 0.8762857914, blue: 1, alpha: 1)
+            self.addSubview(favoritButton)
+            deleteButton.removeFromSuperview()
+        }
+        
+    }
     
-
+    @objc func ClickDeleCustom(seder: UIButton!){
+        print("button Clicked")
+        delegate?.DeleteCustomCatagory(title: categoryTitleLabel.text!)
+    }
+    
     
     @IBAction func TouchFavorit(_ sender: UIButton) {
         delegate?.SetFavorit(favoritTitle: categoryTitleLabel.text!)

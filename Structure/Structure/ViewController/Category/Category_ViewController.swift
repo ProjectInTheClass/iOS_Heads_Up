@@ -24,10 +24,10 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     var category : [String] = ["컨텐츠가 없습니다."]
     var cellIdentifier: String = "cell"
     var allCategory: [String] = ["컨텐츠가 없습니다."]
-    var custumCategory : [String] = ["추가하기"]
     var favoritCategory : [String]?
     var contents = ["컨텐츠가 없습니다."]
     var favoritDictionary : Dictionary<String, Bool> = [String : Bool]()
+    var customMode = false
     @IBOutlet var collectionView: UICollectionView!
 
     @IBOutlet var playerNumber: UILabel!
@@ -55,6 +55,8 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
             cell.isOn = false
         }
         cell.CheckButtonImage()
+        cell.DeleteCustom(customMode : customMode)
+        
         let animation = AnimationType.from(direction: .top, offset: 30)
         cell.animate(animations: [animation], reversed: false, initialAlpha: 0, finalAlpha: 1.0, delay: 0.0, duration: 0.8, options: UIView.AnimationOptions.init(rawValue: 0), completion: nil)
         return cell
@@ -65,22 +67,39 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @IBAction func AllCategory(_ sender: UIButton) {
         category = allCategory
+        customMode = false
         collectionView.reloadData()
     }
     
     @IBAction func FavoritCategory(_ sender: Any) {
         favoritCategory = nil
-        for listcategory in allCategory + custumCategory{
-            if favoritDictionary[listcategory] == true{
-                if let _ = favoritCategory{
-                    if favoritCategory?.contains(listcategory) == false {
-                        favoritCategory?.append(listcategory)
+        customMode = false
+        if let tempCategory = customContent.customCategory{
+            for listcategory in allCategory + tempCategory{
+                if favoritDictionary[listcategory] == true{
+                    if let _ = favoritCategory{
+                        if favoritCategory?.contains(listcategory) == false {
+                            favoritCategory?.append(listcategory)
+                        }
+                    }else{
+                        favoritCategory = [listcategory]
                     }
-                }else{
-                    favoritCategory = [listcategory]
+                }
+            }
+        }else{
+            for listcategory in allCategory{
+                if favoritDictionary[listcategory] == true{
+                    if let _ = favoritCategory{
+                        if favoritCategory?.contains(listcategory) == false {
+                            favoritCategory?.append(listcategory)
+                        }
+                    }else{
+                        favoritCategory = [listcategory]
+                    }
                 }
             }
         }
+        
         if let _ = favoritCategory {
             category = favoritCategory!
             collectionView.reloadData()
@@ -94,10 +113,12 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     }
 
     @IBAction func CustumCategory(_ sender: UIButton) {
-        if let userCustom = UserDefaults.standard.array(forKey: "CustomList") as? [String]{
-            custumCategory = ["추가하기"] + userCustom
+        customMode = true
+        if let userCustom = customContent.customCategory{
+            category = ["추가하기"] + userCustom
+        }else{
+            category = ["추가하기"]
         }
-        category = custumCategory
         favoritCategory = nil
         collectionView.reloadData()
         
@@ -127,14 +148,15 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         let time = DispatchTime.now() + .milliseconds(500)
         DispatchQueue.main.asyncAfter(deadline: time){
-            self.popSetGameEnviroment.removeFromSuperview()
+            UIView.transition(with: self.view, duration: 0.5, options: [.transitionCrossDissolve], animations: {
+                self.popSetGameEnviroment.removeFromSuperview()
+            }, completion: nil)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         allCategory = gameContent.allCategory!
-        favoritDictionary = gameContent.favoritDictionary
         category = allCategory
         //print data from Contents() : Test Code
        // gameContent.getdata()
@@ -188,7 +210,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
             
         }else if gameContent.allCategory?.contains(title) == true{
             contents = gameContent.InitContents(title: title)
-        }else if customContent.customCategory!.contains(title){
+        }else if  category.contains(title){
             contents = customContent.InitContents(title: title)
         }else{
             contents = ["해당 컨텐츠가 없습니다."]
@@ -207,13 +229,19 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         }
     }
     
-    func ReloadCollectionView(Title: String){
-        if let userCustom = UserDefaults.standard.array(forKey: "CustomList") as? [String]{
-            category.insert(Title, at: 1)
+    func ReloadCustomCollectionView(Title: String){
+        if let userCustom = customContent.customCategory{
+            category = ["추가하기"] + userCustom
         }
         collectionView.reloadData()
     }
 
+    
+    func DeleteCustomCatagory(title : String){
+        customContent.DeleteCustomCategory(title: title)
+        category = ["추가하기"] + customContent.customCategory!
+        collectionView.reloadData()
+    }
     /*
      // MARK: - Navigation
      
