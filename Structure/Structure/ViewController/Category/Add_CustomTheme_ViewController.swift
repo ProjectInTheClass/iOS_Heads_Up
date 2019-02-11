@@ -67,13 +67,13 @@ class Add_CustomTheme_ViewController: UIViewController {
     
     
     
-    @IBAction func TouchCancle(_ sender: Any) {
-        self.dismiss(animated: false, completion: nil)
-    }
+    @IBOutlet weak var makeAngleRound: UIView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        makeAngleRound.layer.cornerRadius = 8.0
         // Do any additional setup after loading the view.
     }
     

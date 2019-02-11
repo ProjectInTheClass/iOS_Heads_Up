@@ -154,8 +154,15 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         }
     }
     
+ 
+    @IBOutlet weak var makeCornerRound3: UIView!
+    @IBOutlet weak var makeCornerRound2: UIView!
+    @IBOutlet weak var makeCornerRound: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        makeCornerRound.layer.cornerRadius = 18.0
+        makeCornerRound2.layer.cornerRadius = 10.0
+        makeCornerRound3.layer.cornerRadius = 10.0
         allCategory = gameContent.allCategory!
         category = allCategory
         //print data from Contents() : Test Code
