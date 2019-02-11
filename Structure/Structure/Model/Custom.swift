@@ -24,7 +24,7 @@ struct CustomList : Codable {
 
 public struct Custom
 {
-    let FullPath = "/Users/hduck/Desktop/iOS_Heads_Up/Structure/Structure/JSON/Custom.json"
+  //  let FullPath = "/Users/hduck/Desktop/iOS_Heads_Up/Structure/Structure/JSON/Custom.json"
     var customList : CustomList?
     var favoritDictionary : Dictionary<String, Bool> = [String : Bool]()
     

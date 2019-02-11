@@ -29,7 +29,7 @@ struct ContentsList : Codable {
 
 public struct Content
 {
-    let FullPath = "/Users/hduck/Desktop/iOS_Heads_Up/Structure/Structure/JSON/Contents.json"
+    let FullPath = Bundle.main.url(forResource: "Contents", withExtension: "json")
     var contentsList : ContentsList?
     var favoritDictionary : Dictionary<String, Bool> = [String : Bool]()
     
@@ -52,7 +52,7 @@ public struct Content
     }
     
     init() {
-        let jsonString = try? String(contentsOfFile: FullPath)
+        let jsonString = try? String(contentsOf: FullPath!)
         let data = jsonString?.data(using: .utf8)
         let decoder = JSONDecoder()
         if let data = data, let myContentsList = try? decoder.decode(ContentsList.self, from: data){

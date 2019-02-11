@@ -15,7 +15,6 @@
 		962F2DB8220EF461004556D6 /* SetGameEnviromentPopup_Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F2DB7220EF461004556D6 /* SetGameEnviromentPopup_Controller.swift */; };
 		962F2DBA220EF47C004556D6 /* SetGameEnviroment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 962F2DB9220EF47C004556D6 /* SetGameEnviroment.xib */; };
 		96693B5022083B4D0048D9A9 /* Navigation_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96693B4F22083B4D0048D9A9 /* Navigation_ViewController.swift */; };
-		966C56282210242B00FEB8CA /* Custom.json in Resources */ = {isa = PBXBuildFile; fileRef = 966C56272210242B00FEB8CA /* Custom.json */; };
 		966C562A221041DB00FEB8CA /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 966C5629221041DB00FEB8CA /* Property List.plist */; };
 		96D0080522018B7200DD793A /* Initial_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D0080422018B7200DD793A /* Initial_ViewController.swift */; };
 		96D0080B220191CC00DD793A /* SettingTimeAndPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96D0080A220191CC00DD793A /* SettingTimeAndPlayer.xib */; };
@@ -49,7 +48,6 @@
 		962F2DB7220EF461004556D6 /* SetGameEnviromentPopup_Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameEnviromentPopup_Controller.swift; sourceTree = "<group>"; };
 		962F2DB9220EF47C004556D6 /* SetGameEnviroment.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetGameEnviroment.xib; sourceTree = "<group>"; };
 		96693B4F22083B4D0048D9A9 /* Navigation_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation_ViewController.swift; sourceTree = "<group>"; };
-		966C56272210242B00FEB8CA /* Custom.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Custom.json; sourceTree = "<group>"; };
 		966C5629221041DB00FEB8CA /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		96D0080422018B7200DD793A /* Initial_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initial_ViewController.swift; sourceTree = "<group>"; };
 		96D0080A220191CC00DD793A /* SettingTimeAndPlayer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTimeAndPlayer.xib; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 		962B196E220F28D8004862E1 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				966C56272210242B00FEB8CA /* Custom.json */,
 				962B196F220F2A0C004862E1 /* Contents.json */,
 				966C5629221041DB00FEB8CA /* Property List.plist */,
 			);
@@ -264,7 +261,6 @@
 				96F2D14821F9508900D9FAFF /* Assets.xcassets in Resources */,
 				96F2D14621F9508700D9FAFF /* Main.storyboard in Resources */,
 				96EE45422201428500036DF2 /* scorePopup.xib in Resources */,
-				966C56282210242B00FEB8CA /* Custom.json in Resources */,
 				966C562A221041DB00FEB8CA /* Property List.plist in Resources */,
 				9A74FB032205D5BF009B8B0D /* GoogleService-Info.plist in Resources */,
 			);
