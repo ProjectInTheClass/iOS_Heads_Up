@@ -13,48 +13,154 @@
 
 import Foundation
 
-struct CustomList : Codable {
-    struct Content : Codable {
-        let Title : String
-        let Words : [String]
+class CustomContent : NSObject, NSCoding{
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.Title, forKey: "Title")
+        aCoder.encode(self.Words, forKey: "Words")
     }
-    var Custom : [Content]
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.Title = aDecoder.decodeObject(forKey: "Title") as! String
+        self.Words = aDecoder.decodeObject(forKey: "Words") as! [String]
+    }
+    
+    let Title : String
+    let Words : [String]
+    
+    
+    init(Title : String , Words : [String]) {
+        self.Title = Title
+        self.Words = Words
+    }
 }
+
+
 
 
 public class Custom
 {
+    
+    
     //  let FullPath = "/Users/hduck/Desktop/iOS_Heads_Up/Structure/Structure/JSON/Custom.json"
-    var customList : CustomList?
     
     var customCategory: [String]?
+    var customContents : [CustomContent]?
     
-    func InitContents(title : String) -> [String] {
-        if let customContent = UserDefaults.standard.array(forKey: title) as? [String]{
-            return customContent
-        }else{
-            return ["해당컨텐츠가 없습니다"]
+    init() {
+        customContents = loadCustonContents()
+        if let customList = customContents {
+            for contents in customList{
+                if let _ = customCategory{
+                    customCategory?.append(contents.Title)
+                }else{
+                    customCategory = [contents.Title]
+                }
+            }
         }
     }
     
-    init() {
-        if let userCustom = UserDefaults.standard.array(forKey: "CustomList") as? [String]{
-            customCategory = userCustom
+    func getDocumentDirt() -> URL {
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        return path[0]
+    }
+    
+    func saveCustomContents(customContents : [CustomContent]){
+        let documentPath = getDocumentDirt().appendingPathComponent("customContent.arr")
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: customContents, requiringSecureCoding: false)
+            try data.write(to : documentPath)
+        } catch{
+            print("Error!")
+        }
+    }
+    
+    func deleteCustomContents(index : Int){
+        let documentPath = getDocumentDirt().appendingPathComponent("customContent.arr")
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: customContents, requiringSecureCoding: false)
+            try data.write(to : documentPath)
+        } catch{
+            print("Error!")
         }
     }
     
     func MakeCustomData (Title : String, Words : [String]){
-        UserDefaults.standard.set(Words, forKey: "\(Title)")
-        
-        if let _ = customCategory{
-            customCategory! = [Title] + customCategory!
+        let newCustomContent = CustomContent(Title: Title, Words: Words)
+        if var _ = customContents{
+            customCategory = [newCustomContent.Title] + customCategory!
+            customContents = [newCustomContent] + customContents!
+            saveCustomContents(customContents: customContents!)
         }else{
-            customCategory = [Title]
+            customContents = [newCustomContent]
+            customCategory = [newCustomContent.Title]
+            saveCustomContents(customContents: [newCustomContent])
         }
-        UserDefaults.standard.set(customCategory, forKey : "CustomList")
     }
     
+    func InitContents(title : String) -> [String] {
+        if let customContentsData = customContents{
+            for contents in customContentsData{
+                if contents.Title == title{
+                    return contents.Words
+                }
+            }
+        }
+        return ["해당 컨텐츠가 없습니다"]
+    }
+    
+    
+    func loadCustonContents() -> [CustomContent]? {
+        let documentPath = getDocumentDirt().appendingPathComponent("customContent.arr")
+        
+        do {
+            let data = try Data(contentsOf: documentPath)
+            if let customContentsData = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [CustomContent]{
+                return customContentsData
+            }
+        } catch {
+            let fileManager = FileManager()
+            let nilCustomContent : [CustomContent] = []
+            do{
+                let data = try NSKeyedArchiver.archivedData(withRootObject: nilCustomContent, requiringSecureCoding: false )
+                fileManager.createFile(atPath: documentPath.path, contents: data, attributes: nil)
+            }catch{
+                print("error")        }
+        }
+        return nil
+    }
+    
+    
     func DeleteCustomCategory(title : String){
+        if let _ = customContents{
+            var content = 0
+            for contentCount in 0 ... customContents!.count{
+                if customContents![content].Title == title{
+                    content = contentCount
+                }
+            }
+            customContents?.remove(at: content)
+        }
+        if let _ = customCategory{
+            var category =  0
+            for categoryCount in 0 ... customCategory!.count{
+                if customCategory![categoryCount] == title{
+                    category = categoryCount
+                }
+            }
+            customCategory?.remove(at: category)
+        }
+        if let _ = customContents{
+            saveCustomContents(customContents: customContents! )
+        }else{
+            saveCustomContents(customContents: [])
+        }
+        
+        
+        
+        
+        
+        
         UserDefaults.standard.removeObject(forKey: title)
         if var deleteCategory = customCategory{
             var removeindex : Int?
