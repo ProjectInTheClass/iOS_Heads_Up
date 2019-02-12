@@ -8,35 +8,11 @@
 
 import UIKit
 import ViewAnimator
+import ValueStepper
 
-class Initial_ViewController: UIViewController , SettingTimeAndPlayerDelegateProtocol{
+class Initial_ViewController: UIViewController {
     
-    var gameSetting : GameSetting?
-
-    //Player and TimeLimit PopUp
-    let popPlayerAndTimeSetting : SettingTimeAndPlayer_ViewController = UINib(nibName: "SettingTimeAndPlayer", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! SettingTimeAndPlayer_ViewController
-    
-    @IBAction func anyTab(_ sender: Any) {
-        let viewColor = #colorLiteral(red: 0.088717632, green: 0.05267825723, blue: 0.02710740082, alpha: 1)
-        popPlayerAndTimeSetting.backgroundColor = viewColor.withAlphaComponent(0.6)
-        popPlayerAndTimeSetting.delegate = self
-        self.view.addSubview(popPlayerAndTimeSetting)
-        let animation = AnimationType.zoom(scale: 0.2)
-        popPlayerAndTimeSetting.view.animate(animations: [animation])
-        popPlayerAndTimeSetting.frame = self.view.frame
-
-
-    }
-
-    //function of SettingTimeAndPlayer_ViewController, present CategoryController and send gameSetting data
-    func ShowNextView(){
-        self.gameSetting=popPlayerAndTimeSetting.gameSetting
-        popPlayerAndTimeSetting.removeFromSuperview()
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let CategoryViewController = storyBoard.instantiateViewController(withIdentifier: "Category") as? Category_ViewController
-        CategoryViewController!.gameSetting = self.gameSetting
-        self.navigationController?.pushViewController(CategoryViewController!, animated: true)
-    }
+    var gameSetting = GameSetting()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +30,27 @@ class Initial_ViewController: UIViewController , SettingTimeAndPlayerDelegatePro
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
+    
+    @IBAction func PlayeyStepper(_ sender: ValueStepper) {
+        gameSetting.settingPlayer = Int(sender.value)
+    }
+    
+    @IBAction func TimeLimitStepper(_ sender: ValueStepper) {
+        gameSetting.timeLimit = Int(sender.value)
+    }
+    
+    @IBAction func ClickStartButton(_ sender: Any) {
+        performSegue(withIdentifier: "category", sender: nil)
+        gameSetting.settingPlayerCount = 0
+        gameSetting.playerScore?.removeAll()
+    }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let CategoryViewController = segue.destination as? Category_ViewController {
+            CategoryViewController.gameSetting = self.gameSetting
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
