@@ -45,6 +45,8 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         let cell : Category_CollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: self.cellIdentifier, for: indexPath) as! Category_CollectionViewCell
         let category = self.category[indexPath.item]
         print(indexPath.item)
+        cell.layer.backgroundColor = #colorLiteral(red: 0.508675158, green: 0.7787023783, blue: 0.6972596645, alpha: 1)
+        cell.layer.cornerRadius=10
         cell.cellIndex = indexPath
         cell.categoryTitleLabel.text = category
         cell.categoryTitleLabel.adjustsFontSizeToFitWidth = true
