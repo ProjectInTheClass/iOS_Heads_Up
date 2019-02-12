@@ -7,12 +7,10 @@
 //
 
 import UIKit
-import Firebase
 import ViewAnimator
 
 class Category_ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,EnviromentDelegateProtocol ,addDelegateProtocol {
     
-    // var ref : DatabaseReference!
     
     // var numberOfCell : Int = 10
 
@@ -162,7 +160,6 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet weak var makeCornerRound: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeCornerRound.layer.cornerRadius = 18.0
         makeCornerRound2.layer.cornerRadius = 10.0
         makeCornerRound3.layer.cornerRadius = 10.0
         allCategory = gameContent.allCategory!
