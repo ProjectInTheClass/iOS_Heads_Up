@@ -32,6 +32,7 @@ class TotalScore_ViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
         super.viewDidLoad()
         if let scoreList = totalPlayerScore {
             let winnerScore = scoreList.max()

@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/hduck/Desktop/iOS_Heads_Up/Structure/Structure/ViewController/Score_ViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:Structure.xcodeproj">
    </FileRef>
    <FileRef

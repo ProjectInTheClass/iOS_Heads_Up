@@ -132,6 +132,7 @@ class Game_ViewController: UIViewController  {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
         if gameEnviroment?.motionEnviroment == "Gyro" && actionGyro == true{
             if motion.isAccelerometerAvailable{
                 GravityBehavior.magnitude = 1.0

@@ -19,6 +19,7 @@ class Score_ViewController: UIViewController {
     var game : GameController?
     var gameSetting : GameSetting?
     override func viewDidLoad() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
         super.viewDidLoad()
         game?.GameScore()
         correctLabel.text = game?.correctList?.joined(separator: "\u{0085}")         //make String from array
