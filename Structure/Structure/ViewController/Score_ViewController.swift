@@ -46,9 +46,8 @@ class Score_ViewController: UIViewController, TotalScoreDelegate {
             anotherCategoryButton.isEnabled = false
             anotherCategoryButton.isHidden = true
             nextButton.setTitle("최종 점수", for: .normal)
-        }else{
-            gameSetting!.settingPlayerCount += 1
         }
+            gameSetting!.settingPlayerCount += 1
     }
     
     
