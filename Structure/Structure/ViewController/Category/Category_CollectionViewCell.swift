@@ -39,7 +39,7 @@ class Category_CollectionViewCell: UICollectionViewCell {
     func DeleteCustom(customMode : Bool){
 
         if customMode == true && categoryTitleLabel.text != "추가하기"{
-            self.backgroundColor = #colorLiteral(red: 0.608130753, green: 0.8762857914, blue: 1, alpha: 1)
+            self.backgroundColor = #colorLiteral(red: 0.5129458308, green: 0.7746969461, blue: 0.6973600984, alpha: 1)
             self.addSubview(favoritButton)
             deleteButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
             deleteButton.titleLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -51,7 +51,7 @@ class Category_CollectionViewCell: UICollectionViewCell {
             self.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             self.favoritButton.removeFromSuperview()
         }else{
-            self.backgroundColor = #colorLiteral(red: 0.608130753, green: 0.8762857914, blue: 1, alpha: 1)
+            self.backgroundColor = #colorLiteral(red: 0.5129458308, green: 0.7746969461, blue: 0.6973600984, alpha: 1)
             self.addSubview(favoritButton)
             deleteButton.removeFromSuperview()
         }
