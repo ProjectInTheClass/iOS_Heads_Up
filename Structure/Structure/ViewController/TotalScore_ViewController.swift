@@ -8,31 +8,27 @@
 
 import UIKit
 
-protocol TotalScoreDelegate {
-    func MoreGame()
-    func GoHome()
-}
-
 
 class TotalScore_ViewController: UIViewController {
     var gameSetting : GameSetting?
-    var delegate : TotalScoreDelegate?
     var totalPlayerScore : [Int]?
     var scoreListLabel : [String] = ["🌟Score🌟"]
     var winner : [Int]?
     @IBOutlet var scoreLabel2: UILabel!
     @IBOutlet var winnerLabel: UILabel!
     @IBAction func TouchHomeButton(_ sender: Any) {
-        self.dismiss(animated: false, completion: nil)
+        
         self.gameSetting?.settingPlayerCount = 0
         self.gameSetting?.playerScore = nil
-        delegate?.GoHome()
+          navigationController!.popToViewController(navigationController!.viewControllers[0], animated: true)
+
+
     }
     @IBAction func TouchMoreGame(_ sender: Any) {
-        self.dismiss(animated: false, completion: nil)
         self.gameSetting?.settingPlayerCount = 0
         self.gameSetting?.playerScore = nil
-        delegate?.MoreGame()
+          navigationController!.popToViewController(navigationController!.viewControllers[1], animated: true)
+
     }
     
     override func viewDidLoad() {
@@ -61,15 +57,6 @@ class TotalScore_ViewController: UIViewController {
     
     
     
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? Navigation_ViewController {
-            if let childVC = vc.topViewController as? Category_ViewController{
-                childVC.gameSetting = self.gameSetting
-            }
-        }
-        if let vc = segue.destination as? Initial_ViewController {
-            vc.gameSetting = nil   }
-    }
+
     
 }

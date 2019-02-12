@@ -7,16 +7,8 @@
 
 import UIKit
 
-protocol ScoreDelegateProtocol {
-    func continueGame()
-    func goCategory()
-    func MoreGameinGameView()
-    func GoHomeInGameView()
-}
 
-class Score_ViewController: UIViewController, TotalScoreDelegate {
-    
-    var delegate: ScoreDelegateProtocol?
+class Score_ViewController: UIViewController {
     
     @IBOutlet var nextButton: UIButton!
     @IBOutlet var scoreLabel: UILabel!
@@ -26,7 +18,6 @@ class Score_ViewController: UIViewController, TotalScoreDelegate {
     
     var game : GameController?
     var gameSetting : GameSetting?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         game?.GameScore()
@@ -52,42 +43,29 @@ class Score_ViewController: UIViewController, TotalScoreDelegate {
     
     
     //function of ScorePopup_ViewController, Reset : does not send any data. and return to Start
-    func goCategoryInScore(){
-        delegate?.goCategory()
-        self.dismiss(animated: false, completion: nil)
-    }
+
     
     //function of ScorePopup_ViewController,  Next: send score and increase SettingPlayerCount. and return to category
     @IBAction func TouchContinue(_ sender: Any) {
         if gameSetting!.settingPlayerCount == gameSetting!.settingPlayer{
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let TotalScoreCotroller = storyBoard.instantiateViewController(withIdentifier: "TotalScore") as? TotalScore_ViewController
-            TotalScoreCotroller?.totalPlayerScore = gameSetting!.playerScore
-            TotalScoreCotroller?.gameSetting = self.gameSetting
-            let transition = CATransition()
-            transition.duration = 0.3
-            transition.type = CATransitionType.push
-            transition.subtype = CATransitionSubtype.fromBottom
-            view.window!.layer.add(transition, forKey: kCATransition)
-            self.present(TotalScoreCotroller!, animated: false, completion: nil)
+            performSegue(withIdentifier: "TotalScore", sender: nil)
         }else{
-            self.dismiss(animated: false, completion: nil)
-            delegate?.continueGame()
+            navigationController!.popToViewController(navigationController!.viewControllers[2], animated: true)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let TotalScoreCotroller = segue.destination as? TotalScore_ViewController {
+            TotalScoreCotroller.totalPlayerScore = gameSetting!.playerScore
+            TotalScoreCotroller.gameSetting = self.gameSetting
         }
     }
     @IBAction func TouchAnotherCategory(_ sender: Any) {
-        self.dismiss(animated: false, completion: nil)
-        delegate?.goCategory()
+        navigationController!.popToViewController(navigationController!.viewControllers[1], animated: true)
+
+
     }
 
-    func MoreGame(){
-        self.dismiss(animated: false, completion: nil)
-        delegate?.MoreGameinGameView()
-    }
-    func GoHome(){
-        self.dismiss(animated: false, completion: nil)
-        delegate?.GoHomeInGameView()
-    }
 
 
     /*

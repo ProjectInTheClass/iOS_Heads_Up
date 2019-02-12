@@ -544,6 +544,7 @@
                     <connections>
                         <outlet property="countLabel" destination="UDb-9X-Jv2" id="Ihi-kr-cnX"/>
                         <outlet property="startButton" destination="EnB-KK-e7s" id="5vG-Vl-oIg"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="Game" id="u0y-G8-VXb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DUe-w7-8LU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -616,17 +617,16 @@
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qIg-jW-lBW">
                                                 <rect key="frame" x="0.0" y="32" width="251" height="200"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" translatesAutoresizingMaskIntoConstraints="NO" id="iiy-W7-gdn">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" translatesAutoresizingMaskIntoConstraints="NO" id="iiy-W7-gdn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="251" height="0.0"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="iiy-W7-gdn" firstAttribute="top" secondItem="qIg-jW-lBW" secondAttribute="top" id="7ai-Oa-vni"/>
-                                                    <constraint firstAttribute="bottom" secondItem="iiy-W7-gdn" secondAttribute="bottom" id="bPD-Ig-69T"/>
-                                                    <constraint firstAttribute="trailing" secondItem="iiy-W7-gdn" secondAttribute="trailing" id="gMx-6z-G9h"/>
-                                                    <constraint firstItem="iiy-W7-gdn" firstAttribute="leading" secondItem="qIg-jW-lBW" secondAttribute="leading" id="i88-as-zhp"/>
+                                                    <constraint firstItem="iiy-W7-gdn" firstAttribute="width" secondItem="qIg-jW-lBW" secondAttribute="width" id="3V0-91-R2b"/>
+                                                    <constraint firstItem="iiy-W7-gdn" firstAttribute="centerX" secondItem="qIg-jW-lBW" secondAttribute="centerX" id="rzM-UH-MBq"/>
                                                 </constraints>
                                             </scrollView>
                                         </subviews>
@@ -678,11 +678,12 @@
                         <outlet property="nextButton" destination="edL-Xp-Aw3" id="qF4-n9-9zA"/>
                         <outlet property="passLabel" destination="zhG-DY-9oI" id="edS-2X-D9l"/>
                         <outlet property="scoreLabel" destination="bdx-5Y-L7h" id="Uam-9W-k2F"/>
+                        <segue destination="vQN-yj-lCi" kind="show" identifier="TotalScore" id="GZB-Fr-FEc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y4A-fZ-TeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.776785714285712" y="753.62318840579712"/>
+            <point key="canvasLocation" x="1011" y="691"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -709,22 +710,22 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSS-1F-E6q">
-                                <rect key="frame" x="144" y="50" width="608" height="293"/>
+                                <rect key="frame" x="144" y="94" width="608" height="249"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="106"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="D9t-fM-KGi">
-                                <rect key="frame" x="44" y="50" width="808" height="293"/>
+                                <rect key="frame" x="44" y="94" width="808" height="249"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLk-eg-CoL" userLabel="Correct">
-                                        <rect key="frame" x="0.0" y="0.0" width="404" height="293"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="404" height="249"/>
                                         <connections>
                                             <action selector="correctButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pnb-nm-NID"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="mainGame" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36S-Rr-gEm" userLabel="Pass">
-                                        <rect key="frame" x="404" y="0.0" width="404" height="293"/>
+                                        <rect key="frame" x="404" y="0.0" width="404" height="249"/>
                                         <connections>
                                             <action selector="passButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DRy-Y5-UzJ"/>
                                         </connections>
@@ -732,7 +733,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqJ-a9-0gy">
-                                <rect key="frame" x="398" y="10" width="100" height="0.0"/>
+                                <rect key="frame" x="398" y="54" width="100" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="jre-Hz-8aQ"/>
                                 </constraints>
@@ -741,13 +742,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuE-gW-i8F" userLabel="Correct&amp;Pass">
-                                <rect key="frame" x="44" y="0.0" width="808" height="393"/>
+                                <rect key="frame" x="44" y="44" width="808" height="349"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="119"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BOS-Sj-gzf">
-                                <rect key="frame" x="64" y="20" width="60" height="40"/>
+                                <rect key="frame" x="64" y="64" width="60" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="3T0-nj-uBv"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="GWa-Ln-Ua8"/>
@@ -794,6 +795,7 @@
                         <outlet property="passButton" destination="36S-Rr-gEm" id="f3k-sL-S0f"/>
                         <outlet property="priviousButton" destination="8ST-Nu-644" id="Zh8-3n-hYq"/>
                         <outlet property="timerLabel" destination="TqJ-a9-0gy" id="AGd-6d-sal"/>
+                        <segue destination="dY4-Ou-EEf" kind="show" identifier="Score" id="vl0-Ps-7ee"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -809,16 +811,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDy-gT-LQb">
-                                <rect key="frame" x="144" y="30" width="608" height="354"/>
+                                <rect key="frame" x="144" y="74" width="608" height="266"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pZg-bX-zNo">
-                                        <rect key="frame" x="177" y="100" width="174" height="174"/>
+                                        <rect key="frame" x="177" y="100" width="174" height="86"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9cm-sz-0vF">
-                                        <rect key="frame" x="411" y="100" width="104.5" height="174"/>
+                                        <rect key="frame" x="411" y="100" width="104.5" height="86"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -833,7 +835,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yHA-Mi-XUf">
-                                        <rect key="frame" x="70" y="100" width="87" height="174"/>
+                                        <rect key="frame" x="70" y="100" width="87" height="86"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="46"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -846,7 +848,6 @@
                                         <state key="normal" title="처음으로"/>
                                         <connections>
                                             <action selector="TouchHomeButton:" destination="vQN-yj-lCi" eventType="touchUpInside" id="CIa-65-gER"/>
-                                            <segue destination="vby-ID-4Ri" kind="show" id="6vg-pf-E5W"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOA-oq-fls">
@@ -897,7 +898,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vw8-AK-JMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-780.80357142857144" y="992.75362318840587"/>
+            <point key="canvasLocation" x="1011" y="1554"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="ce1-Dt-pZP">

@@ -10,17 +10,12 @@ import UIKit
 import CoreMotion
 import ViewAnimator
 
-protocol GameDelegateProtocol {
-    func MoveToCategory()
-    func GoHomeInStar()
-}
 
-class Game_ViewController: UIViewController , ScoreDelegateProtocol {
+class Game_ViewController: UIViewController  {
     var actionGyro : Bool?
     var game = GameController()
     var gameEnviroment : GameEnviroment?
 
-    var delegate : GameDelegateProtocol?
     //receive from Start view
     var gameSetting = GameSetting()
     var contents : [String]?
@@ -110,9 +105,8 @@ class Game_ViewController: UIViewController , ScoreDelegateProtocol {
     }
     
     @IBAction func TouchBackButton(_ sender: Any) {
-        let animation = AnimationType.from(direction: .right, offset: 30)
-        self.view.window?.animate(animations: [animation])
-        self.dismiss(animated: false, completion: nil)
+        navigationController!.popToViewController(navigationController!.viewControllers[2], animated: true)
+
     }
     
     
@@ -122,12 +116,14 @@ class Game_ViewController: UIViewController , ScoreDelegateProtocol {
             timerLabel.removeFromSuperview()
             self.GravityBehavior.magnitude = 0
             self.actionGyro = false
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let ScoreViewController = storyBoard.instantiateViewController(withIdentifier: "Score") as? Score_ViewController
-            ScoreViewController?.game = self.game
-            ScoreViewController?.delegate = self
-            ScoreViewController?.gameSetting = self.gameSetting
-            self.present(ScoreViewController!, animated: false, completion: nil)
+            performSegue(withIdentifier: "Score", sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let ScoreViewController = segue.destination as? Score_ViewController {
+            ScoreViewController.game = self.game
+            ScoreViewController.gameSetting = self.gameSetting
         }
     }
     
@@ -187,6 +183,7 @@ class Game_ViewController: UIViewController , ScoreDelegateProtocol {
     override func viewDidLoad() { //재정의 할 것이다.
         super.viewDidLoad() //vidwDidLoad : 기존 기능에 덧붙혀서 기능을 추가 할 것이다.
         seconds = gameSetting.timeLimit
+        seconds = 2
         game.contents = self.contents!
         game.shuffleContent()
         timerLabel.text = "\(seconds)"
@@ -209,21 +206,17 @@ class Game_ViewController: UIViewController , ScoreDelegateProtocol {
 
     }
     func continueGame(){
-        self.dismiss(animated: false, completion: nil)
-        
+        navigationController?.popViewController(animated: true)
     }
     func goCategory(){
-        self.dismiss(animated: false, completion: nil)
-        delegate?.MoveToCategory()
-        
+        navigationController!.popToViewController(navigationController!.viewControllers[1], animated: true)
     }
     func MoreGameinGameView(){
-        self.dismiss(animated: false, completion: nil)
-        delegate?.MoveToCategory()
+        navigationController!.popToViewController(navigationController!.viewControllers[2], animated: false)
+
     }
     func GoHomeInGameView(){
-        self.dismiss(animated: false, completion: nil)
-        delegate?.GoHomeInStar()
+          navigationController!.popToViewController(navigationController!.viewControllers[1], animated: true)
     }
     override func viewWillAppear(_ animated: Bool) {
         let animation = AnimationType.zoom(scale: 0.01)
