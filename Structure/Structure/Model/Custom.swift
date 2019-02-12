@@ -134,7 +134,7 @@ public class Custom
     func DeleteCustomCategory(title : String){
         if let _ = customContents{
             var content = 0
-            for contentCount in 0 ... customContents!.count{
+            for contentCount in 0 ... customContents!.count - 1{
                 if customContents![content].Title == title{
                     content = contentCount
                 }
@@ -143,7 +143,7 @@ public class Custom
         }
         if let _ = customCategory{
             var category =  0
-            for categoryCount in 0 ... customCategory!.count{
+            for categoryCount in 0 ... customCategory!.count - 1{
                 if customCategory![categoryCount] == title{
                     category = categoryCount
                 }

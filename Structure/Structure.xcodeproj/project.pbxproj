@@ -11,6 +11,7 @@
 		31F020D72200311E006EA84A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F020D62200311E006EA84A /* Category.swift */; };
 		9610E8132202E9C2009EEDD7 /* TotalScore_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610E8122202E9C2009EEDD7 /* TotalScore_ViewController.swift */; };
 		9610E8152202F46D009EEDD7 /* Category_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610E8142202F46D009EEDD7 /* Category_ViewController.swift */; };
+		962AA42A2212B5FC00BFAB56 /* Score_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962AA4292212B5FC00BFAB56 /* Score_ViewController.swift */; };
 		962B1970220F2A0C004862E1 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 962B196F220F2A0C004862E1 /* Contents.json */; };
 		962F2DB8220EF461004556D6 /* SetGameEnviromentPopup_Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F2DB7220EF461004556D6 /* SetGameEnviromentPopup_Controller.swift */; };
 		962F2DBA220EF47C004556D6 /* SetGameEnviroment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 962F2DB9220EF47C004556D6 /* SetGameEnviroment.xib */; };
@@ -44,6 +45,7 @@
 		8A83C5A4D22E199B7A8368D9 /* Pods-Structure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Structure.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Structure/Pods-Structure.debug.xcconfig"; sourceTree = "<group>"; };
 		9610E8122202E9C2009EEDD7 /* TotalScore_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalScore_ViewController.swift; sourceTree = "<group>"; };
 		9610E8142202F46D009EEDD7 /* Category_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category_ViewController.swift; sourceTree = "<group>"; };
+		962AA4292212B5FC00BFAB56 /* Score_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Score_ViewController.swift; path = /Users/hduck/Desktop/iOS_Heads_Up/Structure/Structure/ViewController/Score_ViewController.swift; sourceTree = "<absolute>"; };
 		962B196F220F2A0C004862E1 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		962F2DB7220EF461004556D6 /* SetGameEnviromentPopup_Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameEnviromentPopup_Controller.swift; sourceTree = "<group>"; };
 		962F2DB9220EF47C004556D6 /* SetGameEnviroment.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetGameEnviroment.xib; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				319018A62202E05C0037602B /* Category */,
 				96D0080E2201947E00DD793A /* Start_ViewController.swift */,
 				96F2D15E21F95CC900D9FAFF /* Game_ViewController.swift */,
+				962AA4292212B5FC00BFAB56 /* Score_ViewController.swift */,
 				96EE45432201438E00036DF2 /* ScorePopup_ViewController.swift */,
 				9610E8122202E9C2009EEDD7 /* TotalScore_ViewController.swift */,
 			);
@@ -354,6 +357,7 @@
 				96F2D15F21F95CC900D9FAFF /* Game_ViewController.swift in Sources */,
 				31F020D72200311E006EA84A /* Category.swift in Sources */,
 				96D0080D2201920600DD793A /* SettingTimeAndPlayer_ViewController.swift in Sources */,
+				962AA42A2212B5FC00BFAB56 /* Score_ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
