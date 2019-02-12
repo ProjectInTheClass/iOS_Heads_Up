@@ -11,7 +11,7 @@ import CoreMotion
 import ViewAnimator
 
 
-class Game_ViewController: UIViewController  {
+class Game_ViewController: UIViewController {
     var actionGyro : Bool?
     var game = GameController()
     var gameEnviroment : GameEnviroment?
@@ -106,6 +106,7 @@ class Game_ViewController: UIViewController  {
     
     @IBAction func TouchBackButton(_ sender: Any) {
         navigationController!.popToViewController(navigationController!.viewControllers[2], animated: true)
+        
 
     }
     
@@ -129,10 +130,8 @@ class Game_ViewController: UIViewController  {
     
     //ScorePopup_ViewController Setting(score, passLabel, correctLabel)
     
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: false)
         if gameEnviroment?.motionEnviroment == "Gyro" && actionGyro == true{
             if motion.isAccelerometerAvailable{
                 GravityBehavior.magnitude = 1.0
@@ -206,20 +205,9 @@ class Game_ViewController: UIViewController  {
         }
 
     }
-    func continueGame(){
-        navigationController?.popViewController(animated: true)
-    }
-    func goCategory(){
-        navigationController!.popToViewController(navigationController!.viewControllers[1], animated: true)
-    }
-    func MoreGameinGameView(){
-        navigationController!.popToViewController(navigationController!.viewControllers[2], animated: false)
 
-    }
-    func GoHomeInGameView(){
-          navigationController!.popToViewController(navigationController!.viewControllers[1], animated: true)
-    }
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
         let animation = AnimationType.zoom(scale: 0.01)
         contentLabel.animate(animations: [animation], reversed: false, initialAlpha: 0, finalAlpha: 1.0, delay: 0.0, duration: 0.5, options: UIView.AnimationOptions.init(rawValue: 0), completion: nil)
     }

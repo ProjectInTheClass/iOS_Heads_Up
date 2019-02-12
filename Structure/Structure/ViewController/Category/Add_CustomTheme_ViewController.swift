@@ -83,18 +83,16 @@ class Add_CustomTheme_ViewController: UIViewController {
         textField.resignFirstResponder()
         return true
     }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
     
     @objc func keyboardWillShow(notification:NSNotification){
         
         var userInfo = notification.userInfo!
         
         var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        
-        
-        
-        
-        
-        
+
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
         
         var contentInset:UIEdgeInsets = self.scrollView.contentInset

@@ -78,7 +78,7 @@ public class Custom
     func deleteCustomContents(index : Int){
         let documentPath = getDocumentDirt().appendingPathComponent("customContent.arr")
         do {
-            let data = try NSKeyedArchiver.archivedData(withRootObject: customContents, requiringSecureCoding: false)
+            let data = try NSKeyedArchiver.archivedData(withRootObject: customContents!, requiringSecureCoding: false)
             try data.write(to : documentPath)
         } catch{
             print("Error!")
@@ -87,10 +87,11 @@ public class Custom
     
     func MakeCustomData (Title : String, Words : [String]){
         let newCustomContent = CustomContent(Title: Title, Words: Words)
-        if var _ = customContents{
-            customCategory = [newCustomContent.Title] + customCategory!
-            customContents = [newCustomContent] + customContents!
-            saveCustomContents(customContents: customContents!)
+        if let _ = customContents{
+            if let _ = customCategory{
+                customCategory = [newCustomContent.Title] + customCategory!
+                customContents = [newCustomContent] + customContents!
+                saveCustomContents(customContents: customContents!)}
         }else{
             customContents = [newCustomContent]
             customCategory = [newCustomContent.Title]
@@ -133,22 +134,22 @@ public class Custom
     
     func DeleteCustomCategory(title : String){
         if let _ = customContents{
-            var content = 0
-            for contentCount in 0 ... customContents!.count - 1{
-                if customContents![content].Title == title{
-                    content = contentCount
+            if let _ = customCategory{
+                var content = 0
+                var category =  0
+                for contentCount in 0 ... customContents!.count - 1{
+                    if customContents![content].Title == title{
+                        content = contentCount
+                    }
                 }
-            }
-            customContents?.remove(at: content)
-        }
-        if let _ = customCategory{
-            var category =  0
-            for categoryCount in 0 ... customCategory!.count - 1{
-                if customCategory![categoryCount] == title{
-                    category = categoryCount
+                customContents?.remove(at: content)
+                for categoryCount in 0 ... customCategory!.count - 1{
+                    if customCategory![categoryCount] == title{
+                        category = categoryCount
+                    }
                 }
+                customCategory?.remove(at: category)
             }
-            customCategory?.remove(at: category)
         }
         if let _ = customContents{
             saveCustomContents(customContents: customContents! )
@@ -156,26 +157,10 @@ public class Custom
             saveCustomContents(customContents: [])
         }
         
-        
-        
-        
-        
-        
-        UserDefaults.standard.removeObject(forKey: title)
-        if var deleteCategory = customCategory{
-            var removeindex : Int?
-            for counter in deleteCategory.indices{
-                if deleteCategory[counter] == title{
-                    removeindex = counter
-                }
-            }
-            if let _ = removeindex{
-                deleteCategory.remove(at: removeindex!)
-                customCategory = deleteCategory
-                UserDefaults.standard.set(customCategory, forKey : "CustomList")
-            }else{
-                print("삭제하는데 실패했습니다.")
-            }
-        }
     }
+    
+    
+    
+    
 }
+

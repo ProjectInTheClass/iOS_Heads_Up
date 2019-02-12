@@ -44,6 +44,7 @@ class Start_ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: false)
         countLabel.isHidden = true
         if gameEnviroment?.motionEnviroment == "Gyro"{
             startButton.isHidden = true
