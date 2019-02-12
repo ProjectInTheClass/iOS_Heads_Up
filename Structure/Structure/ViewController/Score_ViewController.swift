@@ -7,16 +7,22 @@
 
 import UIKit
 
-class Score_ViewController: UIViewController {
+protocol ScoreDelegateProtocol {
+    func continueGame()
+    func goCategory()
+    func MoreGameinGameView()
+    func GoHomeInGameView()
+}
+
+class Score_ViewController: UIViewController, TotalScoreDelegate {
     
-    var delegate: ScorePopupDelegateProtocol?
+    var delegate: ScoreDelegateProtocol?
     
     @IBOutlet var nextButton: UIButton!
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var correctLabel: UILabel!
     @IBOutlet var passLabel: UILabel!
-    @IBOutlet var baseView: UIView!
-    @IBOutlet var nextGameButton: UIButton!
+    @IBOutlet var anotherCategoryButton: UIButton!
     
     var game : GameController?
     var gameSetting : GameSetting?
@@ -30,47 +36,59 @@ class Score_ViewController: UIViewController {
         passLabel.sizeToFit()
         scoreLabel.text = "Score : \(game?.gameScore)"
         scoreLabel.adjustsFontSizeToFitWidth = true
-        baseView.backgroundColor = #colorLiteral(red: 0.8777112365, green: 0.7940018773, blue: 0.5124126673, alpha: 1)
-        baseView.layer.cornerRadius = 8.0
         nextButton.setTitle("Next Game", for: .normal)
-        if gameSetting?.settingPlayer == gameSetting?.settingPlayerCount + 1 {
-            nextButton.setTitle("Total Score", for: .normal)
+        if let _ = gameSetting?.playerScore{
+            gameSetting!.playerScore?.append(game!.gameScore)
+        }else{
+            gameSetting?.playerScore = [game!.gameScore]
         }
+        if gameSetting?.settingPlayer == (gameSetting?.settingPlayerCount)! + 1 {
+            anotherCategoryButton.isEnabled = false
+            anotherCategoryButton.isHidden = true
+            nextButton.setTitle("최종 점수", for: .normal)
+        }
+            gameSetting!.settingPlayerCount += 1
     }
     
     
     //function of ScorePopup_ViewController, Reset : does not send any data. and return to Start
-    func ResetGame(){
+    func goCategoryInScore(){
+        delegate?.goCategory()
         self.dismiss(animated: false, completion: nil)
     }
     
     //function of ScorePopup_ViewController,  Next: send score and increase SettingPlayerCount. and return to category
-    func NextGame(){
-        gameSetting.settingPlayerCount += 1
-        if let _ = gameSetting.playerScore{
-            gameSetting.playerScore?.append(game.gameScore)
-        }else{
-            gameSetting.playerScore = [game.gameScore]
-        }
-        if gameSetting.settingPlayerCount == gameSetting.settingPlayer{
+    @IBAction func TouchContinue(_ sender: Any) {
+        if gameSetting!.settingPlayerCount == gameSetting!.settingPlayer{
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let TotalScoreCotroller = storyBoard.instantiateViewController(withIdentifier: "TotalScore") as? TotalScore_ViewController
-            TotalScoreCotroller?.totalPlayerScore = gameSetting.playerScore
+            TotalScoreCotroller?.totalPlayerScore = gameSetting!.playerScore
             TotalScoreCotroller?.gameSetting = self.gameSetting
-            TotalScoreCotroller?.delegate = self
             let transition = CATransition()
             transition.duration = 0.3
             transition.type = CATransitionType.push
             transition.subtype = CATransitionSubtype.fromBottom
             view.window!.layer.add(transition, forKey: kCATransition)
             self.present(TotalScoreCotroller!, animated: false, completion: nil)
-            
         }else{
-            delegate?.MoveToCategory()
             self.dismiss(animated: false, completion: nil)
+            delegate?.continueGame()
         }
     }
-    
+    @IBAction func TouchAnotherCategory(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
+        delegate?.goCategory()
+    }
+
+    func MoreGame(){
+        self.dismiss(animated: false, completion: nil)
+        delegate?.MoreGameinGameView()
+    }
+    func GoHome(){
+        self.dismiss(animated: false, completion: nil)
+        delegate?.GoHomeInGameView()
+    }
+
 
     /*
     // MARK: - Navigation

@@ -105,10 +105,7 @@ class Start_ViewController: UIViewController, GameDelegateProtocol {
     func GoHomeInStar(){
         navigationController?.popToRootViewController(animated: false)
     }
-    func MoreGameInStart(){
-        navigationController?.popViewController(animated: false)
-        
-    }
+
     
     
 }

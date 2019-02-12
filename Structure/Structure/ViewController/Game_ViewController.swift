@@ -12,11 +12,10 @@ import ViewAnimator
 
 protocol GameDelegateProtocol {
     func MoveToCategory()
-    func MoreGameInStart()
     func GoHomeInStar()
 }
 
-class Game_ViewController: UIViewController , TotalScoreDelegate {
+class Game_ViewController: UIViewController , ScoreDelegateProtocol {
     var actionGyro : Bool?
     var game = GameController()
     var gameEnviroment : GameEnviroment?
@@ -126,6 +125,7 @@ class Game_ViewController: UIViewController , TotalScoreDelegate {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let ScoreViewController = storyBoard.instantiateViewController(withIdentifier: "Score") as? Score_ViewController
             ScoreViewController?.game = self.game
+            ScoreViewController?.delegate = self
             ScoreViewController?.gameSetting = self.gameSetting
             self.present(ScoreViewController!, animated: false, completion: nil)
         }
@@ -208,21 +208,28 @@ class Game_ViewController: UIViewController , TotalScoreDelegate {
         }
 
     }
-    
+    func continueGame(){
+        self.dismiss(animated: false, completion: nil)
+        
+    }
+    func goCategory(){
+        self.dismiss(animated: false, completion: nil)
+        delegate?.MoveToCategory()
+        
+    }
+    func MoreGameinGameView(){
+        self.dismiss(animated: false, completion: nil)
+        delegate?.MoveToCategory()
+    }
+    func GoHomeInGameView(){
+        self.dismiss(animated: false, completion: nil)
+        delegate?.GoHomeInStar()
+    }
     override func viewWillAppear(_ animated: Bool) {
         let animation = AnimationType.zoom(scale: 0.01)
         contentLabel.animate(animations: [animation], reversed: false, initialAlpha: 0, finalAlpha: 1.0, delay: 0.0, duration: 0.5, options: UIView.AnimationOptions.init(rawValue: 0), completion: nil)
     }
-    func MoreGame(){
-        delegate?.MoreGameInStart()
-        self.dismiss(animated: false, completion: nil)
 
-    }
-    func GoHome(){
-        delegate?.GoHomeInStar()
-        self.dismiss(animated: false, completion: nil)
-
-    }
     
     
     /* gnuk 참고 이전 viewController에서 Game_ViewController로 넘겨줘야 하는 값, 부분
