@@ -22,8 +22,7 @@ class Score_ViewController: UIViewController, TotalScoreDelegate {
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var correctLabel: UILabel!
     @IBOutlet var passLabel: UILabel!
-    @IBOutlet var baseView: UIView!
-    @IBOutlet var nextGameButton: UIButton!
+    @IBOutlet var anotherCategoryButton: UIButton!
     
     var game : GameController?
     var gameSetting : GameSetting?
@@ -37,8 +36,6 @@ class Score_ViewController: UIViewController, TotalScoreDelegate {
         passLabel.sizeToFit()
         scoreLabel.text = "Score : \(game?.gameScore)"
         scoreLabel.adjustsFontSizeToFitWidth = true
-        baseView.backgroundColor = #colorLiteral(red: 0.8777112365, green: 0.7940018773, blue: 0.5124126673, alpha: 1)
-        baseView.layer.cornerRadius = 8.0
         nextButton.setTitle("Next Game", for: .normal)
         if let _ = gameSetting?.playerScore{
             gameSetting!.playerScore?.append(game!.gameScore)
@@ -46,8 +43,9 @@ class Score_ViewController: UIViewController, TotalScoreDelegate {
             gameSetting?.playerScore = [game!.gameScore]
         }
         if gameSetting?.settingPlayer == (gameSetting?.settingPlayerCount)! + 1 {
-        
-            nextButton.setTitle("Total Score", for: .normal)
+            anotherCategoryButton.isEnabled = false
+            anotherCategoryButton.isHidden = true
+            nextButton.setTitle("최종 점수", for: .normal)
         }else{
             gameSetting!.settingPlayerCount += 1
         }
@@ -61,7 +59,7 @@ class Score_ViewController: UIViewController, TotalScoreDelegate {
     }
     
     //function of ScorePopup_ViewController,  Next: send score and increase SettingPlayerCount. and return to category
-    func continueGameInScore(){
+    @IBAction func TouchContinue(_ sender: Any) {
         if gameSetting!.settingPlayerCount == gameSetting!.settingPlayer{
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let TotalScoreCotroller = storyBoard.instantiateViewController(withIdentifier: "TotalScore") as? TotalScore_ViewController
@@ -78,6 +76,11 @@ class Score_ViewController: UIViewController, TotalScoreDelegate {
             delegate?.continueGame()
         }
     }
+    @IBAction func TouchAnotherCategory(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
+        delegate?.goCategory()
+    }
+
     func MoreGame(){
         self.dismiss(animated: false, completion: nil)
         delegate?.MoreGameinGameView()

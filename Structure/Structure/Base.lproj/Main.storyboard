@@ -550,10 +550,10 @@
             </objects>
             <point key="canvasLocation" x="231.63418290854574" y="-95.200000000000003"/>
         </scene>
-        <!--View Controller-->
+        <!--Score View Controller-->
         <scene sceneID="n7Y-cW-yIr">
             <objects>
-                <viewController id="dY4-Ou-EEf" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Score" id="dY4-Ou-EEf" customClass="Score_ViewController" customModule="Structure" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ays-xr-sqk">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -571,6 +571,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                         <state key="normal" title="다른 주제"/>
+                                        <connections>
+                                            <action selector="TouchAnotherCategory:" destination="dY4-Ou-EEf" eventType="touchUpInside" id="o3b-ZV-CHk"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edL-Xp-Aw3">
                                         <rect key="frame" x="146" y="0.0" width="100" height="30"/>
@@ -580,7 +583,9 @@
                                             <constraint firstAttribute="height" constant="30" id="Y0x-KA-oGQ"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="dwT-lc-lK1"/>
                                         </constraints>
-                                        <state key="normal" title="한번 더"/>
+                                        <connections>
+                                            <action selector="TouchContinue:" destination="dY4-Ou-EEf" eventType="touchUpInside" id="HiT-U6-X9l"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -667,6 +672,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="agb-oH-8rn"/>
                     </view>
+                    <connections>
+                        <outlet property="anotherCategoryButton" destination="rXy-YX-f7J" id="GT2-Nd-IQY"/>
+                        <outlet property="correctLabel" destination="iiy-W7-gdn" id="B3u-8z-5HK"/>
+                        <outlet property="nextButton" destination="edL-Xp-Aw3" id="qF4-n9-9zA"/>
+                        <outlet property="passLabel" destination="zhG-DY-9oI" id="edS-2X-D9l"/>
+                        <outlet property="scoreLabel" destination="bdx-5Y-L7h" id="Uam-9W-k2F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y4A-fZ-TeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

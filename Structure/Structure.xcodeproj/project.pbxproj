@@ -21,7 +21,6 @@
 		96D0080B220191CC00DD793A /* SettingTimeAndPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96D0080A220191CC00DD793A /* SettingTimeAndPlayer.xib */; };
 		96D0080D2201920600DD793A /* SettingTimeAndPlayer_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D0080C2201920600DD793A /* SettingTimeAndPlayer_ViewController.swift */; };
 		96D0080F2201947E00DD793A /* Start_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D0080E2201947E00DD793A /* Start_ViewController.swift */; };
-		96EE45422201428500036DF2 /* scorePopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96EE45412201428500036DF2 /* scorePopup.xib */; };
 		96F2D14121F9508700D9FAFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2D14021F9508700D9FAFF /* AppDelegate.swift */; };
 		96F2D14621F9508700D9FAFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96F2D14421F9508700D9FAFF /* Main.storyboard */; };
 		96F2D14821F9508900D9FAFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96F2D14721F9508900D9FAFF /* Assets.xcassets */; };
@@ -54,7 +53,6 @@
 		96D0080A220191CC00DD793A /* SettingTimeAndPlayer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTimeAndPlayer.xib; sourceTree = "<group>"; };
 		96D0080C2201920600DD793A /* SettingTimeAndPlayer_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTimeAndPlayer_ViewController.swift; sourceTree = "<group>"; };
 		96D0080E2201947E00DD793A /* Start_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Start_ViewController.swift; sourceTree = "<group>"; };
-		96EE45412201428500036DF2 /* scorePopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = scorePopup.xib; sourceTree = "<group>"; };
 		96F2D13D21F9508700D9FAFF /* Structure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Structure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96F2D14021F9508700D9FAFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96F2D14521F9508700D9FAFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 				96F2D15321F950B100D9FAFF /* Model */,
 				96F2D15221F9509B00D9FAFF /* SubFile */,
 				96F2D14421F9508700D9FAFF /* Main.storyboard */,
-				96EE45412201428500036DF2 /* scorePopup.xib */,
 				962F2DB9220EF47C004556D6 /* SetGameEnviroment.xib */,
 				96D0080A220191CC00DD793A /* SettingTimeAndPlayer.xib */,
 				9A74FB022205D5BF009B8B0D /* GoogleService-Info.plist */,
@@ -260,7 +257,6 @@
 				962B1970220F2A0C004862E1 /* Contents.json in Resources */,
 				96F2D14821F9508900D9FAFF /* Assets.xcassets in Resources */,
 				96F2D14621F9508700D9FAFF /* Main.storyboard in Resources */,
-				96EE45422201428500036DF2 /* scorePopup.xib in Resources */,
 				966C562A221041DB00FEB8CA /* Property List.plist in Resources */,
 				9A74FB032205D5BF009B8B0D /* GoogleService-Info.plist in Resources */,
 			);
