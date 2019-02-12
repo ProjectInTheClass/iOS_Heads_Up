@@ -11,7 +11,7 @@ import ViewAnimator
 import CoreMotion
 
 
-class Start_ViewController: UIViewController, GameDelegateProtocol {
+class Start_ViewController: UIViewController {
     var gameSetting : GameSetting?
     var gameEnviroment : GameEnviroment?
     var contents : [String]?
@@ -80,17 +80,20 @@ class Start_ViewController: UIViewController, GameDelegateProtocol {
         seconds -= 1
         if seconds == 0{
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let GameViewController = storyBoard.instantiateViewController(withIdentifier: "Game") as? Game_ViewController
-            GameViewController?.gameSetting = self.gameSetting!
-            GameViewController?.contents = self.contents
-            GameViewController?.gameEnviroment = self.gameEnviroment
-            GameViewController?.delegate = self
-            self.present(GameViewController!, animated: false, completion: nil)
+            performSegue(withIdentifier: "Game", sender: nil)
             timer.invalidate()
         }else{
             countLabel.text = "\(seconds)"
             let animation = AnimationType.zoom(scale: 0.01)
             countLabel.animate(animations: [animation], reversed: false, initialAlpha: 0, finalAlpha: 1.0, delay: 0.0, duration: 1, options: UIView.AnimationOptions.init(rawValue: 0), completion: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let GameViewController = segue.destination as? Game_ViewController {
+            GameViewController.gameSetting = self.gameSetting!
+            GameViewController.contents = self.contents
+            GameViewController.gameEnviroment = self.gameEnviroment
         }
     }
     func runTimer() {
@@ -99,12 +102,8 @@ class Start_ViewController: UIViewController, GameDelegateProtocol {
     
     
     @IBOutlet var countLabel: UILabel!
-    func MoveToCategory() {
-        navigationController?.popViewController(animated: false)
-    }
-    func GoHomeInStar(){
-        navigationController?.popToRootViewController(animated: false)
-    }
+
+    
 
     
     
