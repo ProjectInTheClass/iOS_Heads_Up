@@ -580,7 +580,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edL-Xp-Aw3">
-                                        <rect key="frame" x="146" y="0.0" width="100" height="30"/>
+                                        <rect key="frame" x="146.00000000000003" y="0.0" width="100" height="30"/>
                                         <color key="backgroundColor" red="0.94118529559999997" green="0.9411650896" blue="0.94116902349999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="GKD-Lz-cJl"/>
@@ -606,13 +606,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="53" translatesAutoresizingMaskIntoConstraints="NO" id="qcU-C9-aR4">
-                                <rect key="frame" x="170.5" y="131" width="555" height="232"/>
+                                <rect key="frame" x="170.66666666666663" y="131" width="555" height="232"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mUy-X1-5JA">
                                         <rect key="frame" x="0.0" y="0.0" width="251" height="232"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="맞은 문제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q79-Yv-4Ui">
-                                                <rect key="frame" x="0.0" y="0.0" width="74" height="24"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="73.666666666666671" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -639,7 +639,7 @@
                                         <rect key="frame" x="304" y="0.0" width="251" height="232"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="넘긴 문제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znG-Sd-LUL">
-                                                <rect key="frame" x="0.0" y="0.0" width="74" height="24"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="73.666666666666671" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -870,6 +870,7 @@
                                     <constraint firstItem="pZg-bX-zNo" firstAttribute="height" secondItem="9cm-sz-0vF" secondAttribute="height" id="B6h-qO-lL0"/>
                                     <constraint firstItem="55w-xf-X9H" firstAttribute="centerX" secondItem="bDy-gT-LQb" secondAttribute="centerX" id="BrC-sd-9jx"/>
                                     <constraint firstItem="pZg-bX-zNo" firstAttribute="leading" secondItem="yHA-Mi-XUf" secondAttribute="trailing" constant="20" id="Ire-Eu-5hc"/>
+                                    <constraint firstItem="yHA-Mi-XUf" firstAttribute="top" secondItem="bDy-gT-LQb" secondAttribute="top" constant="100" id="Qan-xR-dIk"/>
                                     <constraint firstItem="V8w-Oi-paP" firstAttribute="centerY" secondItem="zOA-oq-fls" secondAttribute="centerY" id="Sky-VM-3kV"/>
                                     <constraint firstItem="pZg-bX-zNo" firstAttribute="top" secondItem="55w-xf-X9H" secondAttribute="bottom" constant="30" id="YoX-eQ-7Ya"/>
                                     <constraint firstItem="9cm-sz-0vF" firstAttribute="leading" secondItem="pZg-bX-zNo" secondAttribute="trailing" constant="60" id="c27-gf-8h1"/>
@@ -879,6 +880,7 @@
                                     <constraint firstItem="55w-xf-X9H" firstAttribute="width" secondItem="pZg-bX-zNo" secondAttribute="width" multiplier="1.3" id="k1v-TC-Jfm"/>
                                     <constraint firstItem="yHA-Mi-XUf" firstAttribute="centerY" secondItem="bDy-gT-LQb" secondAttribute="centerY" constant="10" id="kZp-Yd-9EK"/>
                                     <constraint firstItem="9cm-sz-0vF" firstAttribute="centerY" secondItem="bDy-gT-LQb" secondAttribute="centerY" constant="10" id="lU3-kO-2VH"/>
+                                    <constraint firstItem="9cm-sz-0vF" firstAttribute="top" secondItem="55w-xf-X9H" secondAttribute="bottom" constant="30" id="mvz-Ou-MdG"/>
                                     <constraint firstItem="pZg-bX-zNo" firstAttribute="centerY" secondItem="bDy-gT-LQb" secondAttribute="centerY" constant="10" id="srT-N7-gMc"/>
                                     <constraint firstItem="pZg-bX-zNo" firstAttribute="height" secondItem="yHA-Mi-XUf" secondAttribute="height" id="tpe-zl-teZ"/>
                                     <constraint firstItem="pZg-bX-zNo" firstAttribute="centerX" secondItem="bDy-gT-LQb" secondAttribute="centerX" constant="-40" id="yDI-d1-VVJ"/>
