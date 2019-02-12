@@ -16,9 +16,14 @@ class Score_ViewController: UIViewController {
     @IBOutlet var passLabel: UILabel!
     @IBOutlet var anotherCategoryButton: UIButton!
     
+    @IBOutlet weak var makeCornerRound4: UIView!
+    @IBOutlet weak var makeCornerRound5: UIView!
     var game : GameController?
     var gameSetting : GameSetting?
     override func viewDidLoad() {
+        
+        makeCornerRound4.layer.cornerRadius = 10.0
+        makeCornerRound5.layer.cornerRadius = 10.0
         navigationController?.setNavigationBarHidden(true, animated: false)
         super.viewDidLoad()
         game?.GameScore()
