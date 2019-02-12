@@ -16,7 +16,7 @@ protocol GameDelegateProtocol {
     func GoHomeInStar()
 }
 
-class Game_ViewController: UIViewController , ScorePopupDelegateProtocol, TotalScoreDelegate {
+class Game_ViewController: UIViewController , TotalScoreDelegate {
     var actionGyro : Bool?
     var game = GameController()
     var gameEnviroment : GameEnviroment?
@@ -123,69 +123,15 @@ class Game_ViewController: UIViewController , ScorePopupDelegateProtocol, TotalS
             timerLabel.removeFromSuperview()
             self.GravityBehavior.magnitude = 0
             self.actionGyro = false
-            ShowPopup()
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let ScoreViewController = storyBoard.instantiateViewController(withIdentifier: "Score") as? Score_ViewController
+            ScoreViewController?.game = self.game
+            ScoreViewController?.gameSetting = self.gameSetting
+            self.present(ScoreViewController!, animated: false, completion: nil)
         }
     }
     
     //ScorePopup_ViewController Setting(score, passLabel, correctLabel)
-    func ShowPopup (){
-        let popup : ScorePopup_ViewController = UINib(nibName: "scorePopup", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! ScorePopup_ViewController
-        let viewColor = #colorLiteral(red: 0.088717632, green: 0.05267825723, blue: 0.02710740082, alpha: 1)
-        popup.delegate = self
-        popup.frame = self.view.frame
-        popup.backgroundColor = viewColor.withAlphaComponent(0.6)
-        game.GameScore()
-        popup.correctLabel.text = game.correctList?.joined(separator: "\u{0085}")         //make String from array
-        popup.correctLabel.sizeToFit()
-        popup.passLabel.text = game.passList?.joined(separator: "\u{0085}")
-        popup.passLabel.sizeToFit()
-        popup.scoreLabel.text = "Score : \(game.gameScore)"
-        popup.scoreLabel.adjustsFontSizeToFitWidth = true
-        popup.baseView.backgroundColor = #colorLiteral(red: 0.8777112365, green: 0.7940018773, blue: 0.5124126673, alpha: 1)
-        popup.baseView.layer.cornerRadius = 8.0
-        popup.nextButton.setTitle("Next Game", for: .normal)
-        if gameSetting.settingPlayer == gameSetting.settingPlayerCount + 1 {
-            popup.nextButton.setTitle("Total Score", for: .normal)
-        }
-        let animation = AnimationType.zoom(scale: 0.2)
-        popup.view.animate(animations: [animation])
-        self.view.addSubview(popup)
-    }
-    
-    
-    //function of ScorePopup_ViewController, Reset : does not send any data. and return to Start
-    func ResetGame(){
-        self.dismiss(animated: false, completion: nil)
-    }
-    
-    //function of ScorePopup_ViewController,  Next: send score and increase SettingPlayerCount. and return to category
-    func NextGame(){
-        gameSetting.settingPlayerCount += 1
-        if let _ = gameSetting.playerScore{
-            gameSetting.playerScore?.append(game.gameScore)
-        }else{
-            gameSetting.playerScore = [game.gameScore]
-        }
-        if gameSetting.settingPlayerCount == gameSetting.settingPlayer{
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let TotalScoreCotroller = storyBoard.instantiateViewController(withIdentifier: "TotalScore") as? TotalScore_ViewController
-            TotalScoreCotroller?.totalPlayerScore = gameSetting.playerScore
-            TotalScoreCotroller?.gameSetting = self.gameSetting
-            TotalScoreCotroller?.delegate = self
-            let transition = CATransition()
-            transition.duration = 0.3
-            transition.type = CATransitionType.push
-            transition.subtype = CATransitionSubtype.fromBottom
-            view.window!.layer.add(transition, forKey: kCATransition)
-            self.present(TotalScoreCotroller!, animated: false, completion: nil)
-         
-        }else{
-            delegate?.MoveToCategory()
-            self.dismiss(animated: false, completion: nil)
-        }
-    }
-    
-
     
     
     override func viewDidAppear(_ animated: Bool) {
