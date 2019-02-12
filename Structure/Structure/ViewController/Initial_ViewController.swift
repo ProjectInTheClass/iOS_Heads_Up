@@ -41,6 +41,7 @@ class Initial_ViewController: UIViewController , SettingTimeAndPlayerDelegatePro
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "LANDING.jpg")!)
        //let appDomain = Bundle.main.bundleIdentifier
        //UserDefaults.standard.removePersistentDomain(forName: appDomain!)
     }
