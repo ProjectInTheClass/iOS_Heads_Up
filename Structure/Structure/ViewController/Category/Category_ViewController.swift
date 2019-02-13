@@ -26,6 +26,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     var contents = ["컨텐츠가 없습니다."]
     var favoritDictionary : Dictionary<String, Bool> = [String : Bool]()
     var customMode = false
+    var favoritMode = false
     @IBOutlet var collectionView: UICollectionView!
 
     @IBOutlet var playerNumber: UILabel!
@@ -67,6 +68,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @IBAction func AllCategory(_ sender: UIButton) {
         category = allCategory
+        favoritMode = false
         customMode = false
         collectionView.reloadData()
     }
@@ -74,6 +76,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBAction func FavoritCategory(_ sender: Any) {
         favoritCategory = nil
         customMode = false
+        favoritMode = true
         if let tempCategory = customContent.customCategory{
             for listcategory in allCategory + tempCategory{
                 if favoritDictionary[listcategory] == true{
@@ -106,14 +109,13 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         }else{
             let alert = UIAlertController(title: "선호하는 항목이 없습니다", message: "추가하십시오", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            
-                self.present(alert, animated: true, completion: nil)
-            
+            self.present(alert, animated: true, completion: nil)
         }
     }
 
     @IBAction func CustumCategory(_ sender: UIButton) {
         customMode = true
+        favoritMode = false
         if let userCustom = customContent.customCategory{
             category = ["추가하기"] + userCustom
         }else{
@@ -236,11 +238,35 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
             print("Set Favorit")
             print(favoritDictionary)
         }
+        if favoritMode == true{
+            ReloadFavoritCollectioview(title: favoritTitle)
+            
+        }
+        
     }
     
     func ReloadCustomCollectionView(Title: String){
         if let userCustom = customContent.customCategory{
             category = ["추가하기"] + userCustom
+        }
+        collectionView.reloadData()
+    }
+    func ReloadFavoritCollectioview(title : String){
+        var deleteCount = 0
+        for count in 0...favoritCategory!.count-1 {
+            if favoritCategory![count] == title{
+                deleteCount = count
+            }
+        }
+        favoritCategory!.remove(at: deleteCount)
+        
+        if let _ = favoritCategory {
+            category = favoritCategory!
+        }else{
+            let alert = UIAlertController(title: "선호하는 항목이 없습니다", message: "추가하십시오", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            category = allCategory
         }
         collectionView.reloadData()
     }

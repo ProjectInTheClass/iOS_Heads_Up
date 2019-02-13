@@ -69,10 +69,10 @@ class Score_ViewController: UIViewController, CAAnimationDelegate, TotalScoreDel
             transition.duration = 0.45
             transition.timingFunction = CAMediaTimingFunction.init(name: CAMediaTimingFunctionName.default)
             transition.type = CATransitionType.push //Transition you want like Push, Reveal
-            transition.subtype = CATransitionSubtype.fromLeft // Direction like Left to Right, Right to Left
+            transition.subtype = CATransitionSubtype.fromBottom // Direction like Left to Right, Right to Left
             transition.delegate = self
             view.window!.layer.add(transition, forKey: kCATransition)
-            self.present(totalScoreViewController!, animated: true, completion: nil)
+            self.present(totalScoreViewController!, animated: false, completion: nil)
         }else{
             navigationController!.popToViewController(navigationController!.viewControllers[2], animated: true)
         }
