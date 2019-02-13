@@ -34,6 +34,7 @@ class Score_ViewController: UIViewController, CAAnimationDelegate, TotalScoreDel
         navigationController?.setNavigationBarHidden(true, animated: false)
         super.viewDidLoad()
         game?.GameScore()
+        
         correctLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         correctLabel.text = game?.correctList?.joined(separator: "\u{0085}")         //make String from array
         correctLabel.sizeToFit()

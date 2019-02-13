@@ -9,9 +9,24 @@
 import UIKit
 import CoreMotion
 import ViewAnimator
+import CountdownLabel
 
+extension Game_ViewController: CountdownLabelDelegate {
+    func countdownFinished() {
+        CheckEndDone()
+    }
+    
+    func countingAt(timeCounted: TimeInterval, timeRemaining: TimeInterval) {
+        debugPrint("time counted at delegate=\(timeCounted)")
+        debugPrint("time remaining at delegate=\(timeRemaining)")
+    }
+    
+}
 
-class Game_ViewController: UIViewController {
+class Game_ViewController: UIViewController{
+
+    
+    @IBOutlet var countDownLabel: CountdownLabel!
     var actionGyro : Bool?
     var game = GameController()
     var gameEnviroment : GameEnviroment?
@@ -30,19 +45,16 @@ class Game_ViewController: UIViewController {
         behavior.magnitude = 0
         return behavior
     }()
-    
+/*
     //Timer
     var timer = Timer()
-    @IBOutlet var timerLabel: UILabel!
     @objc func updateTimer(){
         CheckEndDone()
-        seconds -= 1
-        timerLabel.text = "\(seconds)"
     }
     func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(Game_ViewController.updateTimer)), userInfo: nil, repeats: true)
     }
-    
+   */
     
     
     @IBOutlet var contentLabel: UILabel!
@@ -92,6 +104,7 @@ class Game_ViewController: UIViewController {
             self.view.backgroundColor = #colorLiteral(red: 0.9436894059, green: 0.9737893939, blue: 0.9599447846, alpha: 1)
         }
     }
+
     
     
     
@@ -117,12 +130,12 @@ class Game_ViewController: UIViewController {
     
     //Check End Game called on updateTimer
     func CheckEndDone() {
-        if seconds == 0{
-            timerLabel.removeFromSuperview()
+     //   if seconds == 0{
+            count.removeFromSuperview()
             self.GravityBehavior.magnitude = 0
             self.actionGyro = false
             performSegue(withIdentifier: "Score", sender: nil)
-        }
+     //   }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -130,6 +143,22 @@ class Game_ViewController: UIViewController {
             ScoreViewController.game = self.game
             ScoreViewController.gameSetting = self.gameSetting
         }
+    }
+    
+    @IBAction func TouchPause(_ sender: Any) {
+        count.pause()
+        
+        let alert = UIAlertController(title: "일시정지", message: "게임을 그만하시겠습니까?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "그만하기", style: .cancel, handler: {(alert) -> Void in self.CancleGame() }))
+        alert.addAction(UIAlertAction(title: "계속하기", style: .default, handler: {(alert) -> Void in self.ContinueAction()  }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    func CancleGame(){
+            navigationController?.popViewController(animated: true)
+        }
+    
+    func ContinueAction(){
+        count.start()
     }
     
     //ScorePopup_ViewController Setting(score, passLabel, correctLabel)
@@ -184,14 +213,24 @@ class Game_ViewController: UIViewController {
         }
     }
     
+    @IBOutlet var count: CountdownLabel!
     override func viewDidLoad() { //재정의 할 것이다.
-        super.viewDidLoad() //vidwDidLoad : 기존 기능에 덧붙혀서 기능을 추가 할 것이다.
         seconds = gameSetting.timeLimit
-        seconds = 2
+        count.setCountDownTime(minutes: TimeInterval(seconds))
+        count.textColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        count.timeFormat = "mm:ss"
+        count.animationType = .Evaporate
+        count.adjustsFontSizeToFitWidth = true
+        count.countdownDelegate = self
+        count.start()
+        let _ = count.then(targetTime: 0){ [unowned self] in
+            self.CheckEndDone()
+        }
+        
+        super.viewDidLoad() //vidwDidLoad : 기존 기능에 덧붙혀서 기능을 추가 할 것이다.
         game.contents = self.contents!
         game.shuffleContent()
-        timerLabel.text = "\(seconds)"
-        runTimer()
+      //  runTimer()
         correctOrPassLabel.isHidden = true
         contentLabel.text = game.contentText
         contentLabel.adjustsFontSizeToFitWidth = true
