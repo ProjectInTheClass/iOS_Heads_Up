@@ -18,6 +18,8 @@ class Start_ViewController: UIViewController {
     var seconds = 3
     var timer = Timer()
     var motion = CMMotionManager()
+    @IBOutlet var playerLabel: UILabel!
+    @IBOutlet var explainLabel: UILabel!
     var GravityBehavior : UIGravityBehavior = {
         let behavior = UIGravityBehavior()
         behavior.magnitude = 0
@@ -49,10 +51,19 @@ class Start_ViewController: UIViewController {
         if gameEnviroment?.motionEnviroment == "Gyro"{
             startButton.isHidden = true
             startButton.isEnabled = false
+            explainLabel.text = "핸드폰을 머리위에 올리고 똑바로 세워주세요"
+            explainLabel.adjustsFontSizeToFitWidth = true
         }else if gameEnviroment?.motionEnviroment == "Touch"{
             startButton.isHidden = false
             startButton.isEnabled = true
+            explainLabel.text = "핸드폰을 머리위에 시작 버튼을 눌러주세요"
+            explainLabel.adjustsFontSizeToFitWidth = true
         }
+        if let player = gameSetting?.settingPlayerCount{
+            playerLabel.text = "플레이어\(player + 1)"
+            playerLabel.adjustsFontSizeToFitWidth = true
+        }
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -80,7 +91,6 @@ class Start_ViewController: UIViewController {
     @objc func updateTimer(){
         seconds -= 1
         if seconds == 0{
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             performSegue(withIdentifier: "Game", sender: nil)
             timer.invalidate()
         }else{

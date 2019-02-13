@@ -87,17 +87,17 @@ public class Custom
     
     func MakeCustomData (Title : String, Words : [String]){
         let newCustomContent = CustomContent(Title: Title, Words: Words)
-        if let _ = customContents{
-            if let _ = customCategory{
-                customCategory = [newCustomContent.Title] + customCategory!
-                customContents = [newCustomContent] + customContents!
-                saveCustomContents(customContents: customContents!)}
+        if let _ = customCategory{
+            customCategory = [newCustomContent.Title] + customCategory!
+            customContents = [newCustomContent] + customContents!
+            saveCustomContents(customContents: customContents!)
         }else{
             customContents = [newCustomContent]
             customCategory = [newCustomContent.Title]
             saveCustomContents(customContents: [newCustomContent])
         }
     }
+    
     
     func InitContents(title : String) -> [String] {
         if let customContentsData = customContents{

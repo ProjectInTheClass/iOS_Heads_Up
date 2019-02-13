@@ -56,7 +56,8 @@ class Game_ViewController: UIViewController {
         game.touchCorrectButton()
         contentLabel.text = game.contentText
         correctOrPassLabel.text = "Correct"
-        correctOrPassLabel.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        correctOrPassLabel.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         correctOrPassLabel.isHidden = false
         correctButton.isEnabled = false
         passButton.isEnabled = false
@@ -67,6 +68,7 @@ class Game_ViewController: UIViewController {
             self.passButton.isEnabled = true
             self.priviousButton.isEnabled = true
             self.priviousButton.isHidden = false
+            self.view.backgroundColor = #colorLiteral(red: 0.9436894059, green: 0.9737893939, blue: 0.9599447846, alpha: 1)
         }
     }
     
@@ -75,7 +77,8 @@ class Game_ViewController: UIViewController {
         game.touchPassButton()
         contentLabel.text = game.contentText
         correctOrPassLabel.text = "Pass"
-        correctOrPassLabel.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        correctOrPassLabel.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
         correctOrPassLabel.isHidden = false
         correctButton.isEnabled = false
         passButton.isEnabled = false
@@ -86,6 +89,7 @@ class Game_ViewController: UIViewController {
             self.passButton.isEnabled = true
             self.priviousButton.isEnabled = true
             self.priviousButton.isHidden = false
+            self.view.backgroundColor = #colorLiteral(red: 0.9436894059, green: 0.9737893939, blue: 0.9599447846, alpha: 1)
         }
     }
     
