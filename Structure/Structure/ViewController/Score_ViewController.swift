@@ -7,7 +7,7 @@
 import UIKit
 
 
-class Score_ViewController: UIViewController, CAAnimationDelegate, TotalScoreDelegate {
+class Score_ViewController: UIViewController, CAAnimationDelegate, TotalScoreDelegate,UIScrollViewDelegate {
     
     @IBOutlet var nextButton: UIButton!
     @IBOutlet var scoreLabel: UILabel!
@@ -21,8 +21,15 @@ class Score_ViewController: UIViewController, CAAnimationDelegate, TotalScoreDel
     var game : GameController?
     var gameSetting : GameSetting?
     
+    @IBOutlet var correctScroll: UIScrollView!
     
+    @IBOutlet var passScroll: UIScrollView!
+    
+
     override func viewDidLoad() {
+        correctScroll.isDirectionalLockEnabled = true
+        passScroll.isDirectionalLockEnabled = true
+
         gameSetting!.settingPlayerCount += 1
         if let player = gameSetting?.settingPlayerCount{
             playerLabel.text = "플레이어 \(player)"

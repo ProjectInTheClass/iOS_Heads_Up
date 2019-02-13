@@ -15,11 +15,7 @@ extension Game_ViewController: CountdownLabelDelegate {
     func countdownFinished() {
         CheckEndDone()
     }
-    
-    func countingAt(timeCounted: TimeInterval, timeRemaining: TimeInterval) {
-        debugPrint("time counted at delegate=\(timeCounted)")
-        debugPrint("time remaining at delegate=\(timeRemaining)")
-    }
+
     
 }
 
@@ -217,7 +213,7 @@ class Game_ViewController: UIViewController{
     override func viewDidLoad() { //재정의 할 것이다.
         seconds = gameSetting.timeLimit
         count.setCountDownTime(minutes: TimeInterval(seconds))
-        count.textColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        count.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         count.timeFormat = "mm:ss"
         count.animationType = .Evaporate
         count.adjustsFontSizeToFitWidth = true
@@ -225,6 +221,10 @@ class Game_ViewController: UIViewController{
         count.start()
         let _ = count.then(targetTime: 0){ [unowned self] in
             self.CheckEndDone()
+        }
+        let _ = count.then(targetTime: 10){ [unowned self] in
+            self.count.animationType = .Burn
+            self.count.textColor = #colorLiteral(red: 1, green: 0.2590009272, blue: 0.1026743129, alpha: 1)
         }
         
         super.viewDidLoad() //vidwDidLoad : 기존 기능에 덧붙혀서 기능을 추가 할 것이다.

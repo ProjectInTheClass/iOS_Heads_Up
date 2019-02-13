@@ -21,19 +21,25 @@ class Category_CollectionViewCell: UICollectionViewCell {
     var delegate : UICollectionViewDelegate?
     var cellIndex : IndexPath?
     @IBOutlet var categoryTitleLabel: UILabel!
-    var isOn : Bool = false
+    var isOn : Bool?
     override var isSelected: Bool {
         didSet {
+            
             if isSelected {
                 categoryTitleLabel.textColor = UIColor.white
                 delegate?.GetCellTitle(title: categoryTitleLabel.text!)
                 delegate?.selectFromTwoSegue(title: categoryTitleLabel.text!)
+                isOn = nil
             }
             else {
                 categoryTitleLabel.textColor = UIColor.black
             }
         }
     }
+
+
+    
+
     let deleteButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
 
     func DeleteCustom(customMode : Bool){
