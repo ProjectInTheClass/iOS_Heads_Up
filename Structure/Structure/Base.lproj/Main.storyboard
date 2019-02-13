@@ -531,6 +531,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ld-Ch-n6h">
+                                <rect key="frame" x="64" y="72" width="88" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUY-pp-D29">
+                                <rect key="frame" x="159" y="346" width="629" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -547,13 +561,15 @@
                     </view>
                     <connections>
                         <outlet property="countLabel" destination="UDb-9X-Jv2" id="Ihi-kr-cnX"/>
+                        <outlet property="explainLabel" destination="kUY-pp-D29" id="G1C-Ll-IsU"/>
+                        <outlet property="playerLabel" destination="6ld-Ch-n6h" id="uVO-kX-IUJ"/>
                         <outlet property="startButton" destination="EnB-KK-e7s" id="5vG-Vl-oIg"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="Game" animates="NO" id="C6M-fT-UU1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DUe-w7-8LU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="231.63418290854574" y="-95.200000000000003"/>
+            <point key="canvasLocation" x="231.02678571428569" y="-95.652173913043484"/>
         </scene>
         <!--Score View Controller-->
         <scene sceneID="n7Y-cW-yIr">
@@ -987,16 +1003,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EaN-bQ-whQ">
-                                <rect key="frame" x="104" y="321" width="279" height="50"/>
+                                <rect key="frame" x="104" y="342" width="279" height="29"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="플레이어수" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziQ-1O-PDI">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="29"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nsl-fc-D15" customClass="ValueStepper" customModule="ValueStepper">
-                                        <rect key="frame" x="86" y="0.0" width="193" height="50"/>
+                                        <rect key="frame" x="86" y="0.0" width="193" height="29"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="value">
@@ -1028,16 +1044,16 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Gtk-1F-n3Z">
-                                <rect key="frame" x="511" y="319" width="279" height="50"/>
+                                <rect key="frame" x="511" y="340" width="279" height="29"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제한시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLE-iq-EHk">
-                                        <rect key="frame" x="0.0" y="0.0" width="62.333333333333336" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="62.333333333333336" height="29"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IT0-vJ-mTG" customClass="ValueStepper" customModule="ValueStepper">
-                                        <rect key="frame" x="70.333333333333357" y="0.0" width="208.66666666666663" height="50"/>
+                                        <rect key="frame" x="70.333333333333357" y="0.0" width="208.66666666666663" height="29"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="value">

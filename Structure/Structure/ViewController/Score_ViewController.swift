@@ -15,8 +15,6 @@ class Score_ViewController: UIViewController, CAAnimationDelegate, TotalScoreDel
     @IBOutlet var passLabel: UILabel!
     @IBOutlet var anotherCategoryButton: UIButton!
     
-    @IBOutlet var passScroll: UIScrollView!
-    @IBOutlet var correctScroll: UIScrollView!
     @IBOutlet weak var makeCornerRound4: UIView!
     @IBOutlet weak var makeCornerRound5: UIView!
     @IBOutlet var playerLabel: UILabel!
@@ -31,8 +29,6 @@ class Score_ViewController: UIViewController, CAAnimationDelegate, TotalScoreDel
         }else{
             playerLabel.isHidden = true
         }
-        passScroll.isDirectionalLockEnabled = true
-        correctScroll.isDirectionalLockEnabled = true
         makeCornerRound4.layer.cornerRadius = 10.0
         makeCornerRound5.layer.cornerRadius = 10.0
         navigationController?.setNavigationBarHidden(true, animated: false)
