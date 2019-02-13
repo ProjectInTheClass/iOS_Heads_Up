@@ -13,7 +13,7 @@ protocol TotalScoreDelegate {
 }
 
 
-class TotalScore_ViewController: UIViewController {
+class TotalScore_ViewController: UIViewController, CAAnimationDelegate {
     var gameSetting : GameSetting?
     var totalPlayerScore : [Int]?
     var scoreListLabel : [String] = ["🌟Score🌟"]
@@ -33,7 +33,14 @@ class TotalScore_ViewController: UIViewController {
     @IBAction func TouchMoreGame(_ sender: Any) {
         self.gameSetting?.settingPlayerCount = 0
         self.gameSetting?.playerScore = nil
-          self.dismiss(animated: true, completion: nil)
+        let transition = CATransition.init()
+        transition.duration = 0.45
+        transition.timingFunction = CAMediaTimingFunction.init(name: CAMediaTimingFunctionName.default)
+        transition.type = CATransitionType.push //Transition you want like Push, Reveal
+        transition.subtype = CATransitionSubtype.fromTop // Direction like Left to Right, Right to Left
+        transition.delegate = self
+        view.window!.layer.add(transition, forKey: kCATransition)
+        self.dismiss(animated: true, completion: nil)
         delegate?.goCategory()
     }
     

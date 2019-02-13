@@ -72,6 +72,7 @@ class Add_CustomTheme_ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9436810613, green: 0.9736506343, blue: 0.9642569423, alpha: 0.8319487236)
         makeAngleRound.layer.cornerRadius = 8.0
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
