@@ -57,9 +57,14 @@ class TotalScore_ViewController: UIViewController, CAAnimationDelegate {
     var scoreListLabel : [String] = []
     var winner : [String] = []
     
+    @IBOutlet weak var makeCornerRound: UIButton!
+    @IBOutlet weak var makeCornerRound1: UIButton!
     override func viewDidLoad() {
         navigationController?.setNavigationBarHidden(true, animated: false)
         super.viewDidLoad()
+        makeCornerRound.layer.cornerRadius = 18.0
+        makeCornerRound1.layer.cornerRadius = 18.0
+        
         if let scoreList = totalPlayerScore {
             let winnerScore = scoreList.max()
             for playerNum in scoreList.indices{
