@@ -24,8 +24,16 @@
         "Words" : ["프레디 머큐리","로저 테일러","레이 포스터","브라이언 메이","메리 오스틴","존 디콘","존 레이드"]
     },
     {
+        "Title" : "한국힙합(가수)",
+        "Words" : ["도끼","더콰이엇","빈지노","창모","해쉬스완","김효은","스윙스","기리보이","천제노창","씨잼","한요한","블랙넛","키드밀리","재키와이","영비","저스디스","최자","개코","크러쉬","리듬파워","박재범","사이먼도미닉","로꼬","그레이","비와이","우원재","김하온","식케이","ph-1","우디고차일드","버벌진트","산이","레디","팔로알토","허클베리피","G2","비프리","오케이션","Keith-ape","넉살","던밀스","윤미래","타이거JK","슈퍼비","어글리덕","플로우식","킬라그램","Uneducated Kid","자메즈","오왼오바도즈","나플라","오디","페노메코","디보"]
+    },
+    {
+        "Title" : "외국힙합(가수)",
+        "Words" : ["Travis Scott","J.Cole","Post Malone","21 Savage","Meek Mill","Cardi B","Migos","Gucci Mane","Bruno Mars","The Weeknd","Logic","Chris Brown","Lil Baby","Juice WRLD","Lil Wayne","Ty Dalla $ign","XXXTENTACION","Future","Rich The Kid","Drake","Lil Pump","Nicki Minaj","6ix9ine","Kanye West","Eminen","2Pac","The Notorious big ","Nas","Snoop dogg","Desiiner","Kendrick lamar","Big Sean","Lil Dicky","Lil uzi vert","Lil Peep","Jay-Z","Beyoce","Ne-yo","Dr. Dre","Ice Cube","50 cent","Eazy-E","Rakim","T.I","Ludacris","Asap Rocky","Chance the rapper ","Wiz Khalfa","The Game","Childish Gambino","Big Pun","Tylor, the creater","2 Chainz","Joey Badass","SchoolBoy Q","Pusha T","Lupe Fiasco","Nelly","Mac Miller","Rick Ross","YG"]
+    },
+    {
         "Title" :  "동물",
-        "Words" : ["개","고양이","붉은여우","라쿤","기니피그","다람쥐","청솔모","친칠라","햄스터","토끼","고슴도치","돼지","말","앵무새","닭","까마귀", "까치", "오리", "거위", "거북이","도마뱀","뱀","도롱뇽", "개구리", "새우","가재", "게", "거미", "전갈", "지네", "개미", "말벌", "해파리"]
+        "Words" : ["기니피그","꽃사슴","당나귀","쓰시마삵","가창오리","두루미","원앙","그린 아구아나","자라","줄무늬 뱀","호랑이","사자","미어켓","라쿤","고양이","강아지","말","돼지","토끼","거북이","기린","치타","곰","판다","원숭이","오랑우탄","킹콩","여우","사막여우","캥거루","코알라","개미핥기","늑대","소","염소","양","쥐","닭","독수리","비둘기","수달"]
     },
     {
         "Title" : "외국드라마",

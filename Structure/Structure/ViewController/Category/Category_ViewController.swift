@@ -39,6 +39,8 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         return self.category.count
     }
     
+
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : Category_CollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: self.cellIdentifier, for: indexPath) as! Category_CollectionViewCell
         let category = self.category[indexPath.item]
@@ -71,6 +73,8 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         collectionView.reloadData()
     }
     
+ 
+
     @IBAction func FavoritCategory(_ sender: Any) {
         favoritCategory = nil
         customMode = false
@@ -162,6 +166,9 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         makeCornerRound3.layer.cornerRadius = 10.0
         allCategory = gameContent.allCategory!
         category = allCategory
+        let width = (collectionView.frame.size.width - 50) / 3
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: width, height: width)
         //print data from Contents() : Test Code
        // gameContent.getdata()
         // Do any additional setup after loading the view.
@@ -176,6 +183,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
         playerNumber.text = "Player\((gameSetting?.settingPlayerCount)! + 1)"
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
