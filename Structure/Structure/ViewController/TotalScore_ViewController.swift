@@ -16,11 +16,12 @@ protocol TotalScoreDelegate {
 class TotalScore_ViewController: UIViewController, CAAnimationDelegate {
     var gameSetting : GameSetting?
     var totalPlayerScore : [Int]?
-    var scoreListLabel : [String] = ["🌟Score🌟"]
-    var winner : [Int]?
+
     var delegate : TotalScoreDelegate?
-    @IBOutlet var scoreLabel2: UILabel!
     @IBOutlet var winnerLabel: UILabel!
+    @IBOutlet var playerLabel: UILabel!
+    @IBOutlet var scoreLabel: UILabel!
+    
     @IBAction func TouchHomeButton(_ sender: Any) {
         self.gameSetting?.settingPlayerCount = 0
         self.gameSetting?.playerScore = nil
@@ -48,28 +49,35 @@ class TotalScore_ViewController: UIViewController, CAAnimationDelegate {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
+    
+    var playerList : [String] = []
+    var scoreListLabel : [String] = []
+    var winner : [String] = []
+    
     override func viewDidLoad() {
         navigationController?.setNavigationBarHidden(true, animated: false)
         super.viewDidLoad()
         if let scoreList = totalPlayerScore {
             let winnerScore = scoreList.max()
             for playerNum in scoreList.indices{
-                scoreListLabel.append("player\(playerNum+1)  :  \(totalPlayerScore![playerNum])점")
+                scoreListLabel.append("\(totalPlayerScore![playerNum])점")
+                playerList.append("플레이어 \(playerNum + 1)")
                 if totalPlayerScore![playerNum] == winnerScore {
-                    if var _ = winner{
-                        winner!.append(playerNum + 1)
-                    }else{
-                        winner = [playerNum + 1]
-                    }
+                    winner.append("🏆")
+                }
+                else{
+                    winner.append(" ")
                 }
             }
-        }else{}
-        let winnerString = winner!.map(String.init).joined(separator: "\t")
-        winnerLabel.text = "👑\u{0085}Player\u{0085}\(winnerString)"
+        }
+        scoreLabel.text = scoreListLabel.joined(separator: "\u{0085}")
+        winnerLabel.sizeToFit()
+        playerLabel.text = playerList.joined(separator: "\u{0085}")
+        winnerLabel.sizeToFit()
+        winnerLabel.text = winner.joined(separator: "\u{0085}")
         winnerLabel.sizeToFit()
         
-        scoreLabel2.text = scoreListLabel.joined(separator: "\u{0085}")
-        scoreLabel2.sizeToFit()
+       
         // Do any additional setup after loading the view.
     }
     

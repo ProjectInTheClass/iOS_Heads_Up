@@ -862,7 +862,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDy-gT-LQb">
                                 <rect key="frame" x="144" y="30" width="608" height="354"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pZg-bX-zNo">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pZg-bX-zNo">
                                         <rect key="frame" x="177" y="100" width="174" height="174"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <nil key="textColor"/>
@@ -943,8 +943,9 @@
                         <viewLayoutGuide key="safeArea" id="I4C-fW-hB2"/>
                     </view>
                     <connections>
-                        <outlet property="scoreLabel2" destination="9cm-sz-0vF" id="PAY-fE-4cF"/>
-                        <outlet property="winnerLabel" destination="pZg-bX-zNo" id="viM-ys-M1c"/>
+                        <outlet property="playerLabel" destination="pZg-bX-zNo" id="MlZ-I8-eM3"/>
+                        <outlet property="scoreLabel" destination="9cm-sz-0vF" id="pQZ-7w-8t5"/>
+                        <outlet property="winnerLabel" destination="yHA-Mi-XUf" id="Gjx-m7-rbm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vw8-AK-JMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -977,16 +978,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EaN-bQ-whQ">
-                                <rect key="frame" x="104" y="342" width="279" height="29"/>
+                                <rect key="frame" x="104" y="321" width="279" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="플레이어수" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziQ-1O-PDI">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="29"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="50"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nsl-fc-D15" customClass="ValueStepper" customModule="ValueStepper">
-                                        <rect key="frame" x="86" y="0.0" width="193" height="29"/>
+                                        <rect key="frame" x="86" y="0.0" width="193" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="value">
@@ -1018,16 +1019,16 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Gtk-1F-n3Z">
-                                <rect key="frame" x="511" y="340" width="279" height="29"/>
+                                <rect key="frame" x="511" y="319" width="279" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제한시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLE-iq-EHk">
-                                        <rect key="frame" x="0.0" y="0.0" width="62.333333333333336" height="29"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="62.333333333333336" height="50"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IT0-vJ-mTG" customClass="ValueStepper" customModule="ValueStepper">
-                                        <rect key="frame" x="70.333333333333357" y="0.0" width="208.66666666666663" height="29"/>
+                                        <rect key="frame" x="70.333333333333357" y="0.0" width="208.66666666666663" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="value">
