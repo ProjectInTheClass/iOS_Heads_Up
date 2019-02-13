@@ -25,6 +25,13 @@ class TotalScore_ViewController: UIViewController, CAAnimationDelegate {
     @IBAction func TouchHomeButton(_ sender: Any) {
         self.gameSetting?.settingPlayerCount = 0
         self.gameSetting?.playerScore = nil
+        let transition = CATransition.init()
+        transition.duration = 0.45
+        transition.timingFunction = CAMediaTimingFunction.init(name: CAMediaTimingFunctionName.default)
+        transition.type = CATransitionType.push //Transition you want like Push, Reveal
+        transition.subtype = CATransitionSubtype.fromTop // Direction like Left to Right, Right to Left
+        transition.delegate = self
+        view.window!.layer.add(transition, forKey: kCATransition)
         self.dismiss(animated: true, completion: nil)
         delegate?.goHome()
 
@@ -44,11 +51,7 @@ class TotalScore_ViewController: UIViewController, CAAnimationDelegate {
         self.dismiss(animated: true, completion: nil)
         delegate?.goCategory()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-    
+
     
     var playerList : [String] = []
     var scoreListLabel : [String] = []
@@ -70,12 +73,10 @@ class TotalScore_ViewController: UIViewController, CAAnimationDelegate {
                 }
             }
         }
+    
         scoreLabel.text = scoreListLabel.joined(separator: "\u{0085}")
-        winnerLabel.sizeToFit()
         playerLabel.text = playerList.joined(separator: "\u{0085}")
-        winnerLabel.sizeToFit()
         winnerLabel.text = winner.joined(separator: "\u{0085}")
-        winnerLabel.sizeToFit()
         
        
         // Do any additional setup after loading the view.

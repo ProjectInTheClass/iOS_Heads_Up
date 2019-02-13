@@ -15,11 +15,15 @@ class Score_ViewController: UIViewController, CAAnimationDelegate, TotalScoreDel
     @IBOutlet var passLabel: UILabel!
     @IBOutlet var anotherCategoryButton: UIButton!
     
+    @IBOutlet var passScroll: UIScrollView!
+    @IBOutlet var correctScroll: UIScrollView!
     @IBOutlet weak var makeCornerRound4: UIView!
     @IBOutlet weak var makeCornerRound5: UIView!
     @IBOutlet var playerLabel: UILabel!
     var game : GameController?
     var gameSetting : GameSetting?
+    
+    
     override func viewDidLoad() {
         gameSetting!.settingPlayerCount += 1
         if let player = gameSetting?.settingPlayerCount{
@@ -27,7 +31,8 @@ class Score_ViewController: UIViewController, CAAnimationDelegate, TotalScoreDel
         }else{
             playerLabel.isHidden = true
         }
-        
+        passScroll.isDirectionalLockEnabled = true
+        correctScroll.isDirectionalLockEnabled = true
         makeCornerRound4.layer.cornerRadius = 10.0
         makeCornerRound5.layer.cornerRadius = 10.0
         navigationController?.setNavigationBarHidden(true, animated: false)
@@ -41,15 +46,13 @@ class Score_ViewController: UIViewController, CAAnimationDelegate, TotalScoreDel
         passLabel.sizeToFit()
         scoreLabel.text = "게임 점수 : \(game!.gameScore)"
         scoreLabel.adjustsFontSizeToFitWidth = true
-        nextButton.setTitle("Next Game", for: .normal)
+        nextButton.setTitle("계속하기", for: .normal)
         if let _ = gameSetting?.playerScore{
             gameSetting!.playerScore?.append(game!.gameScore)
         }else{
             gameSetting?.playerScore = [game!.gameScore]
         }
         if gameSetting?.settingPlayer == gameSetting?.settingPlayerCount {
-            anotherCategoryButton.isEnabled = false
-            anotherCategoryButton.isHidden = true
             nextButton.setTitle("최종 점수", for: .normal)
         }
     }
@@ -74,7 +77,14 @@ class Score_ViewController: UIViewController, CAAnimationDelegate, TotalScoreDel
             view.window!.layer.add(transition, forKey: kCATransition)
             self.present(totalScoreViewController!, animated: false, completion: nil)
         }else{
-            navigationController!.popToViewController(navigationController!.viewControllers[2], animated: true)
+            let transition = CATransition.init()
+            transition.duration = 0.45
+            transition.timingFunction = CAMediaTimingFunction.init(name: CAMediaTimingFunctionName.default)
+            transition.type = CATransitionType.push //Transition you want like Push, Reveal
+            transition.subtype = CATransitionSubtype.fromRight // Direction like Left to Right, Right to Left
+            transition.delegate = self
+            view.window!.layer.add(transition, forKey: kCATransition)
+            navigationController!.popToViewController(navigationController!.viewControllers[2], animated: false)
         }
     }
     
@@ -87,8 +97,10 @@ class Score_ViewController: UIViewController, CAAnimationDelegate, TotalScoreDel
 
     }
     @IBAction func TouchAnotherCategory(_ sender: Any) {
-        navigationController!.popToViewController(navigationController!.viewControllers[1], animated: true)
-        
+        navigationController!.popToViewController(navigationController!.viewControllers[2], animated: true)
+        gameSetting!.settingPlayerCount -= 1
+        gameSetting?.playerScore?.removeLast()
+
         
     }
     
