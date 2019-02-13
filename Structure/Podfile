@@ -6,10 +6,8 @@ target 'Structure' do
   use_frameworks!
 
   # Pods for Structure
-  pod 'Firebase/Core'
-  pod 'Firebase/Database'
-  pod 'Firebase/Firestore'
   pod 'ValueStepper'
   pod 'ViewAnimator'
+  pod 'CountdownLabel'
 end
 

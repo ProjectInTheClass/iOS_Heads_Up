@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rPF-uY-1Yu">
-                    <rect key="frame" x="143.5" y="87.5" width="380" height="200"/>
+                    <rect key="frame" x="100" y="50" width="467" height="275"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6T-EC-pgz">
                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -34,7 +34,7 @@
                             </connections>
                         </button>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" restorationIdentifier="SetGameEnviroment" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YO3-Bb-VCh">
-                            <rect key="frame" x="0.0" y="30" width="380" height="171"/>
+                            <rect key="frame" x="0.0" y="30" width="467" height="246"/>
                             <segments>
                                 <segment title="Touch"/>
                                 <segment title="Gyro"/>
@@ -46,10 +46,8 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="2ua-vA-Nf2"/>
                         <constraint firstItem="E6T-EC-pgz" firstAttribute="leading" secondItem="rPF-uY-1Yu" secondAttribute="leading" id="4Do-MW-HtE"/>
                         <constraint firstItem="E6T-EC-pgz" firstAttribute="top" secondItem="rPF-uY-1Yu" secondAttribute="top" id="Idf-Rb-sYa"/>
-                        <constraint firstAttribute="width" constant="380" id="Sbf-fa-Sui"/>
                         <constraint firstItem="YO3-Bb-VCh" firstAttribute="leading" secondItem="rPF-uY-1Yu" secondAttribute="leading" id="V0l-G3-5qz"/>
                         <constraint firstAttribute="trailing" secondItem="YO3-Bb-VCh" secondAttribute="trailing" id="fMd-kP-mBH"/>
                         <constraint firstAttribute="bottom" secondItem="YO3-Bb-VCh" secondAttribute="bottom" id="nIa-gQ-t43"/>
@@ -60,6 +58,8 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="rPF-uY-1Yu" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="5NE-x9-uYc"/>
+                <constraint firstItem="rPF-uY-1Yu" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="50" id="78H-QH-c8e"/>
+                <constraint firstItem="rPF-uY-1Yu" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="100" id="9ZU-pG-IJj"/>
                 <constraint firstItem="rPF-uY-1Yu" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="OdS-Xj-AZ2"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

@@ -79,8 +79,20 @@ class TotalScore_ViewController: UIViewController, CAAnimationDelegate {
             }
         }
     
-        scoreLabel.text = scoreListLabel.joined(separator: "\u{0085}")
         playerLabel.text = playerList.joined(separator: "\u{0085}")
+        if let player = gameSetting?.settingPlayer{
+            playerLabel.numberOfLines = player
+            scoreLabel.numberOfLines = player
+            winnerLabel.numberOfLines = player
+        }
+        if gameSetting?.settingPlayer == 1 {
+            playerLabel.adjustsFontSizeToFitWidth = true
+        }else{
+            playerLabel.sizeToFit()
+        }
+        scoreLabel.font = playerLabel.font
+        winnerLabel.font = playerLabel.font
+        scoreLabel.text = scoreListLabel.joined(separator: "\u{0085}")
         winnerLabel.text = winner.joined(separator: "\u{0085}")
         
        
