@@ -114,12 +114,12 @@
 			isa = PBXGroup;
 			children = (
 				96693B4F22083B4D0048D9A9 /* Navigation_ViewController.swift */,
-				317EA6E32212F091007A435F /* Score_ViewController.swift */,
 				96D0080422018B7200DD793A /* Initial_ViewController.swift */,
 				96D0080C2201920600DD793A /* SettingTimeAndPlayer_ViewController.swift */,
 				319018A62202E05C0037602B /* Category */,
 				96D0080E2201947E00DD793A /* Start_ViewController.swift */,
 				96F2D15E21F95CC900D9FAFF /* Game_ViewController.swift */,
+				317EA6E32212F091007A435F /* Score_ViewController.swift */,
 				9610E8122202E9C2009EEDD7 /* TotalScore_ViewController.swift */,
 			);
 			path = ViewController;

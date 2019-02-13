@@ -7,6 +7,10 @@
 //
 
 import UIKit
+protocol TotalScoreDelegate {
+    func goHome()
+    func goCategory()
+}
 
 
 class TotalScore_ViewController: UIViewController {
@@ -14,21 +18,27 @@ class TotalScore_ViewController: UIViewController {
     var totalPlayerScore : [Int]?
     var scoreListLabel : [String] = ["🌟Score🌟"]
     var winner : [Int]?
+    var delegate : TotalScoreDelegate?
     @IBOutlet var scoreLabel2: UILabel!
     @IBOutlet var winnerLabel: UILabel!
     @IBAction func TouchHomeButton(_ sender: Any) {
-        
         self.gameSetting?.settingPlayerCount = 0
         self.gameSetting?.playerScore = nil
-          navigationController!.popToViewController(navigationController!.viewControllers[0], animated: true)
+        self.dismiss(animated: true, completion: nil)
+        delegate?.goHome()
+
 
 
     }
     @IBAction func TouchMoreGame(_ sender: Any) {
         self.gameSetting?.settingPlayerCount = 0
         self.gameSetting?.playerScore = nil
-          navigationController!.popToViewController(navigationController!.viewControllers[1], animated: true)
-
+          self.dismiss(animated: true, completion: nil)
+        delegate?.goCategory()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewDidLoad() {
