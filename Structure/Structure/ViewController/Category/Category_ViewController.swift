@@ -162,6 +162,9 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         makeCornerRound3.layer.cornerRadius = 10.0
         allCategory = gameContent.allCategory!
         category = allCategory
+        let width = (collectionView.frame.size.width - 50) / 3
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: width, height: width)
         //print data from Contents() : Test Code
        // gameContent.getdata()
         // Do any additional setup after loading the view.
