@@ -61,8 +61,11 @@ class Add_CustomTheme_ViewController: UIViewController, UITextFieldDelegate {
 
     
     override func viewDidLoad() {
+        navigationController!.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController!.navigationBar.shadowImage = UIImage()
+        navigationController!.navigationBar.isTranslucent = true
+        self.view.backgroundColor = #colorLiteral(red: 0.9976533055, green: 0.7694558501, blue: 0.5538281798, alpha: 1)
         super.viewDidLoad()
-
         makeAngleRound.layer.cornerRadius = 8.0
         customTitle.delegate = self
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))

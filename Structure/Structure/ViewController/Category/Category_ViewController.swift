@@ -46,10 +46,10 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         let category = self.category[indexPath.item]
         cell.layer.backgroundColor = #colorLiteral(red: 0.9581267238, green: 0.7396259904, blue: 0.4966012239, alpha: 1)
         cell.layer.cornerRadius=10
+        let width = (collectionView.frame.size.width - 40) / 3
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        let cellWidth = layout.itemSize.width
-        
-        cell.favoritButton.frame = CGRect(x: cellWidth - 40, y: 0, width: 40, height: 40)
+        layout.itemSize = CGSize(width: width, height: width)
+        cell.favoritButton.frame = CGRect(x: width - 40, y: 0, width: 40, height: 40)
         cell.cellIndex = indexPath
         cell.categoryTitleLabel.text = category
         cell.categoryTitleLabel.adjustsFontSizeToFitWidth = true
@@ -138,13 +138,14 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         let viewColor = #colorLiteral(red: 0.088717632, green: 0.05267825723, blue: 0.02710740082, alpha: 1)
         popSetGameEnviroment.backgroundColor = viewColor.withAlphaComponent(0.6)
         popSetGameEnviroment.delegate = self
+        popSetGameEnviroment.view.layer.cornerRadius = 10.0
         self.view.addSubview(popSetGameEnviroment)
         if gameEnviroment.motionEnviroment == "Touch"{
-            popSetGameEnviroment.touchButton.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            popSetGameEnviroment.motionButton.tintColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+            popSetGameEnviroment.touchButton.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+            popSetGameEnviroment.motionButton.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         }else if gameEnviroment.motionEnviroment == "Gyro" {
-            popSetGameEnviroment.touchButton.tintColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
-            popSetGameEnviroment.motionButton.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            popSetGameEnviroment.touchButton.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            popSetGameEnviroment.motionButton.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
         }
         let animation = AnimationType.zoom(scale: 0.2)
         popSetGameEnviroment.view.animate(animations: [animation])
@@ -155,9 +156,13 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     func ChangeMotionEnviroment(index : Int ){
         if index == 0 {
             gameEnviroment.motionEnviroment = "Touch"
+            popSetGameEnviroment.touchButton.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+            popSetGameEnviroment.motionButton.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         }
         if index == 1 {
             gameEnviroment.motionEnviroment = "Gyro"
+            popSetGameEnviroment.touchButton.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            popSetGameEnviroment.motionButton.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
         }
         UserDefaults.standard.set(gameEnviroment.motionEnviroment, forKey: "motionEnviroment")
         let time = DispatchTime.now() + .milliseconds(500)
@@ -178,9 +183,6 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         makeCornerRound3.layer.cornerRadius = 10.0
         allCategory = gameContent.allCategory!
         category = allCategory
-        let width = (collectionView.frame.size.width - 50) / 3.5
-        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.itemSize = CGSize(width: width, height: width)
         //print data from Contents() : Test Code
         // gameContent.getdata()
         // Do any additional setup after loading the view.
@@ -258,11 +260,17 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         collectionView.reloadData()
     }
     
-    
-    func DeleteCustomCatagory(title : String){
+    func delete(title : String){
         customContent.DeleteCustomCategory(title: title)
         category = ["추가하기"] + customContent.customCategory!
         collectionView.reloadData()
+    }
+    
+    func DeleteCustomCatagory(title : String){
+        let alert = UIAlertController(title: "삭제하기", message: "정말 삭제하시겠습니까??", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "취소", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "삭제하기", style: .default, handler: {(alert) -> Void in self.delete(title) }))
+        self.present(alert, animated: true, completion: nil)
     }
     /*
      // MARK: - Navigation

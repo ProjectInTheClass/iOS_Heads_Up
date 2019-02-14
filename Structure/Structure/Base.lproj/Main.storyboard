@@ -97,8 +97,9 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLP-Ov-9xp">
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLP-Ov-9xp">
                                                             <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="0.0" bottom="8" trailing="-1"/>
                                                             <viewLayoutGuide key="safeArea" id="UVt-tp-A4C"/>
                                                             <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
@@ -113,11 +114,7 @@
                                                 <color key="backgroundColor" red="0.95812672379999997" green="0.73962599039999999" blue="0.4966012239" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="FLP-Ov-9xp" firstAttribute="leading" secondItem="G5b-2y-jdh" secondAttribute="leading" id="3w8-OE-qbk"/>
-                                                    <constraint firstItem="FLP-Ov-9xp" firstAttribute="top" secondItem="G5b-2y-jdh" secondAttribute="top" id="IfM-In-CZw"/>
                                                     <constraint firstAttribute="bottomMargin" secondItem="kT0-3v-BX3" secondAttribute="bottom" constant="15" id="MjN-EM-K1X"/>
-                                                    <constraint firstItem="FLP-Ov-9xp" firstAttribute="top" secondItem="G5b-2y-jdh" secondAttribute="top" id="WLz-3c-kCr"/>
-                                                    <constraint firstItem="FLP-Ov-9xp" firstAttribute="leading" secondItem="G5b-2y-jdh" secondAttribute="leading" id="b1K-AT-Er9"/>
                                                     <constraint firstAttribute="trailingMargin" secondItem="kT0-3v-BX3" secondAttribute="trailing" constant="15" id="ewm-RC-1wf"/>
                                                     <constraint firstItem="kT0-3v-BX3" firstAttribute="centerY" secondItem="G5b-2y-jdh" secondAttribute="centerY" id="g2g-0w-TcQ"/>
                                                     <constraint firstItem="kT0-3v-BX3" firstAttribute="centerX" secondItem="G5b-2y-jdh" secondAttribute="centerX" id="xu9-hd-zUz"/>

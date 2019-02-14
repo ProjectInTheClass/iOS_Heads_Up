@@ -200,6 +200,7 @@ class Game_ViewController: UIViewController{
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        UIApplication.shared.isIdleTimerDisabled = false
         if gameEnviroment?.motionEnviroment == "Gyro"{
             GravityBehavior.magnitude = 0
             motion.stopAccelerometerUpdates()
@@ -209,11 +210,13 @@ class Game_ViewController: UIViewController{
     @IBOutlet var count: CountdownLabel!
     override func viewDidLoad() { //재정의 할 것이다.
         seconds = gameSetting.timeLimit
-        count.setCountDownTime(minutes: TimeInterval(3))
+        count.setCountDownTime(minutes: TimeInterval(seconds))
         count.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         count.timeFormat = "mm:ss"
         count.animationType = .Evaporate
         count.adjustsFontSizeToFitWidth = true
+        let fontSize = self.count.font.pointSize
+        self.count.font = self.count.font.withSize(fontSize - 10 )
         count.countdownDelegate = self
         count.start()
         let _ = count.then(targetTime: 0){ [unowned self] in
@@ -221,6 +224,7 @@ class Game_ViewController: UIViewController{
         }
         let _ = count.then(targetTime: 10){ [unowned self] in
             self.count.animationType = .Burn
+            self.count.font = self.count.font.withSize(fontSize)
             self.count.textColor = #colorLiteral(red: 1, green: 0.2590009272, blue: 0.1026743129, alpha: 1)
         }
         
@@ -247,6 +251,7 @@ class Game_ViewController: UIViewController{
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.isIdleTimerDisabled = true
         navigationController?.setNavigationBarHidden(true, animated: false)
         let animation = AnimationType.zoom(scale: 0.01)
         contentLabel.animate(animations: [animation], reversed: false, initialAlpha: 0, finalAlpha: 1.0, delay: 0.0, duration: 0.5, options: UIView.AnimationOptions.init(rawValue: 0), completion: nil)
