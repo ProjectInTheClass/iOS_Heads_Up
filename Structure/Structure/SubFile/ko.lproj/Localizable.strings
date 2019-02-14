@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  Structure
+
+  Created by 손희덕 on 15/02/2019.
+  Copyright © 2019 Duckee. All rights reserved.
+*/
+"Player" = "플레이어";
+"Time" = "제한시간";
+"All" = "모든주제";
+"Favorits" = "즐겨찾기";
+"Custom" = "나만의 주제";
+"Category" = "게임 주제 정하기";
+"Start" = "시작";
+"Place on forehead and Touch start" = "핸드폰을 머리위에 올리고 시작버튼을 눌러주세요";
+"Place on forehead and Hold device upright(vertical)" = "핸드폰을 머리위에 올리고 똑바로 세워주세요";
+"Add" = "추가하기";
+"Title" = "제목";
+"Word" = "단어";

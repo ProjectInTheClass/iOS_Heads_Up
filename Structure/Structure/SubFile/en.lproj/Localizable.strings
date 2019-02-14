@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  Structure
+
+  Created by 손희덕 on 15/02/2019.
+  Copyright © 2019 Duckee. All rights reserved.
+*/
+"Player" = "Player";
+"Time" = "Time";
+"All" = "All";
+"Favorits" = "Favorit";
+"Custom" = "Custom";
+"Category" = "Category";
+"Start" = "Start";
+"Place on forehead and Touch start" = "Place on forehead and Touch start";
+"Place on forehead and Hold device upright(vertical)" = "Place on forehead and Hold device upright(vertical)";
+"Add" = "Add";
+"Title" = "Title";
+"Word" = "Word";
