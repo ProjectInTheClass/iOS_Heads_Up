@@ -19,16 +19,10 @@ class Add_CustomTheme_ViewController: UIViewController {
     var words : [String] = ["해당 컨텐츠가 없습니다"]
     
     @IBOutlet weak var customTitle: UITextField!
-    @IBOutlet weak var word1: UITextField!
-    @IBOutlet weak var word2: UITextField!
-    @IBOutlet weak var word3: UITextField!
-    @IBOutlet weak var word4: UITextField!
-    @IBOutlet weak var word5: UITextField!
-    @IBOutlet weak var word6: UITextField!
-    @IBOutlet weak var word7: UITextField!
-    @IBOutlet weak var word8: UITextField!
-    @IBOutlet weak var word9: UITextField!
-    @IBOutlet weak var word10: UITextField!
+
+    
+    @IBOutlet var wordsCollection: [UITextField]!
+    
     
     @IBAction func makeCustomTheme(_ sender: Any) {
         var title : String?
@@ -38,16 +32,12 @@ class Add_CustomTheme_ViewController: UIViewController {
         }else{
             title = "제목없음"
         }
-        MakeWords(word: word1.text)
-        MakeWords(word: word2.text)
-        MakeWords(word: word3.text)
-        MakeWords(word: word4.text)
-        MakeWords(word: word5.text)
-        MakeWords(word: word6.text)
-        MakeWords(word: word7.text)
-        MakeWords(word: word8.text)
-        MakeWords(word: word9.text)
-        MakeWords(word: word10.text)
+        
+        
+        for textFieldObject in wordsCollection
+        {
+            MakeWords(word: textFieldObject.text)
+        }
         customContent?.MakeCustomData(Title: title!, Words: words)
         delegate?.ReloadCustomCollectionView(Title: title!)
         navigationController?.popViewController(animated: true)
@@ -79,14 +69,19 @@ class Add_CustomTheme_ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     @IBOutlet var scrollView: UIScrollView!
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: false)
-    }
+    
+    
+    
     
     @objc func keyboardWillShow(notification:NSNotification){
         

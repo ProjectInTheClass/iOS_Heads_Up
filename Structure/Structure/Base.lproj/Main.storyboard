@@ -251,7 +251,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9e2-HB-IXL">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9e2-HB-IXL">
                                 <rect key="frame" x="0.0" y="44" width="896" height="370"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Au4-Mz-ciV">
@@ -499,16 +499,16 @@
                         <outlet property="customTitle" destination="aYq-lM-Jx3" id="Pzg-db-Qyv"/>
                         <outlet property="makeAngleRound" destination="Au4-Mz-ciV" id="SZ7-Ux-hgU"/>
                         <outlet property="scrollView" destination="9e2-HB-IXL" id="Xsc-iA-xyU"/>
-                        <outlet property="word1" destination="Lhu-b5-AlI" id="h1g-kv-IaX"/>
-                        <outlet property="word10" destination="IrM-aE-vK8" id="b8t-ko-Aoz"/>
-                        <outlet property="word2" destination="jFQ-d3-Puv" id="2bh-Um-v7k"/>
-                        <outlet property="word3" destination="hX8-pV-jv6" id="JEV-zk-orl"/>
-                        <outlet property="word4" destination="Ed0-EM-ipZ" id="rNx-Xh-zRp"/>
-                        <outlet property="word5" destination="TiE-uM-VCy" id="DA0-f5-Yyx"/>
-                        <outlet property="word6" destination="aDK-xU-iMM" id="Xi8-ra-2gc"/>
-                        <outlet property="word7" destination="XMU-PK-cnk" id="JP5-gI-rXt"/>
-                        <outlet property="word8" destination="SQ2-6e-eOP" id="XLV-W8-3xc"/>
-                        <outlet property="word9" destination="y2Z-Zd-TYg" id="Iit-MG-yM2"/>
+                        <outletCollection property="wordsCollection" destination="Lhu-b5-AlI" collectionClass="NSMutableArray" id="N2l-dK-ohb"/>
+                        <outletCollection property="wordsCollection" destination="jFQ-d3-Puv" collectionClass="NSMutableArray" id="Q5U-Ki-yI3"/>
+                        <outletCollection property="wordsCollection" destination="hX8-pV-jv6" collectionClass="NSMutableArray" id="BaU-bz-CcC"/>
+                        <outletCollection property="wordsCollection" destination="Ed0-EM-ipZ" collectionClass="NSMutableArray" id="ivC-gP-o7Q"/>
+                        <outletCollection property="wordsCollection" destination="TiE-uM-VCy" collectionClass="NSMutableArray" id="Dle-bO-xRx"/>
+                        <outletCollection property="wordsCollection" destination="aDK-xU-iMM" collectionClass="NSMutableArray" id="DpY-2A-NKT"/>
+                        <outletCollection property="wordsCollection" destination="XMU-PK-cnk" collectionClass="NSMutableArray" id="ZGY-YD-BGe"/>
+                        <outletCollection property="wordsCollection" destination="SQ2-6e-eOP" collectionClass="NSMutableArray" id="5qR-7W-DxK"/>
+                        <outletCollection property="wordsCollection" destination="y2Z-Zd-TYg" collectionClass="NSMutableArray" id="6jn-Fn-6Jw"/>
+                        <outletCollection property="wordsCollection" destination="IrM-aE-vK8" collectionClass="NSMutableArray" id="Pf1-Zh-LTB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ChV-97-UPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1032,16 +1032,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EaN-bQ-whQ">
-                                <rect key="frame" x="104" y="342" width="279" height="29"/>
+                                <rect key="frame" x="104" y="321" width="279" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="플레이어수" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziQ-1O-PDI">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="29"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="50"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nsl-fc-D15" customClass="ValueStepper" customModule="ValueStepper">
-                                        <rect key="frame" x="86" y="0.0" width="193" height="29"/>
+                                        <rect key="frame" x="86" y="0.0" width="193" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="value">
@@ -1073,16 +1073,16 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Gtk-1F-n3Z">
-                                <rect key="frame" x="511" y="340" width="279" height="29"/>
+                                <rect key="frame" x="511" y="319" width="279" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제한시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLE-iq-EHk">
-                                        <rect key="frame" x="0.0" y="0.0" width="62.333333333333336" height="29"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="62.333333333333336" height="50"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IT0-vJ-mTG" customClass="ValueStepper" customModule="ValueStepper">
-                                        <rect key="frame" x="70.333333333333357" y="0.0" width="208.66666666666663" height="29"/>
+                                        <rect key="frame" x="70.333333333333357" y="0.0" width="208.66666666666663" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="value">
