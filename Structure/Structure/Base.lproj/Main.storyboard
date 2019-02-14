@@ -48,7 +48,7 @@
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="2" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Hbm-Qk-zEH">
                                         <rect key="frame" x="50" y="95" width="642" height="235"/>
-                                        <color key="backgroundColor" red="0.94924932718276978" green="0.9726749062538147" blue="0.96470600366592407" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" red="0.57464236020000004" green="0.77372616530000005" blue="0.70195531850000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="h8i-ij-rl1">
                                             <size key="itemSize" width="140" height="140"/>
@@ -85,7 +85,7 @@
                                                         </button>
                                                     </subviews>
                                                 </view>
-                                                <color key="backgroundColor" red="0.5746423602104187" green="0.77372616529464722" blue="0.70195531845092773" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.95812672379999997" green="0.73962599039999999" blue="0.4966012239" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottomMargin" secondItem="kT0-3v-BX3" secondAttribute="bottom" constant="15" id="MjN-EM-K1X"/>
@@ -131,7 +131,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.94919341802597046" green="0.97274929285049438" blue="0.96078377962112427" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Hbm-Qk-zEH" secondAttribute="bottom" constant="40" id="4or-lR-nFq"/>
@@ -163,7 +163,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpi-SX-bsI">
                                                 <rect key="frame" x="0.0" y="0.0" width="77" height="65"/>
-                                                <color key="backgroundColor" red="0.64909175893645776" green="0.8924266841127465" blue="0.80400927834442903" alpha="0.39321082746478875" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="1" green="0.90546674265650318" blue="0.80156062849093357" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="모든주제">
                                                     <color key="titleShadowColor" red="0.63745978209999998" green="0.99933895260000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
@@ -173,7 +173,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kj6-oD-ZoT">
                                                 <rect key="frame" x="0.0" y="73" width="77" height="65"/>
-                                                <color key="backgroundColor" red="0.64909175893645776" green="0.8924266841127465" blue="0.80400927834442903" alpha="0.39321082746478875" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="1" green="0.90546674270000005" blue="0.80156062849999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="즐겨찾기">
                                                     <color key="titleShadowColor" red="0.63745978209999998" green="0.99933895260000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
@@ -183,7 +183,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Qg-p7-RaS">
                                                 <rect key="frame" x="0.0" y="146" width="77" height="65"/>
-                                                <color key="backgroundColor" red="0.64909175893645776" green="0.8924266841127465" blue="0.80400927834442903" alpha="0.39321082746478875" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="1" green="0.90546674270000005" blue="0.80156062849999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="나만의 주제">
                                                     <color key="titleShadowColor" red="0.63745978209999998" green="0.99933895260000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
@@ -205,7 +205,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.57079416510000003" green="0.77372485400000002" blue="0.70195537809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.9581267237663269" green="0.73962599039077759" blue="0.49660122394561768" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lKI-Gb-jN2" firstAttribute="top" secondItem="nOj-U5-PzR" secondAttribute="top" constant="50" id="0jr-EL-7Wf"/>
                             <constraint firstItem="Ocb-DH-QP0" firstAttribute="top" secondItem="jbK-GC-x8T" secondAttribute="bottom" constant="15" id="4WT-Hc-OhE"/>
@@ -466,7 +466,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.57079416510000003" green="0.77372485400000002" blue="0.70195537809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="1" green="0.76817079970000002" blue="0.55353880280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Au4-Mz-ciV" firstAttribute="leading" secondItem="9e2-HB-IXL" secondAttribute="leading" constant="55" id="Bib-du-gmH"/>
                                     <constraint firstAttribute="trailing" secondItem="Au4-Mz-ciV" secondAttribute="trailing" constant="55" id="GE3-ci-wL5"/>
@@ -983,7 +983,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.57079416510000003" green="0.77372485400000002" blue="0.70195537809999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.9581267237663269" green="0.73962599039077759" blue="0.49660122394561768" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bDy-gT-LQb" firstAttribute="top" secondItem="I4C-fW-hB2" secondAttribute="top" constant="30" id="2Wl-D4-gRv"/>
                             <constraint firstItem="bDy-gT-LQb" firstAttribute="leading" secondItem="I4C-fW-hB2" secondAttribute="leading" constant="100" id="BIo-P5-VZU"/>
@@ -1012,7 +1012,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LANDING" translatesAutoresizingMaskIntoConstraints="NO" id="ZLS-1Y-rFJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Landing" translatesAutoresizingMaskIntoConstraints="NO" id="ZLS-1Y-rFJ">
                                 <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pf-zr-RNt">
@@ -1030,16 +1030,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EaN-bQ-whQ">
-                                <rect key="frame" x="104" y="321" width="279" height="50"/>
+                                <rect key="frame" x="104" y="342" width="279" height="29"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="플레이어수" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziQ-1O-PDI">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="29"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nsl-fc-D15" customClass="ValueStepper" customModule="ValueStepper">
-                                        <rect key="frame" x="86" y="0.0" width="193" height="50"/>
+                                        <rect key="frame" x="86" y="0.0" width="193" height="29"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="value">
@@ -1071,16 +1071,16 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Gtk-1F-n3Z">
-                                <rect key="frame" x="511" y="319" width="279" height="50"/>
+                                <rect key="frame" x="511" y="340" width="279" height="29"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제한시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLE-iq-EHk">
-                                        <rect key="frame" x="0.0" y="0.0" width="62.333333333333336" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="62.333333333333336" height="29"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IT0-vJ-mTG" customClass="ValueStepper" customModule="ValueStepper">
-                                        <rect key="frame" x="70.333333333333357" y="0.0" width="208.66666666666663" height="50"/>
+                                        <rect key="frame" x="70.333333333333357" y="0.0" width="208.66666666666663" height="29"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="value">
@@ -1160,7 +1160,7 @@
     </scenes>
     <resources>
         <image name="BACK" width="70.55999755859375" height="70.55999755859375"/>
-        <image name="LANDING" width="958.15386962890625" height="539.076904296875"/>
+        <image name="Landing" width="3946" height="2680"/>
         <image name="SETTING" width="70.55999755859375" height="70.55999755859375"/>
         <image name="game-controller" width="46.545455932617188" height="46.545455932617188"/>
         <image name="star" width="418.90908813476562" height="418.90908813476562"/>
