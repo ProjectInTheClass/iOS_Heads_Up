@@ -18,6 +18,9 @@ class Navigation_ViewController: UINavigationController {
     
     
         override func viewDidLoad() {
+        navigationItem.leftBarButtonItem?.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        navigationItem.leftBarButtonItem?.title = "뒤로가기"
+
         super.viewDidLoad()        
         self.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationBar.shadowImage = UIImage()

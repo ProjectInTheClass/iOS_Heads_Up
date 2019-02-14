@@ -15,18 +15,18 @@ extension Game_ViewController: CountdownLabelDelegate {
     func countdownFinished() {
         CheckEndDone()
     }
-
+    
     
 }
 
 class Game_ViewController: UIViewController{
-
+    
     
     @IBOutlet var countDownLabel: CountdownLabel!
     var actionGyro : Bool?
     var game = GameController()
     var gameEnviroment : GameEnviroment?
-
+    
     //receive from Start view
     var gameSetting = GameSetting()
     var contents : [String]?
@@ -41,16 +41,16 @@ class Game_ViewController: UIViewController{
         behavior.magnitude = 0
         return behavior
     }()
-/*
-    //Timer
-    var timer = Timer()
-    @objc func updateTimer(){
-        CheckEndDone()
-    }
-    func runTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(Game_ViewController.updateTimer)), userInfo: nil, repeats: true)
-    }
-   */
+    /*
+     //Timer
+     var timer = Timer()
+     @objc func updateTimer(){
+     CheckEndDone()
+     }
+     func runTimer() {
+     timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(Game_ViewController.updateTimer)), userInfo: nil, repeats: true)
+     }
+     */
     
     
     @IBOutlet var contentLabel: UILabel!
@@ -100,7 +100,7 @@ class Game_ViewController: UIViewController{
             self.view.backgroundColor = #colorLiteral(red: 0.9436894059, green: 0.9737893939, blue: 0.9599447846, alpha: 1)
         }
     }
-
+    
     
     
     
@@ -120,18 +120,18 @@ class Game_ViewController: UIViewController{
     @IBAction func TouchBackButton(_ sender: Any) {
         navigationController!.popToViewController(navigationController!.viewControllers[2], animated: true)
         
-
+        
     }
     
     
     //Check End Game called on updateTimer
     func CheckEndDone() {
-     //   if seconds == 0{
-            count.removeFromSuperview()
-            self.GravityBehavior.magnitude = 0
-            self.actionGyro = false
-            performSegue(withIdentifier: "Score", sender: nil)
-     //   }
+        //   if seconds == 0{
+        count.removeFromSuperview()
+        self.GravityBehavior.magnitude = 0
+        self.actionGyro = false
+        performSegue(withIdentifier: "Score", sender: nil)
+        //   }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -150,8 +150,8 @@ class Game_ViewController: UIViewController{
         self.present(alert, animated: true, completion: nil)
     }
     func CancleGame(){
-            navigationController?.popViewController(animated: true)
-        }
+        navigationController!.popToViewController(navigationController!.viewControllers[2], animated: false)
+    }
     
     func ContinueAction(){
         count.start()
@@ -227,11 +227,10 @@ class Game_ViewController: UIViewController{
             self.count.font = self.count.font.withSize(fontSize)
             self.count.textColor = #colorLiteral(red: 1, green: 0.2590009272, blue: 0.1026743129, alpha: 1)
         }
-        
         super.viewDidLoad() //vidwDidLoad : 기존 기능에 덧붙혀서 기능을 추가 할 것이다.
         game.contents = self.contents!
         game.shuffleContent()
-      //  runTimer()
+        //  runTimer()
         correctOrPassLabel.isHidden = true
         contentLabel.text = game.contentText
         contentLabel.adjustsFontSizeToFitWidth = true
@@ -247,16 +246,16 @@ class Game_ViewController: UIViewController{
             passButton.isEnabled = true
             actionGyro = false
         }
-
+        
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         UIApplication.shared.isIdleTimerDisabled = true
         navigationController?.setNavigationBarHidden(true, animated: false)
         let animation = AnimationType.zoom(scale: 0.01)
         contentLabel.animate(animations: [animation], reversed: false, initialAlpha: 0, finalAlpha: 1.0, delay: 0.0, duration: 0.5, options: UIView.AnimationOptions.init(rawValue: 0), completion: nil)
     }
-
+    
     
     
     /* gnuk 참고 이전 viewController에서 Game_ViewController로 넘겨줘야 하는 값, 부분

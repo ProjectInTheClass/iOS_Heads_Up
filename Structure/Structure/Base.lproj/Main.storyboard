@@ -572,9 +572,9 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ForStartCharacter2" translatesAutoresizingMaskIntoConstraints="NO" id="UNj-Io-XAj">
-                                <rect key="frame" x="494.66666666666674" y="65.666666666666686" width="197" height="183"/>
+                                <rect key="frame" x="503" y="65.666666666666686" width="180" height="183"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="197" id="d4P-Lh-nu5"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="180" id="d4P-Lh-nu5"/>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="183" id="wtk-iW-1d1"/>
                                 </constraints>
                             </imageView>
@@ -743,7 +743,9 @@
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="nzH-Dj-3Bw"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
-                                        <state key="normal" title="다시하기"/>
+                                        <state key="normal" title="다시하기">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="TouchAnotherCategory:" destination="dY4-Ou-EEf" eventType="touchUpInside" id="o3b-ZV-CHk"/>
                                         </connections>
@@ -751,7 +753,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edL-Xp-Aw3">
                                         <rect key="frame" x="108" y="0.0" width="100" height="45"/>
                                         <color key="backgroundColor" red="1" green="0.90546674270000005" blue="0.80156062849999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="다음게임"/>
+                                        <state key="normal" title="다음게임">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="TouchContinue:" destination="dY4-Ou-EEf" eventType="touchUpInside" id="HiT-U6-X9l"/>
                                         </connections>
@@ -943,7 +947,9 @@
                                         <rect key="frame" x="133" y="304" width="130" height="40"/>
                                         <color key="backgroundColor" red="1" green="0.73523153529999996" blue="0.43774896229999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="처음으로"/>
+                                        <state key="normal" title="처음으로">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="TouchHomeButton:" destination="vQN-yj-lCi" eventType="touchUpInside" id="CIa-65-gER"/>
                                         </connections>
@@ -956,7 +962,9 @@
                                             <constraint firstAttribute="height" constant="40" id="Uqc-jm-8lj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="한번 더하기"/>
+                                        <state key="normal" title="한번 더하기">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="TouchMoreGame:" destination="vQN-yj-lCi" eventType="touchUpInside" id="9mI-5F-nCn"/>
                                         </connections>
