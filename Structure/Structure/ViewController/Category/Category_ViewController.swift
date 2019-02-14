@@ -44,7 +44,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : Category_CollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: self.cellIdentifier, for: indexPath) as! Category_CollectionViewCell
         let category = self.category[indexPath.item]
-        cell.layer.backgroundColor = #colorLiteral(red: 0.508675158, green: 0.7787023783, blue: 0.6972596645, alpha: 1)
+        cell.layer.backgroundColor = #colorLiteral(red: 0.9581267238, green: 0.7396259904, blue: 0.4966012239, alpha: 1)
         cell.layer.cornerRadius=10
         cell.cellIndex = indexPath
         cell.categoryTitleLabel.text = category
