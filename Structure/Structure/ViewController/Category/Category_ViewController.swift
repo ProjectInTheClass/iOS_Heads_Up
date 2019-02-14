@@ -48,6 +48,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         cell.layer.cornerRadius=10
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         let cellWidth = layout.itemSize.width
+        
         cell.favoritButton.frame = CGRect(x: cellWidth - 40, y: 0, width: 40, height: 40)
         cell.cellIndex = indexPath
         cell.categoryTitleLabel.text = category
@@ -195,7 +196,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     
     override func viewWillAppear(_ animated: Bool) {
         collectionView.reloadData()
-        playerNumber.text = "Player\((gameSetting?.settingPlayerCount)! + 1)"
+        playerNumber.text = "플레이어\((gameSetting?.settingPlayerCount)! + 1)"
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
     override func viewWillDisappear(_ animated: Bool) {

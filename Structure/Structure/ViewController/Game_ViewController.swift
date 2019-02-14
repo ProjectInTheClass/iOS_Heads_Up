@@ -209,7 +209,7 @@ class Game_ViewController: UIViewController{
     @IBOutlet var count: CountdownLabel!
     override func viewDidLoad() { //재정의 할 것이다.
         seconds = gameSetting.timeLimit
-        count.setCountDownTime(minutes: TimeInterval(seconds))
+        count.setCountDownTime(minutes: TimeInterval(3))
         count.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         count.timeFormat = "mm:ss"
         count.animationType = .Evaporate

@@ -75,45 +75,37 @@ class TotalScore_ViewController: UIViewController, CAAnimationDelegate {
             var scoreLabel : [UILabel] = []
             for playerNum in scoreList.indices{
                 let tempWinner = UILabel(frame: CGRect(x: 0, y: 0, width: winnerStack.frame.width, height: winnerStack.frame.height))
-                let tempPlayer = UILabel(frame: CGRect(x: 0, y: 0, width: playerStack.frame.width, height: playerStack.frame.height))
-                let tempScore = UILabel(frame: CGRect(x: 0, y: 0, width: scoreStack.frame.width, height: scoreStack.frame.height))
-                tempScore.text = "\(totalPlayerScore![playerNum])점"
+                let tempPlayer = UILabel(frame: CGRect(x: 0, y: 0, width: winnerStack.frame.width, height: winnerStack.frame.height))
+                let tempScore = UILabel(frame: CGRect(x: 0, y: 0, width: winnerStack.frame.width, height: winnerStack.frame.height))
+                tempScore.text = "\(scoreList[playerNum])점"
                 tempPlayer.text = "플레이어 \(playerNum + 1)"
                 if totalPlayerScore![playerNum] == winnerScore {
                     tempWinner.text = "🏆"
+                    tempScore.textColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
                 }
                 else{
                     tempWinner.text = " "
                 }
+                tempPlayer.font = tempPlayer.font.withSize(35)
+                tempPlayer.adjustsFontSizeToFitWidth = true
+                let fontSize = tempPlayer.font.pointSize
+                tempScore.font = tempPlayer.font.withSize(fontSize - 10)
+                tempWinner.font = tempPlayer.font.withSize(fontSize + 4)
+                tempWinner.textAlignment = NSTextAlignment.right
+                tempPlayer.textAlignment = NSTextAlignment.center
+                tempScore.textAlignment = NSTextAlignment.left
                 winnerLabel.append(tempWinner)
                 playerLabel.append(tempPlayer)
                 scoreLabel.append(tempScore)
             }
             for playerNum in scoreList.indices{
-                self.winnerStack.addSubview(winnerLabel[playerNum])
-                self.playerStack.addSubview(playerLabel[playerNum])
-                self.scoreStack.addSubview(scoreLabel[playerNum])
-                
+                winnerStack.addArrangedSubview(winnerLabel[playerNum])
+                playerStack.addArrangedSubview(playerLabel[playerNum])
+                scoreStack.addArrangedSubview(scoreLabel[playerNum])
+
             }
         }
         
-        
-        
-        playerLabel.text = playerList.joined(separator: "\u{0085}")
-        if let player = gameSetting?.settingPlayer{
-            playerLabel.numberOfLines = player
-            scoreLabel.numberOfLines = player
-            winnerLabel.numberOfLines = player
-        }
-        if gameSetting?.settingPlayer == 1 {
-            playerLabel.adjustsFontSizeToFitWidth = true
-        }else{
-            playerLabel.sizeToFit()
-        }
-        scoreLabel.font = playerLabel.font
-        winnerLabel.font = playerLabel.font
-        scoreLabel.text = scoreListLabel.joined(separator: "\u{0085}")
-        winnerLabel.text = winner.joined(separator: "\u{0085}")
         
         
         // Do any additional setup after loading the view.
