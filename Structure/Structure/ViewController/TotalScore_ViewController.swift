@@ -16,7 +16,7 @@ protocol TotalScoreDelegate {
 class TotalScore_ViewController: UIViewController, CAAnimationDelegate {
     var gameSetting : GameSetting?
     var totalPlayerScore : [Int]?
-
+    
     var delegate : TotalScoreDelegate?
     @IBOutlet var winnerLabel: UILabel!
     @IBOutlet var playerLabel: UILabel!
@@ -34,9 +34,9 @@ class TotalScore_ViewController: UIViewController, CAAnimationDelegate {
         view.window!.layer.add(transition, forKey: kCATransition)
         self.dismiss(animated: true, completion: nil)
         delegate?.goHome()
-
-
-
+        
+        
+        
     }
     @IBAction func TouchMoreGame(_ sender: Any) {
         self.gameSetting?.settingPlayerCount = 0
@@ -51,12 +51,15 @@ class TotalScore_ViewController: UIViewController, CAAnimationDelegate {
         self.dismiss(animated: true, completion: nil)
         delegate?.goCategory()
     }
-
+    
     
     var playerList : [String] = []
     var scoreListLabel : [String] = []
     var winner : [String] = []
     
+    @IBOutlet var scoreStack: UIStackView!
+    @IBOutlet var playerStack: UIStackView!
+    @IBOutlet var winnerStack: UIStackView!
     @IBOutlet weak var makeCornerRound: UIButton!
     @IBOutlet weak var makeCornerRound1: UIButton!
     override func viewDidLoad() {
@@ -67,18 +70,35 @@ class TotalScore_ViewController: UIViewController, CAAnimationDelegate {
         
         if let scoreList = totalPlayerScore {
             let winnerScore = scoreList.max()
+            var winnerLabel : [UILabel] = []
+            var playerLabel : [UILabel] = []
+            var scoreLabel : [UILabel] = []
             for playerNum in scoreList.indices{
-                scoreListLabel.append("\(totalPlayerScore![playerNum])점")
-                playerList.append("플레이어 \(playerNum + 1)")
+                let tempWinner = UILabel(frame: CGRect(x: 0, y: 0, width: winnerStack.frame.width, height: winnerStack.frame.height))
+                let tempPlayer = UILabel(frame: CGRect(x: 0, y: 0, width: playerStack.frame.width, height: playerStack.frame.height))
+                let tempScore = UILabel(frame: CGRect(x: 0, y: 0, width: scoreStack.frame.width, height: scoreStack.frame.height))
+                tempScore.text = "\(totalPlayerScore![playerNum])점"
+                tempPlayer.text = "플레이어 \(playerNum + 1)"
                 if totalPlayerScore![playerNum] == winnerScore {
-                    winner.append("🏆")
+                    tempWinner.text = "🏆"
                 }
                 else{
-                    winner.append(" ")
+                    tempWinner.text = " "
                 }
+                winnerLabel.append(tempWinner)
+                playerLabel.append(tempPlayer)
+                scoreLabel.append(tempScore)
+            }
+            for playerNum in scoreList.indices{
+                self.winnerStack.addSubview(winnerLabel[playerNum])
+                self.playerStack.addSubview(playerLabel[playerNum])
+                self.scoreStack.addSubview(scoreLabel[playerNum])
+                
             }
         }
-    
+        
+        
+        
         playerLabel.text = playerList.joined(separator: "\u{0085}")
         if let player = gameSetting?.settingPlayer{
             playerLabel.numberOfLines = player
@@ -95,12 +115,12 @@ class TotalScore_ViewController: UIViewController, CAAnimationDelegate {
         scoreLabel.text = scoreListLabel.joined(separator: "\u{0085}")
         winnerLabel.text = winner.joined(separator: "\u{0085}")
         
-       
+        
         // Do any additional setup after loading the view.
     }
     
     
     
-
+    
     
 }

@@ -45,7 +45,7 @@ class Category_CollectionViewCell: UICollectionViewCell {
 
     func DeleteCustom(customMode : Bool){
         if customMode == true && categoryTitleLabel.text != "추가하기"{
-            let deleteButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+            let deleteButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
             self.backgroundColor = #colorLiteral(red: 0.9581267238, green: 0.7396259904, blue: 0.4966012239, alpha: 1)
             self.addSubview(favoritButton)
             deleteButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
