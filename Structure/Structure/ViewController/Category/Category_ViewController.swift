@@ -40,15 +40,19 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
 
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell : Category_CollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: self.cellIdentifier, for: indexPath) as! Category_CollectionViewCell
         let category = self.category[indexPath.item]
         cell.layer.backgroundColor = #colorLiteral(red: 0.508675158, green: 0.7787023783, blue: 0.6972596645, alpha: 1)
         cell.layer.cornerRadius=10
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        let cellWidth = layout.itemSize.width
+        cell.favoritButton.frame = CGRect(x: cellWidth - 50, y: 0, width: 50, height: 50)
         cell.cellIndex = indexPath
         cell.categoryTitleLabel.text = category
         cell.categoryTitleLabel.adjustsFontSizeToFitWidth = true
+        
         cell.delegate = self
         if let isOn = favoritDictionary[category]{
             cell.isOn = isOn
