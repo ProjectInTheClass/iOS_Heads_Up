@@ -72,10 +72,10 @@ class Category_CollectionViewCell: UICollectionViewCell {
     @IBAction func TouchFavorit(_ sender: UIButton) {
         delegate?.SetFavorit(favoritTitle: categoryTitleLabel.text!)
         if isOn == true{
-            favoritButton!.setImage(UIImage(named:"starA"), for: UIControl.State.normal)
+            favoritButton!.setImage(UIImage(named:"yellowstar"), for: UIControl.State.normal)
         }
         else{
-            favoritButton!.setImage(UIImage(named: "star"), for: UIControl.State.normal)
+            favoritButton!.setImage(UIImage(named: "whitestar"), for: UIControl.State.normal)
         }
         delegate?.reloadCell(index : cellIndex!)
     }
@@ -83,9 +83,9 @@ class Category_CollectionViewCell: UICollectionViewCell {
     
     func CheckButtonImage(){
         if isOn == true{
-            favoritButton!.setImage(UIImage(named:"starA"), for: UIControl.State.normal)
+            favoritButton!.setImage(UIImage(named:"yellowstar"), for: UIControl.State.normal)
         }else{
-            favoritButton!.setImage(UIImage(named: "star"), for: UIControl.State.normal)
+            favoritButton!.setImage(UIImage(named: "whitestar"), for: UIControl.State.normal)
         }
     }
     
