@@ -1,19 +1,38 @@
-/* 
-  Localizable.strings
-  Structure
-
-  Created by 손희덕 on 15/02/2019.
-  Copyright © 2019 Duckee. All rights reserved.
-*/
+/*
+ Localizable.strings
+ Structure
+ 
+ Created by 손희덕 on 15/02/2019.
+ Copyright © 2019 Duckee. All rights reserved.
+ */
 "Player" = "플레이어";
 "Time" = "제한시간";
 "All" = "모든주제";
-"Favorits" = "즐겨찾기";
-"Custom" = "나만의 주제";
+"Favorites" = "즐겨찾기";
+"Custom" = "나만의주제";
 "Category" = "게임 주제 정하기";
 "Start" = "시작";
-"Place on forehead and Touch start" = "핸드폰을 머리위에 올리고 시작버튼을 눌러주세요";
+"Place on forehead and Touch screen to start" = "핸드폰을 머리위에 올리고 시작버튼을 눌러주세요";
 "Place on forehead and Hold device upright(vertical)" = "핸드폰을 머리위에 올리고 똑바로 세워주세요";
 "Add" = "추가하기";
 "Title" = "제목";
 "Word" = "단어";
+"Interface" = "인터페이스 설정";
+"Delete" = "삭제";
+"Do you want to delete?" = "정말 삭제 하시겠습니까?";
+"NO" = "취소";
+"Back" = "뒤로";
+"No Item" = "선호하는 항목이 없습니다";
+"Add Favorites" = "추가하십시오";
+"Score : " = "게임점수 : ";
+"Correct" = "맞은 문제";
+"Pass" = "넘긴 문제";
+"Reset" = "다시하기";
+"Next" = "계속하기";
+"Ranks" = "최종점수";
+"💯 Final Score" = "💯 최종점수";
+"Home" = "처음으로";
+"New Game" = "한번 더";
+"Quit" = "그만하기";
+"Continue" = "계속하기";
+"Do you want to Quit?" = "게임을 그만하시겠습니까?";

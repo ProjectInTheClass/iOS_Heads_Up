@@ -15,6 +15,7 @@ protocol EnviromentDelegateProtocol {
 class SetGameEnviromentPopup_Controller: UIView {
     var delegate : EnviromentDelegateProtocol?
     
+    @IBOutlet var labelInterFace: UILabel!
     @IBOutlet var motionButton: UIButton!
     @IBOutlet var touchButton: UIButton!
     @IBOutlet var view: UIView!

@@ -116,7 +116,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
             category = favoritCategory!
             collectionView.reloadData()
         }else{
-            let alert = UIAlertController(title: "선호하는 항목이 없습니다", message: "추가하십시오", preferredStyle: .alert)
+            let alert = UIAlertController(title: NSLocalizedString("No Item", comment: ""), message: NSLocalizedString("Add Favorites", comment: ""), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
@@ -143,6 +143,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         let viewColor = #colorLiteral(red: 0.088717632, green: 0.05267825723, blue: 0.02710740082, alpha: 1)
         popSetGameEnviroment.backgroundColor = viewColor.withAlphaComponent(0.6)
         popSetGameEnviroment.delegate = self
+        popSetGameEnviroment.labelInterFace.text = NSLocalizedString("Interface", comment: "")
         popSetGameEnviroment.view.layer.cornerRadius = 30.0
         self.view.addSubview(popSetGameEnviroment)
         if gameEnviroment.motionEnviroment == "Touch"{
@@ -185,10 +186,9 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet weak var makeCornerRound: UIView!
     override func viewDidLoad() {
         labelSelectGame.text = NSLocalizedString("Category", comment: "")
-        buttonAll.titleLabel?.text = NSLocalizedString("All", comment: "")
-        buttonFavorit.titleLabel?.text = NSLocalizedString("Favorit", comment: "")
-        buttonCategory.titleLabel?.text = NSLocalizedString("Custom", comment: "")
-        
+        buttonAll.setTitle(NSLocalizedString("All", comment: ""), for: .normal)
+        buttonFavorit.setTitle(NSLocalizedString("Favorites", comment: ""), for: .normal)
+        buttonCategory.setTitle(NSLocalizedString("Custom", comment: ""), for: .normal)
         super.viewDidLoad()
         makeCornerRound2.layer.cornerRadius = 10.0
         makeCornerRound3.layer.cornerRadius = 10.0
@@ -278,9 +278,9 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func DeleteCustomCatagory(title : String){
-        let alert = UIAlertController(title: "삭제하기", message: "정말 삭제하시겠습니까??", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "취소", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "삭제하기", style: .default, handler: {(alert) -> Void in self.delete(title) }))
+        let alert = UIAlertController(title: NSLocalizedString("Delete", comment: ""), message: NSLocalizedString("Do you want to delete?", comment: ""), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("NO", comment: ""), style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: ""), style: .default, handler: {(alert) -> Void in self.delete(title) }))
         self.present(alert, animated: true, completion: nil)
     }
     /*

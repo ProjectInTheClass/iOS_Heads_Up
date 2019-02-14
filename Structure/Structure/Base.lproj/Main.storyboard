@@ -163,7 +163,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpi-SX-bsI">
                                                 <rect key="frame" x="0.0" y="0.0" width="92" height="42.666666666666664"/>
                                                 <color key="backgroundColor" red="1" green="0.90546674265650318" blue="0.80156062849093357" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="모든주제">
+                                                <state key="normal">
                                                     <color key="titleShadowColor" red="0.63745978209999998" green="0.99933895260000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
@@ -173,7 +173,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kj6-oD-ZoT">
                                                 <rect key="frame" x="0.0" y="50.666666666666657" width="92" height="42.666666666666657"/>
                                                 <color key="backgroundColor" red="1" green="0.90546674270000005" blue="0.80156062849999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="즐겨찾기">
+                                                <state key="normal">
                                                     <color key="titleShadowColor" red="0.63745978209999998" green="0.99933895260000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
@@ -183,7 +183,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Qg-p7-RaS">
                                                 <rect key="frame" x="0.0" y="101.33333333333334" width="92" height="42.666666666666657"/>
                                                 <color key="backgroundColor" red="1" green="0.90546674270000005" blue="0.80156062849999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="나만의 주제">
+                                                <state key="normal">
                                                     <color key="titleShadowColor" red="0.63745978209999998" green="0.99933895260000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
@@ -239,7 +239,7 @@
                     <connections>
                         <outlet property="buttonAll" destination="dpi-SX-bsI" id="gYw-C6-h8X"/>
                         <outlet property="buttonCategory" destination="7Qg-p7-RaS" id="T0g-uT-vuj"/>
-                        <outlet property="buttonFavorit" destination="7Qg-p7-RaS" id="YVb-rN-qcd"/>
+                        <outlet property="buttonFavorit" destination="kj6-oD-ZoT" id="9rJ-O1-sna"/>
                         <outlet property="collectionView" destination="Hbm-Qk-zEH" id="8qc-ma-ycq"/>
                         <outlet property="labelSelectGame" destination="5u4-xf-Lay" id="70x-ve-1Mv"/>
                         <outlet property="makeCornerRound" destination="HK1-m0-0kl" id="DWH-vQ-Jco"/>
@@ -501,7 +501,11 @@
                         <viewLayoutGuide key="safeArea" id="fxe-nG-aLN"/>
                     </view>
                     <navigationItem key="navigationItem" title=" 나만의 주제 만들기" id="6i8-MR-R2x">
-                        <barButtonItem key="rightBarButtonItem" title="추가하기" id="R90-Xn-QZy"/>
+                        <barButtonItem key="rightBarButtonItem" title="추가하기" id="R90-Xn-QZy">
+                            <connections>
+                                <action selector="makeCustomTheme:" destination="NyM-R2-KxY" id="7Xt-ub-8eL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="buttonAdd" destination="R90-Xn-QZy" id="X3n-85-lbD"/>
@@ -528,6 +532,7 @@
                         <outletCollection property="labelWords" destination="H1p-ce-xl4" collectionClass="NSMutableArray" id="DpQ-Z2-6H2"/>
                         <outletCollection property="labelWords" destination="98O-lh-yRV" collectionClass="NSMutableArray" id="uBZ-Ts-cPI"/>
                         <outletCollection property="labelWords" destination="oHN-9D-ACi" collectionClass="NSMutableArray" id="DvH-lJ-gBG"/>
+                        <outletCollection property="labelWords" destination="x0O-Co-zJ9" collectionClass="NSMutableArray" id="GU9-e8-Nkm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ChV-97-UPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -542,14 +547,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EnB-KK-e7s">
-                                <rect key="frame" x="194" y="82" width="424" height="211"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
-                                <state key="normal" title="시작"/>
-                                <connections>
-                                    <action selector="TouchStart:" destination="cJj-l1-PRG" eventType="touchUpInside" id="a9L-mM-OnN"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDb-9X-Jv2">
                                 <rect key="frame" x="194" y="82" width="424" height="211"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="211"/>
@@ -582,6 +579,13 @@
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="223" id="anQ-gg-nbU"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EnB-KK-e7s">
+                                <rect key="frame" x="194" y="82" width="424" height="211"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                <connections>
+                                    <action selector="TouchStart:" destination="cJj-l1-PRG" eventType="touchUpInside" id="a9L-mM-OnN"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ForStartCharacter2" translatesAutoresizingMaskIntoConstraints="NO" id="UNj-Io-XAj">
                                 <rect key="frame" x="541" y="46" width="180" height="183"/>
                                 <constraints>
@@ -754,7 +758,7 @@
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="nzH-Dj-3Bw"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
-                                        <state key="normal" title="다시하기">
+                                        <state key="normal">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
@@ -764,7 +768,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edL-Xp-Aw3">
                                         <rect key="frame" x="108" y="0.0" width="100" height="45"/>
                                         <color key="backgroundColor" red="1" green="0.90546674270000005" blue="0.80156062849999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="다음게임">
+                                        <state key="normal">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -800,9 +804,11 @@
                         <viewLayoutGuide key="safeArea" id="agb-oH-8rn"/>
                     </view>
                     <connections>
-                        <outlet property="anotherCategoryButton" destination="rXy-YX-f7J" id="GT2-Nd-IQY"/>
+                        <outlet property="anotherCategoryButton" destination="rXy-YX-f7J" id="7S6-Tj-pCH"/>
                         <outlet property="correctLabel" destination="iiy-W7-gdn" id="B3u-8z-5HK"/>
                         <outlet property="correctScroll" destination="qIg-jW-lBW" id="5Ti-n3-ry2"/>
+                        <outlet property="labelCorrect" destination="q79-Yv-4Ui" id="bPE-2B-KKY"/>
+                        <outlet property="labelPass" destination="znG-Sd-LUL" id="G5b-QB-0RJ"/>
                         <outlet property="makeCornerRound4" destination="NfA-gJ-GzQ" id="dca-Bn-r48"/>
                         <outlet property="makeCornerRound5" destination="w5g-hZ-9BA" id="Wod-cB-6ZY"/>
                         <outlet property="nextButton" destination="edL-Xp-Aw3" id="qF4-n9-9zA"/>
@@ -959,7 +965,7 @@
                                         <rect key="frame" x="127" y="265" width="130" height="40"/>
                                         <color key="backgroundColor" red="1" green="0.73523153529999996" blue="0.43774896229999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="처음으로">
+                                        <state key="normal">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
@@ -974,7 +980,7 @@
                                             <constraint firstAttribute="height" constant="40" id="Uqc-jm-8lj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="한번 더하기">
+                                        <state key="normal">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
@@ -1038,6 +1044,8 @@
                         <viewLayoutGuide key="safeArea" id="I4C-fW-hB2"/>
                     </view>
                     <connections>
+                        <outlet property="baseView" destination="bDy-gT-LQb" id="bcI-hv-1Hk"/>
+                        <outlet property="labelFinalScore" destination="55w-xf-X9H" id="Adb-6x-FXv"/>
                         <outlet property="makeCornerRound" destination="V8w-Oi-paP" id="nQl-Bm-Bkk"/>
                         <outlet property="makeCornerRound1" destination="zOA-oq-fls" id="T8E-LT-YkE"/>
                         <outlet property="playerStack" destination="zTy-I7-gsZ" id="nCA-Rk-wwN"/>

@@ -47,7 +47,7 @@ class Start_ViewController: UIViewController {
 
     
     override func viewWillAppear(_ animated: Bool) {
-        startButton.titleLabel?.text = NSLocalizedString("Start", comment: "시작")
+        startButton.setTitle(NSLocalizedString("Start", comment: "시작"), for: .normal) 
         startButton.titleLabel?.adjustsFontSizeToFitWidth = true
         navigationController?.setNavigationBarHidden(false, animated: false)
         countLabel.isHidden = true
@@ -59,7 +59,7 @@ class Start_ViewController: UIViewController {
         }else if gameEnviroment?.motionEnviroment == "Touch"{
             startButton.isHidden = false
             startButton.isEnabled = true
-            explainLabel.text = NSLocalizedString("Place on forehead and Touch start", comment: "")
+            explainLabel.text = NSLocalizedString("Place on forehead and Touch screen to start", comment: "")
             explainLabel.adjustsFontSizeToFitWidth = true
         }
         if let player = gameSetting?.settingPlayerCount{

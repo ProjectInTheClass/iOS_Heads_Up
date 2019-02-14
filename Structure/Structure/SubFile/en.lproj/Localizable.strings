@@ -1,19 +1,38 @@
-/* 
-  Localizable.strings
-  Structure
-
-  Created by 손희덕 on 15/02/2019.
-  Copyright © 2019 Duckee. All rights reserved.
-*/
+/*
+ Localizable.strings
+ Structure
+ 
+ Created by 손희덕 on 15/02/2019.
+ Copyright © 2019 Duckee. All rights reserved.
+ */
 "Player" = "Player";
 "Time" = "Time";
 "All" = "All";
-"Favorits" = "Favorit";
+"Favorites" = "Favorites";
 "Custom" = "Custom";
 "Category" = "Category";
 "Start" = "Start";
-"Place on forehead and Touch start" = "Place on forehead and Touch start";
+"Place on forehead and Touch screen to start" = "Place on forehead and Touch screen to start";
 "Place on forehead and Hold device upright(vertical)" = "Place on forehead and Hold device upright(vertical)";
 "Add" = "Add";
 "Title" = "Title";
 "Word" = "Word";
+"Interface" = "Interface";
+"Delete" = "Delete";
+"Do you want to delete the custom?" = "Do you want to delete?";
+"NO" = "NO";
+"Back" = "Back";
+"No Item" = "No Item";
+"Add Favorites" = "Add Favorites";
+"Score : " = "Score : ";
+"Correct" = "Correct";
+"Pass" = "Pass";
+"Reset" = "Reset";
+"Next" = "Next";
+"Ranks" = "Ranks";
+"💯 Final Score" = "💯 Final Score";
+"Home" = "Home";
+"New Game" = "New Game";
+"Quit" = "Quit";
+"Continue" = "Continue";
+"Do you want to Quit?" = "Do you want to Quit?";

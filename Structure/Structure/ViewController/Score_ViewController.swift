@@ -15,6 +15,8 @@ class Score_ViewController: UIViewController, CAAnimationDelegate, TotalScoreDel
     @IBOutlet var passLabel: UILabel!
     @IBOutlet var anotherCategoryButton: UIButton!
     
+    @IBOutlet var labelPass: UILabel!
+    @IBOutlet var labelCorrect: UILabel!
     @IBOutlet weak var makeCornerRound4: UIView!
     @IBOutlet weak var makeCornerRound5: UIView!
     @IBOutlet var playerLabel: UILabel!
@@ -27,12 +29,16 @@ class Score_ViewController: UIViewController, CAAnimationDelegate, TotalScoreDel
     
 
     override func viewDidLoad() {
+        anotherCategoryButton.setTitle(NSLocalizedString("Reset", comment: ""), for: .normal)
         correctScroll.isDirectionalLockEnabled = true
         passScroll.isDirectionalLockEnabled = true
-
+        labelPass.text = NSLocalizedString("Pass", comment: "")
+        labelPass.textColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        labelCorrect.textColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        labelCorrect.text = NSLocalizedString("Correct", comment: "")
         gameSetting!.settingPlayerCount += 1
         if let player = gameSetting?.settingPlayerCount{
-            playerLabel.text = "플레이어 \(player)"
+            playerLabel.text = "\(NSLocalizedString("Player", comment: ""))\(player)"
         }else{
             playerLabel.isHidden = true
         }
@@ -48,16 +54,16 @@ class Score_ViewController: UIViewController, CAAnimationDelegate, TotalScoreDel
         passLabel.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         passLabel.text = game?.passList?.joined(separator: "\u{0085}")
         passLabel.sizeToFit()
-        scoreLabel.text = "게임 점수 : \(game!.gameScore)"
+        scoreLabel.text = "\(NSLocalizedString("Score : ", comment: "")) \(game!.gameScore)"
         scoreLabel.adjustsFontSizeToFitWidth = true
-        nextButton.setTitle("계속하기", for: .normal)
+        nextButton.setTitle(NSLocalizedString("Continue", comment: ""), for: .normal)
         if let _ = gameSetting?.playerScore{
             gameSetting!.playerScore?.append(game!.gameScore)
         }else{
             gameSetting?.playerScore = [game!.gameScore]
         }
         if gameSetting?.settingPlayer == gameSetting?.settingPlayerCount {
-            nextButton.setTitle("최종 점수", for: .normal)
+            nextButton.setTitle(NSLocalizedString("Ranks", comment: ""), for: .normal)
         }
     }
     

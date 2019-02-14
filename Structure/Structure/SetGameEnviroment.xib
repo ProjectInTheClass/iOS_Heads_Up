@@ -87,6 +87,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="labelInterFace" destination="ROf-GH-UfH" id="WLb-TG-HiR"/>
                 <outlet property="motionButton" destination="wop-38-lTB" id="LaZ-OE-oFw"/>
                 <outlet property="touchButton" destination="bd5-LE-XNb" id="hAK-zZ-eAt"/>
                 <outlet property="view" destination="rPF-uY-1Yu" id="YSu-FH-ilu"/>

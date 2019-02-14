@@ -144,9 +144,10 @@ class Game_ViewController: UIViewController{
     @IBAction func TouchPause(_ sender: Any) {
         count.pause()
         
-        let alert = UIAlertController(title: "그만하기", message: "게임 정보가 초기화 됩니다.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "그만하기", style: .cancel, handler: {(alert) -> Void in self.CancleGame() }))
-        alert.addAction(UIAlertAction(title: "계속하기", style: .default, handler: {(alert) -> Void in self.ContinueAction()  }))
+        let alert = UIAlertController(title: NSLocalizedString("Quit", comment: ""), message: "Do you want to Quit?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Continue", comment: ""), style: .default, handler: {(alert) -> Void in self.ContinueAction()  }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Quit", comment: ""), style: .cancel, handler: {(alert) -> Void in self.CancleGame() }))
+
         self.present(alert, animated: true, completion: nil)
     }
     func CancleGame(){
