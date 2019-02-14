@@ -134,18 +134,19 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     
     let popSetGameEnviroment : SetGameEnviromentPopup_Controller = UINib(nibName: "SetGameEnviroment", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! SetGameEnviromentPopup_Controller
     
+
     @IBAction func PopupGameMode(_ sender: Any) {
         let viewColor = #colorLiteral(red: 0.088717632, green: 0.05267825723, blue: 0.02710740082, alpha: 1)
         popSetGameEnviroment.backgroundColor = viewColor.withAlphaComponent(0.6)
         popSetGameEnviroment.delegate = self
-        popSetGameEnviroment.view.layer.cornerRadius = 10.0
+        popSetGameEnviroment.view.layer.cornerRadius = 30.0
         self.view.addSubview(popSetGameEnviroment)
         if gameEnviroment.motionEnviroment == "Touch"{
-            popSetGameEnviroment.touchButton.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
-            popSetGameEnviroment.motionButton.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            popSetGameEnviroment.touchButton.setImage(UIImage(named: "MotionTouchTrue"), for: .normal)
+            popSetGameEnviroment.motionButton.setImage(UIImage(named: "MotionGyroFalse"), for: .normal)
         }else if gameEnviroment.motionEnviroment == "Gyro" {
-            popSetGameEnviroment.touchButton.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            popSetGameEnviroment.motionButton.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+            popSetGameEnviroment.touchButton.setImage(UIImage(named: "MotionTouchFalse"), for: .normal)
+            popSetGameEnviroment.motionButton.setImage(UIImage(named: "MotionGyroTrue"), for: .normal)
         }
         let animation = AnimationType.zoom(scale: 0.2)
         popSetGameEnviroment.view.animate(animations: [animation])
@@ -153,16 +154,18 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     
+    
+    
     func ChangeMotionEnviroment(index : Int ){
         if index == 0 {
             gameEnviroment.motionEnviroment = "Touch"
-            popSetGameEnviroment.touchButton.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
-            popSetGameEnviroment.motionButton.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            popSetGameEnviroment.touchButton.setImage(UIImage(named: "MotionTouchTrue"), for: .normal)
+            popSetGameEnviroment.motionButton.setImage(UIImage(named: "MotionGyroFalse"), for: .normal)
         }
         if index == 1 {
             gameEnviroment.motionEnviroment = "Gyro"
-            popSetGameEnviroment.touchButton.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            popSetGameEnviroment.motionButton.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+            popSetGameEnviroment.touchButton.setImage(UIImage(named: "MotionTouchFalse"), for: .normal)
+            popSetGameEnviroment.motionButton.setImage(UIImage(named: "MotionGyroTrue"), for: .normal)
         }
         UserDefaults.standard.set(gameEnviroment.motionEnviroment, forKey: "motionEnviroment")
         let time = DispatchTime.now() + .milliseconds(500)
@@ -172,7 +175,6 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
             }, completion: nil)
         }
     }
-    
     
     @IBOutlet weak var makeCornerRound3: UIView!
     @IBOutlet weak var makeCornerRound2: UIView!
