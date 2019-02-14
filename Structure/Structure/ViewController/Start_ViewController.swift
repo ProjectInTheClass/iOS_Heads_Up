@@ -47,21 +47,23 @@ class Start_ViewController: UIViewController {
 
     
     override func viewWillAppear(_ animated: Bool) {
+        startButton.titleLabel?.text = NSLocalizedString("Start", comment: "시작")
+        startButton.titleLabel?.adjustsFontSizeToFitWidth = true
         navigationController?.setNavigationBarHidden(false, animated: false)
         countLabel.isHidden = true
         if gameEnviroment?.motionEnviroment == "Gyro"{
             startButton.isHidden = true
             startButton.isEnabled = false
-            explainLabel.text = "핸드폰을 머리위에 올리고 똑바로 세워주세요"
+            explainLabel.text = NSLocalizedString("Place on forehead and Hold device upright(vertical)", comment: "")
             explainLabel.adjustsFontSizeToFitWidth = true
         }else if gameEnviroment?.motionEnviroment == "Touch"{
             startButton.isHidden = false
             startButton.isEnabled = true
-            explainLabel.text = "핸드폰을 머리위에 시작 버튼을 눌러주세요"
+            explainLabel.text = NSLocalizedString("Place on forehead and Touch start", comment: "")
             explainLabel.adjustsFontSizeToFitWidth = true
         }
         if let player = gameSetting?.settingPlayerCount{
-            playerLabel.text = "플레이어\(player + 1)"
+            playerLabel.text = "\(NSLocalizedString("Player", comment: ""))\(player + 1)"
             playerLabel.adjustsFontSizeToFitWidth = true
         }
         

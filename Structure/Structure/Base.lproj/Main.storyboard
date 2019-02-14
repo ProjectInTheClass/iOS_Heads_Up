@@ -187,7 +187,7 @@
                                                     <color key="titleShadowColor" red="0.63745978209999998" green="0.99933895260000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="CustumCategory:" destination="ex6-kE-Rff" eventType="touchUpInside" id="kKf-OA-vgh"/>
+                                                    <action selector="CustumCategory:" destination="ex6-kE-Rff" eventType="touchUpInside" id="Igg-sB-dBJ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -237,7 +237,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="fea-e2-1rh"/>
                     <connections>
+                        <outlet property="buttonAll" destination="dpi-SX-bsI" id="gYw-C6-h8X"/>
+                        <outlet property="buttonCategory" destination="7Qg-p7-RaS" id="T0g-uT-vuj"/>
+                        <outlet property="buttonFavorit" destination="7Qg-p7-RaS" id="YVb-rN-qcd"/>
                         <outlet property="collectionView" destination="Hbm-Qk-zEH" id="8qc-ma-ycq"/>
+                        <outlet property="labelSelectGame" destination="5u4-xf-Lay" id="70x-ve-1Mv"/>
                         <outlet property="makeCornerRound" destination="HK1-m0-0kl" id="DWH-vQ-Jco"/>
                         <outlet property="makeCornerRound2" destination="Ocb-DH-QP0" id="Bh3-Km-nG0"/>
                         <outlet property="makeCornerRound3" destination="jbK-GC-x8T" id="Ra3-4P-99u"/>
@@ -497,14 +501,12 @@
                         <viewLayoutGuide key="safeArea" id="fxe-nG-aLN"/>
                     </view>
                     <navigationItem key="navigationItem" title=" 나만의 주제 만들기" id="6i8-MR-R2x">
-                        <barButtonItem key="rightBarButtonItem" title="추가하기" id="R90-Xn-QZy">
-                            <connections>
-                                <action selector="makeCustomTheme:" destination="NyM-R2-KxY" id="P63-W5-Jo3"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="추가하기" id="R90-Xn-QZy"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonAdd" destination="R90-Xn-QZy" id="X3n-85-lbD"/>
                         <outlet property="customTitle" destination="aYq-lM-Jx3" id="Pzg-db-Qyv"/>
+                        <outlet property="labelTitle" destination="CuA-T7-LkL" id="ZVr-A8-0wN"/>
                         <outlet property="makeAngleRound" destination="Au4-Mz-ciV" id="SZ7-Ux-hgU"/>
                         <outlet property="scrollView" destination="9e2-HB-IXL" id="Xsc-iA-xyU"/>
                         <outletCollection property="wordsCollection" destination="Lhu-b5-AlI" collectionClass="NSMutableArray" id="N2l-dK-ohb"/>
@@ -517,6 +519,15 @@
                         <outletCollection property="wordsCollection" destination="SQ2-6e-eOP" collectionClass="NSMutableArray" id="5qR-7W-DxK"/>
                         <outletCollection property="wordsCollection" destination="y2Z-Zd-TYg" collectionClass="NSMutableArray" id="6jn-Fn-6Jw"/>
                         <outletCollection property="wordsCollection" destination="IrM-aE-vK8" collectionClass="NSMutableArray" id="Pf1-Zh-LTB"/>
+                        <outletCollection property="labelWords" destination="nio-D1-yfn" collectionClass="NSMutableArray" id="4Lh-FY-2Nd"/>
+                        <outletCollection property="labelWords" destination="r44-0Y-yml" collectionClass="NSMutableArray" id="Z4U-0r-0mh"/>
+                        <outletCollection property="labelWords" destination="H9h-Xi-jFe" collectionClass="NSMutableArray" id="tco-Pn-y3M"/>
+                        <outletCollection property="labelWords" destination="PLf-XK-qTR" collectionClass="NSMutableArray" id="DQw-hq-SAO"/>
+                        <outletCollection property="labelWords" destination="NoV-kW-cEz" collectionClass="NSMutableArray" id="qGU-UN-heo"/>
+                        <outletCollection property="labelWords" destination="v8E-bf-gkv" collectionClass="NSMutableArray" id="SFf-Fn-MEJ"/>
+                        <outletCollection property="labelWords" destination="H1p-ce-xl4" collectionClass="NSMutableArray" id="DpQ-Z2-6H2"/>
+                        <outletCollection property="labelWords" destination="98O-lh-yRV" collectionClass="NSMutableArray" id="uBZ-Ts-cPI"/>
+                        <outletCollection property="labelWords" destination="oHN-9D-ACi" collectionClass="NSMutableArray" id="DvH-lJ-gBG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ChV-97-UPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -546,7 +557,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ld-Ch-n6h">
-                                <rect key="frame" x="346" y="32.666666666666657" width="120" height="59.999999999999993"/>
+                                <rect key="frame" x="346" y="32.666666666666664" width="120" height="59.999999999999993"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="QuZ-6G-M7J"/>
                                     <constraint firstAttribute="height" constant="60" id="fEi-1S-t9a"/>
@@ -1055,7 +1066,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EaN-bQ-whQ">
                                         <rect key="frame" x="0.0" y="0.0" width="185" height="35"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="플레이어" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziQ-1O-PDI">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziQ-1O-PDI">
                                                 <rect key="frame" x="0.0" y="0.0" width="67" height="35"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <nil key="textColor"/>
@@ -1110,7 +1121,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Gtk-1F-n3Z">
                                         <rect key="frame" x="205" y="0.0" width="185" height="35"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제한시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLE-iq-EHk">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLE-iq-EHk">
                                                 <rect key="frame" x="0.0" y="0.0" width="67" height="35"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <nil key="textColor"/>
@@ -1189,6 +1200,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="I79-rF-g1y"/>
                     <connections>
+                        <outlet property="labelPlayer" destination="ziQ-1O-PDI" id="K9c-6W-ZwM"/>
+                        <outlet property="labelTime" destination="HLE-iq-EHk" id="vd7-eG-iqS"/>
                         <segue destination="ex6-kE-Rff" kind="show" identifier="category" id="QdV-6z-d9A"/>
                     </connections>
                 </viewController>

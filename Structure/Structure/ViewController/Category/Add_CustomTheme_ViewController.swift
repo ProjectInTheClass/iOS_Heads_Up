@@ -59,13 +59,19 @@ class Add_CustomTheme_ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var makeAngleRound: UIView!
 
+    @IBOutlet var buttonAdd: UIBarButtonItem!
+    @IBOutlet var labelWords: [UILabel]!
+    @IBOutlet var labelTitle: UILabel!
     
     override func viewDidLoad() {
+        
         navigationController!.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController!.navigationBar.shadowImage = UIImage()
         navigationController!.navigationBar.isTranslucent = true
         self.view.backgroundColor = #colorLiteral(red: 0.9976533055, green: 0.7694558501, blue: 0.5538281798, alpha: 1)
         super.viewDidLoad()
+        labelTitle.text = NSLocalizedString("Title", comment: "")
+        buttonAdd.title = NSLocalizedString("Add", comment: "")
         makeAngleRound.layer.cornerRadius = 8.0
         customTitle.delegate = self
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -73,6 +79,9 @@ class Add_CustomTheme_ViewController: UIViewController, UITextFieldDelegate {
         for textFieldObject in wordsCollection
         {
             textFieldObject.delegate = self
+        }
+        for wordObject in labelWords.indices{
+            labelWords[wordObject].text = "\(NSLocalizedString("Word", comment: "")) \(wordObject)"
         }
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)

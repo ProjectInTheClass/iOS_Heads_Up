@@ -14,7 +14,12 @@ class Initial_ViewController: UIViewController {
     
     var gameSetting = GameSetting()
 
+    @IBOutlet var labelTime: UILabel!
+    @IBOutlet var labelPlayer: UILabel!
     override func viewDidLoad() {
+        labelTime.text = NSLocalizedString("Time", comment: "")
+        labelPlayer.text = NSLocalizedString("Player", comment: "")
+
         super.viewDidLoad()
         
 //        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Landing.png")!)

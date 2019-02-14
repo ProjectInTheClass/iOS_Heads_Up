@@ -11,6 +11,10 @@ import ViewAnimator
 
 class Category_ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,EnviromentDelegateProtocol ,addDelegateProtocol {
     
+    @IBOutlet var buttonAll: UIButton!
+    @IBOutlet var buttonFavorit: UIButton!
+    @IBOutlet var buttonCategory: UIButton!
+    @IBOutlet var labelSelectGame: UILabel!
     
     // var numberOfCell : Int = 10
     
@@ -180,6 +184,11 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet weak var makeCornerRound2: UIView!
     @IBOutlet weak var makeCornerRound: UIView!
     override func viewDidLoad() {
+        labelSelectGame.text = NSLocalizedString("Category", comment: "")
+        buttonAll.titleLabel?.text = NSLocalizedString("All", comment: "")
+        buttonFavorit.titleLabel?.text = NSLocalizedString("Favorit", comment: "")
+        buttonCategory.titleLabel?.text = NSLocalizedString("Custom", comment: "")
+        
         super.viewDidLoad()
         makeCornerRound2.layer.cornerRadius = 10.0
         makeCornerRound3.layer.cornerRadius = 10.0
@@ -200,7 +209,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     
     override func viewWillAppear(_ animated: Bool) {
         collectionView.reloadData()
-        playerNumber.text = "플레이어\((gameSetting?.settingPlayerCount)! + 1)"
+        playerNumber.text = "\(NSLocalizedString("Player", comment: ""))\((gameSetting?.settingPlayerCount)! + 1)"
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
     override func viewWillDisappear(_ animated: Bool) {
