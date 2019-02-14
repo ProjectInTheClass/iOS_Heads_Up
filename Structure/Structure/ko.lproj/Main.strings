@@ -1,0 +1,102 @@
+
+/* Class = "UILabel"; text = "👑 최종점수 👑"; ObjectID = "55w-xf-X9H"; */
+"55w-xf-X9H.text" = "👑 최종점수 👑";
+
+/* Class = "UILabel"; text = "게임 주제 정하기"; ObjectID = "5u4-xf-Lay"; */
+"5u4-xf-Lay.text" = "게임 주제 정하기";
+
+/* Class = "UINavigationItem"; title = " 나만의 주제 만들기"; ObjectID = "6i8-MR-R2x"; */
+"6i8-MR-R2x.title" = " 나만의 주제 만들기";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "6ld-Ch-n6h"; */
+"6ld-Ch-n6h.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "나만의 주제"; ObjectID = "7Qg-p7-RaS"; */
+"7Qg-p7-RaS.normalTitle" = "나만의 주제";
+
+/* Class = "UILabel"; text = "단어 8"; ObjectID = "98O-lh-yRV"; */
+"98O-lh-yRV.text" = "단어 8";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Akk-SV-Z3O"; */
+"Akk-SV-Z3O.text" = "Label";
+
+/* Class = "UILabel"; text = "제목"; ObjectID = "CuA-T7-LkL"; */
+"CuA-T7-LkL.text" = "제목";
+
+/* Class = "UIButton"; normalTitle = "시작"; ObjectID = "EnB-KK-e7s"; */
+"EnB-KK-e7s.normalTitle" = "시작";
+
+/* Class = "UILabel"; text = "단어 7"; ObjectID = "H1p-ce-xl4"; */
+"H1p-ce-xl4.text" = "단어 7";
+
+/* Class = "UILabel"; text = "단어 3"; ObjectID = "H9h-Xi-jFe"; */
+"H9h-Xi-jFe.text" = "단어 3";
+
+/* Class = "UILabel"; text = "제한시간"; ObjectID = "HLE-iq-EHk"; */
+"HLE-iq-EHk.text" = "제한시간";
+
+/* Class = "UILabel"; text = "단어 5"; ObjectID = "NoV-kW-cEz"; */
+"NoV-kW-cEz.text" = "단어 5";
+
+/* Class = "UILabel"; text = "단어 4"; ObjectID = "PLf-XK-qTR"; */
+"PLf-XK-qTR.text" = "단어 4";
+
+/* Class = "UIBarButtonItem"; title = "추가하기"; ObjectID = "R90-Xn-QZy"; */
+"R90-Xn-QZy.title" = "추가하기";
+
+/* Class = "UIButton"; normalTitle = "처음으로"; ObjectID = "V8w-Oi-paP"; */
+"V8w-Oi-paP.normalTitle" = "처음으로";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "bdx-5Y-L7h"; */
+"bdx-5Y-L7h.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "모든주제"; ObjectID = "dpi-SX-bsI"; */
+"dpi-SX-bsI.normalTitle" = "모든주제";
+
+/* Class = "UIButton"; normalTitle = "다음게임"; ObjectID = "edL-Xp-Aw3"; */
+"edL-Xp-Aw3.normalTitle" = "다음게임";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "gw6-ev-k0U"; */
+"gw6-ev-k0U.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "kT0-3v-BX3"; */
+"kT0-3v-BX3.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "kUY-pp-D29"; */
+"kUY-pp-D29.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "즐겨찾기"; ObjectID = "kj6-oD-ZoT"; */
+"kj6-oD-ZoT.normalTitle" = "즐겨찾기";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "lKI-Gb-jN2"; */
+"lKI-Gb-jN2.text" = "Label";
+
+/* Class = "UILabel"; text = "단어 1"; ObjectID = "nio-D1-yfn"; */
+"nio-D1-yfn.text" = "단어 1";
+
+/* Class = "UILabel"; text = "단어 9"; ObjectID = "oHN-9D-ACi"; */
+"oHN-9D-ACi.text" = "단어 9";
+
+/* Class = "UILabel"; text = "맞은 문제"; ObjectID = "q79-Yv-4Ui"; */
+"q79-Yv-4Ui.text" = "맞은 문제";
+
+/* Class = "UILabel"; text = "단어 2"; ObjectID = "r44-0Y-yml"; */
+"r44-0Y-yml.text" = "단어 2";
+
+/* Class = "UIButton"; normalTitle = "다시하기"; ObjectID = "rXy-YX-f7J"; */
+"rXy-YX-f7J.normalTitle" = "다시하기";
+
+/* Class = "UILabel"; text = "단어 6"; ObjectID = "v8E-bf-gkv"; */
+"v8E-bf-gkv.text" = "단어 6";
+
+/* Class = "UILabel"; text = "단어 10"; ObjectID = "x0O-Co-zJ9"; */
+"x0O-Co-zJ9.text" = "단어 10";
+
+/* Class = "UIButton"; normalTitle = "한번 더하기"; ObjectID = "zOA-oq-fls"; */
+"zOA-oq-fls.normalTitle" = "한번 더하기";
+
+/* Class = "UILabel"; text = "플레이어"; ObjectID = "ziQ-1O-PDI"; */
+"ziQ-1O-PDI.text" = "플레이어";
+
+/* Class = "UILabel"; text = "넘긴 문제"; ObjectID = "znG-Sd-LUL"; */
+"znG-Sd-LUL.text" = "넘긴 문제";
