@@ -17,7 +17,7 @@ class Initial_ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Landing.png")!)
+//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Landing.png")!)
        //let appDomain = Bundle.main.bundleIdentifier
        //UserDefaults.standard.removePersistentDomain(forName: appDomain!)
     }

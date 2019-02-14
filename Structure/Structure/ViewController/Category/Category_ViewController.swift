@@ -48,7 +48,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         cell.layer.cornerRadius=10
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         let cellWidth = layout.itemSize.width
-        cell.favoritButton.frame = CGRect(x: cellWidth - 50, y: 0, width: 50, height: 50)
+        cell.favoritButton.frame = CGRect(x: cellWidth - 40, y: 0, width: 40, height: 40)
         cell.cellIndex = indexPath
         cell.categoryTitleLabel.text = category
         cell.categoryTitleLabel.adjustsFontSizeToFitWidth = true
@@ -177,7 +177,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         makeCornerRound3.layer.cornerRadius = 10.0
         allCategory = gameContent.allCategory!
         category = allCategory
-        let width = (collectionView.frame.size.width - 50) / 3
+        let width = (collectionView.frame.size.width - 50) / 3.5
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: width)
         //print data from Contents() : Test Code
