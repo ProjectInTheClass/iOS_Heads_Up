@@ -12,7 +12,7 @@ protocol addDelegateProtocol {
     func ReloadCustomCollectionView(Title: String)
 }
 
-class Add_CustomTheme_ViewController: UIViewController {
+class Add_CustomTheme_ViewController: UIViewController, UITextFieldDelegate {
     
     var customContent : Custom?
     var delegate : addDelegateProtocol?
@@ -64,11 +64,21 @@ class Add_CustomTheme_ViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9436810613, green: 0.9736506343, blue: 0.9642569423, alpha: 0.8319487236)
         makeAngleRound.layer.cornerRadius = 8.0
+        customTitle.delegate = self
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        for textFieldObject in wordsCollection
+        {
+            textFieldObject.delegate = self
+        }
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
-        // Do any additional setup after loading the view.
     }
     
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: false)
@@ -80,6 +90,27 @@ class Add_CustomTheme_ViewController: UIViewController {
         return true
     }
     
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    @available(iOS 2.0, *)
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == customTitle {
+            wordsCollection[0].becomeFirstResponder()
+        }else {
+            for wordTextfile in 0...wordsCollection.count - 2{
+                if textField == wordsCollection[wordTextfile]{
+                    wordsCollection[wordTextfile + 1].becomeFirstResponder()
+                }
+            }
+            if textField == wordsCollection[wordsCollection.count - 1]{
+                view.endEditing(true)
+                return false
+            }
+        }
+        return true
+    }
     
     
     
