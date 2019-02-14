@@ -44,6 +44,7 @@ class Start_ViewController: UIViewController {
             }
         }
     }
+
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: false)
