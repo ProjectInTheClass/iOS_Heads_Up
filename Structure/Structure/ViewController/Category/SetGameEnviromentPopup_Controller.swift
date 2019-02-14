@@ -20,10 +20,12 @@ class SetGameEnviromentPopup_Controller: UIView {
     @IBOutlet var view: UIView!
     @IBAction func closeButton(_ sender: Any) {
         self.removeFromSuperview()
+       
     }
     
     @IBAction func SettingTouch(_ sender: Any) {
         delegate?.ChangeMotionEnviroment(index: 0)
+        
     }
     
     @IBAction func SettingMotion(_ sender: Any) {
