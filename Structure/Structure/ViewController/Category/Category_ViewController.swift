@@ -13,7 +13,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     
     
     // var numberOfCell : Int = 10
-
+    
     var gameSetting : GameSetting? //receive from Initial_ViewController
     var gameEnviroment = GameEnviroment()
     // To Do : get allCategory and contents array from Contents().JSON file
@@ -27,7 +27,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     var favoritDictionary : Dictionary<String, Bool> = [String : Bool]()
     var customMode = false
     @IBOutlet var collectionView: UICollectionView!
-
+    
     @IBOutlet var playerNumber: UILabel!
     
     @IBAction func ToucnBackButton(_ sender: Any) {
@@ -39,7 +39,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         return self.category.count
     }
     
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell : Category_CollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: self.cellIdentifier, for: indexPath) as! Category_CollectionViewCell
@@ -76,8 +76,8 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         collectionView.reloadData()
     }
     
- 
-
+    
+    
     @IBAction func FavoritCategory(_ sender: Any) {
         favoritCategory = nil
         customMode = false
@@ -116,7 +116,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
             self.present(alert, animated: true, completion: nil)
         }
     }
-
+    
     @IBAction func CustumCategory(_ sender: UIButton) {
         customMode = true
         if let userCustom = customContent.customCategory{
@@ -129,10 +129,10 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         
     }
     
-
     
-     let popSetGameEnviroment : SetGameEnviromentPopup_Controller = UINib(nibName: "SetGameEnviroment", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! SetGameEnviromentPopup_Controller
-
+    
+    let popSetGameEnviroment : SetGameEnviromentPopup_Controller = UINib(nibName: "SetGameEnviroment", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! SetGameEnviromentPopup_Controller
+    
     @IBAction func PopupGameMode(_ sender: Any) {
         let viewColor = #colorLiteral(red: 0.088717632, green: 0.05267825723, blue: 0.02710740082, alpha: 1)
         popSetGameEnviroment.backgroundColor = viewColor.withAlphaComponent(0.6)
@@ -150,7 +150,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         popSetGameEnviroment.frame = self.view.frame
     }
     
-
+    
     func ChangeMotionEnviroment(index : Int ){
         if index == 0 {
             gameEnviroment.motionEnviroment = "Touch"
@@ -167,7 +167,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         }
     }
     
- 
+    
     @IBOutlet weak var makeCornerRound3: UIView!
     @IBOutlet weak var makeCornerRound2: UIView!
     @IBOutlet weak var makeCornerRound: UIView!
@@ -181,10 +181,10 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: width)
         //print data from Contents() : Test Code
-       // gameContent.getdata()
+        // gameContent.getdata()
         // Do any additional setup after loading the view.
         if let defaultFavoritDictionary = UserDefaults.standard.dictionary(forKey: "favoritDictionary"){
-             favoritDictionary =  defaultFavoritDictionary as! Dictionary<String, Bool>
+            favoritDictionary =  defaultFavoritDictionary as! Dictionary<String, Bool>
         }
         if let defaltMotionEnviroment = UserDefaults.standard.string(forKey: "motionEnviroment"){
             gameEnviroment.motionEnviroment = defaltMotionEnviroment
@@ -220,10 +220,10 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
             performSegue(withIdentifier: "custumSegue", sender: nil)
         }else{
             performSegue(withIdentifier: "startSegue", sender: nil)
-
+            
         }
     }
-
+    
     
     func GetCellTitle(title : String){
         if title == "추가하기" {
@@ -256,7 +256,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         collectionView.reloadData()
     }
-
+    
     
     func DeleteCustomCatagory(title : String){
         customContent.DeleteCustomCategory(title: title)
