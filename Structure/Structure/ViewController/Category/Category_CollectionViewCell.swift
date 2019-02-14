@@ -51,6 +51,7 @@ class Category_CollectionViewCell: UICollectionViewCell {
             deleteButton.titleLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             deleteButton.setTitle("X", for: .normal)
             deleteButton.addTarget(self, action: #selector(ClickDeleCustom), for: .touchUpInside)
+            
             self.addSubview(deleteButton)
         }else if categoryTitleLabel.text == "추가하기"{
             deleteButton.removeFromSuperview()
@@ -65,7 +66,6 @@ class Category_CollectionViewCell: UICollectionViewCell {
     }
     
     @objc func ClickDeleCustom(seder: UIButton!){
-        print("button Clicked")
         delegate?.DeleteCustomCatagory(title: categoryTitleLabel.text!)
     }
     

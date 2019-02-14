@@ -15,15 +15,25 @@ protocol EnviromentDelegateProtocol {
 class SetGameEnviromentPopup_Controller: UIView {
     var delegate : EnviromentDelegateProtocol?
     
+    @IBOutlet var motionButton: UIButton!
+    @IBOutlet var touchButton: UIButton!
     @IBOutlet var view: UIView!
     @IBAction func closeButton(_ sender: Any) {
         self.removeFromSuperview()
     }
     
-    @IBAction func SegmentedGameEnviroment(_ sender: UISegmentedControl) {
-        delegate?.ChangeMotionEnviroment(index: sender.selectedSegmentIndex)
+    @IBAction func SettingTouch(_ sender: Any) {
+        delegate?.ChangeMotionEnviroment(index: 0)
     }
     
-
-
+    @IBAction func SettingMotion(_ sender: Any) {
+        delegate?.ChangeMotionEnviroment(index: 1)
+    }
+    
 }
+
+
+
+
+
+

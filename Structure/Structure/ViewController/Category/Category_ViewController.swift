@@ -44,7 +44,6 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : Category_CollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: self.cellIdentifier, for: indexPath) as! Category_CollectionViewCell
         let category = self.category[indexPath.item]
-        print(indexPath.item)
         cell.layer.backgroundColor = #colorLiteral(red: 0.508675158, green: 0.7787023783, blue: 0.6972596645, alpha: 1)
         cell.layer.cornerRadius=10
         cell.cellIndex = indexPath
@@ -135,6 +134,13 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         popSetGameEnviroment.backgroundColor = viewColor.withAlphaComponent(0.6)
         popSetGameEnviroment.delegate = self
         self.view.addSubview(popSetGameEnviroment)
+        if gameEnviroment.motionEnviroment == "Touch"{
+            popSetGameEnviroment.touchButton.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            popSetGameEnviroment.motionButton.tintColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+        }else if gameEnviroment.motionEnviroment == "Gyro" {
+            popSetGameEnviroment.touchButton.tintColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+            popSetGameEnviroment.motionButton.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        }
         let animation = AnimationType.zoom(scale: 0.2)
         popSetGameEnviroment.view.animate(animations: [animation])
         popSetGameEnviroment.frame = self.view.frame
@@ -148,6 +154,7 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
         if index == 1 {
             gameEnviroment.motionEnviroment = "Gyro"
         }
+        UserDefaults.standard.set(gameEnviroment.motionEnviroment, forKey: "motionEnviroment")
         let time = DispatchTime.now() + .milliseconds(500)
         DispatchQueue.main.asyncAfter(deadline: time){
             UIView.transition(with: self.view, duration: 0.5, options: [.transitionCrossDissolve], animations: {
@@ -190,8 +197,6 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
-        UserDefaults.standard.set(gameEnviroment.motionEnviroment, forKey: "motionEnviroment")
-
     }
     
     

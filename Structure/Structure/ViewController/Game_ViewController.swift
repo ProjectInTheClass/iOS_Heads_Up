@@ -144,7 +144,7 @@ class Game_ViewController: UIViewController{
     @IBAction func TouchPause(_ sender: Any) {
         count.pause()
         
-        let alert = UIAlertController(title: "일시정지", message: "게임을 그만하시겠습니까?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "그만하기", message: "게임 정보가 초기화 됩니다.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "그만하기", style: .cancel, handler: {(alert) -> Void in self.CancleGame() }))
         alert.addAction(UIAlertAction(title: "계속하기", style: .default, handler: {(alert) -> Void in self.ContinueAction()  }))
         self.present(alert, animated: true, completion: nil)
@@ -175,7 +175,6 @@ class Game_ViewController: UIViewController{
                             self.correctOrPassLabel.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
                             self.correctOrPassLabel.isHidden = false
                             self.contentLabel.text = self.game.contentText
-                            print(z)
                         }
                         if z >= 0.9 && z <= 1.4 && self.actionGyro == true {
                             self.GravityBehavior.magnitude = 0
@@ -185,7 +184,6 @@ class Game_ViewController: UIViewController{
                             self.correctOrPassLabel.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
                             self.correctOrPassLabel.isHidden = false
                             self.contentLabel.text = self.game.contentText
-                            print(z)
                         }
                         if z >= -0.25 && z <= 0.2 && self.actionGyro == false {
                             self.correctOrPassLabel.isHidden = true
@@ -193,7 +191,6 @@ class Game_ViewController: UIViewController{
                             self.GravityBehavior.magnitude = 1.0
                             self.priviousButton.isEnabled = true
                             self.priviousButton.isHidden = false
-                            print(z)
                         }
                     }
                 }

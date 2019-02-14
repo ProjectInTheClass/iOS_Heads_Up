@@ -12,23 +12,17 @@ protocol addDelegateProtocol {
     func ReloadCustomCollectionView(Title: String)
 }
 
-class Add_CustomTheme_ViewController: UIViewController {
+class Add_CustomTheme_ViewController: UIViewController, UITextFieldDelegate {
     
     var customContent : Custom?
     var delegate : addDelegateProtocol?
     var words : [String] = ["해당 컨텐츠가 없습니다"]
     
     @IBOutlet weak var customTitle: UITextField!
-    @IBOutlet weak var word1: UITextField!
-    @IBOutlet weak var word2: UITextField!
-    @IBOutlet weak var word3: UITextField!
-    @IBOutlet weak var word4: UITextField!
-    @IBOutlet weak var word5: UITextField!
-    @IBOutlet weak var word6: UITextField!
-    @IBOutlet weak var word7: UITextField!
-    @IBOutlet weak var word8: UITextField!
-    @IBOutlet weak var word9: UITextField!
-    @IBOutlet weak var word10: UITextField!
+
+    
+    @IBOutlet var wordsCollection: [UITextField]!
+    
     
     @IBAction func makeCustomTheme(_ sender: Any) {
         var title : String?
@@ -38,16 +32,12 @@ class Add_CustomTheme_ViewController: UIViewController {
         }else{
             title = "제목없음"
         }
-        MakeWords(word: word1.text)
-        MakeWords(word: word2.text)
-        MakeWords(word: word3.text)
-        MakeWords(word: word4.text)
-        MakeWords(word: word5.text)
-        MakeWords(word: word6.text)
-        MakeWords(word: word7.text)
-        MakeWords(word: word8.text)
-        MakeWords(word: word9.text)
-        MakeWords(word: word10.text)
+        
+        
+        for textFieldObject in wordsCollection
+        {
+            MakeWords(word: textFieldObject.text)
+        }
         customContent?.MakeCustomData(Title: title!, Words: words)
         delegate?.ReloadCustomCollectionView(Title: title!)
         navigationController?.popViewController(animated: true)
@@ -74,9 +64,24 @@ class Add_CustomTheme_ViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9436810613, green: 0.9736506343, blue: 0.9642569423, alpha: 0.8319487236)
         makeAngleRound.layer.cornerRadius = 8.0
+        customTitle.delegate = self
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        for textFieldObject in wordsCollection
+        {
+            textFieldObject.delegate = self
+        }
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
-        // Do any additional setup after loading the view.
+    }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     @IBOutlet var scrollView: UIScrollView!
@@ -84,9 +89,30 @@ class Add_CustomTheme_ViewController: UIViewController {
         textField.resignFirstResponder()
         return true
     }
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: false)
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        return true
     }
+    
+    @available(iOS 2.0, *)
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == customTitle {
+            wordsCollection[0].becomeFirstResponder()
+        }else {
+            for wordTextfile in 0...wordsCollection.count - 2{
+                if textField == wordsCollection[wordTextfile]{
+                    wordsCollection[wordTextfile + 1].becomeFirstResponder()
+                }
+            }
+            if textField == wordsCollection[wordsCollection.count - 1]{
+                view.endEditing(true)
+                return false
+            }
+        }
+        return true
+    }
+    
+    
     
     @objc func keyboardWillShow(notification:NSNotification){
         
