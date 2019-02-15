@@ -89,7 +89,7 @@ class TotalScore_ViewController: UIViewController, CAAnimationDelegate {
                 else{
                     tempWinner.text = " "
                 }
-                tempPlayer.font = tempPlayer.font.withSize(35)
+                tempPlayer.font = tempPlayer.font.withSize(CGFloat(25 - scoreList.count))
                 tempPlayer.adjustsFontSizeToFitWidth = true
                 let fontSize = tempPlayer.font.pointSize
                 tempScore.font = tempPlayer.font.withSize(fontSize - 3)

@@ -81,7 +81,7 @@ class Add_CustomTheme_ViewController: UIViewController, UITextFieldDelegate {
             textFieldObject.delegate = self
         }
         for wordObject in labelWords.indices{
-            labelWords[wordObject].text = "\(NSLocalizedString("Word", comment: "")) \(wordObject)"
+            labelWords[wordObject].text = "\(NSLocalizedString("Word", comment: "")) \(wordObject + 1)"
         }
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)

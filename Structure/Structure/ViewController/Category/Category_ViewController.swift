@@ -280,9 +280,10 @@ class Category_ViewController: UIViewController, UICollectionViewDataSource, UIC
     func DeleteCustomCatagory(title : String){
         let alert = UIAlertController(title: NSLocalizedString("Delete", comment: ""), message: NSLocalizedString("Do you want to delete?", comment: ""), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("NO", comment: ""), style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: ""), style: .default, handler: {(alert) -> Void in self.delete(title) }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: ""), style: .default, handler: {(alert) -> Void in self.delete(title:title) }))
         self.present(alert, animated: true, completion: nil)
     }
+    
     /*
      // MARK: - Navigation
      
