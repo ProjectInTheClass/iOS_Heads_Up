@@ -174,6 +174,7 @@ class Game_ViewController: UIViewController{
                             self.game.touchPassButton()
                             self.correctOrPassLabel.text = "Pass"
                             self.correctOrPassLabel.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+                            self.view.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
                             self.correctOrPassLabel.isHidden = false
                             self.contentLabel.text = self.game.contentText
                         }
@@ -183,6 +184,7 @@ class Game_ViewController: UIViewController{
                             self.game.touchCorrectButton()
                             self.correctOrPassLabel.text = "Correct"
                             self.correctOrPassLabel.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+                            self.view.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
                             self.correctOrPassLabel.isHidden = false
                             self.contentLabel.text = self.game.contentText
                         }
@@ -192,6 +194,8 @@ class Game_ViewController: UIViewController{
                             self.GravityBehavior.magnitude = 1.0
                             self.priviousButton.isEnabled = true
                             self.priviousButton.isHidden = false
+                            self.view.backgroundColor = #colorLiteral(red: 0.9321609139, green: 0.9377054572, blue: 0.9156326652, alpha: 1)
+
                         }
                     }
                 }
